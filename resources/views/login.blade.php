@@ -3,136 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Rumah Sakit</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-
-        .login-container {
-            display: flex;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            width: 100%;
-        }
-
-        .logo, .image-placeholder {
-            width: 50%;
-            padding: 10px;
-        }
-
-        .logo div {
-            width: 100px;
-            height: 50px;
-            background-color: lightgray;
-            text-align: center;
-            padding-top: 10px;
-            font-weight: bold;
-        }
-
-        .image-placeholder {
-            background-color: lightgray;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 300px;
-        }
-
-        .form-container {
-            width: 50%;
-            padding: 10px;
-        }
-
-        h1 {
-            margin-top: 0;
-        }
-
-        h3 {
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-size: 14px;
-            margin-bottom: 5px;
-            display: inline-block;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: #f3f3f3;
-        }
-
-        .login-button {
-            background-color: #9fffe1;
-            border: none;
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            color: black;
-            margin-top: 20px;
-        }
-
-        .login-button:hover {
-            background-color: #8ee4c8;
-        }
-
-        .register-link {
-            font-size: 12px;
-            text-align: right;
-            margin-top: 10px;
-        }
-
-        .register-link a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .register-link a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body style="position: relative; 
+        width: 100%;
+        min-height: 100vh;
+        background-image: url('https://rs-jih.co.id/assets/bridge/img/bg-intro-2.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
 
-<div class="login-container">
-    <div class="logo">
-        <div>LOGO</div>
-        <div class="image-placeholder">
-            GAMBAR
+    <nav class="navbar navbar-light" style="background-color: transparent;">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" height="70"> <!-- Sesuaikan link logo -->
+            </a>
+        </div>
+    </nav>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="row align-items-center w-100">
+            <div class="col-lg-6 text-center">
+                <img src="{{ asset('img/header-img.png') }}" alt="header-img" class="img-fluid">
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card p-4">
+                    <h2 class="text-center">Selamat Datang</h2>
+                    <p class="text-center">Login</p>
+<!-- ROUTE SEMENTARA                     -->
+                    <form action="{{ url('/') }}">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100" style="background-color: #FFD700; color: #004080;">Login</button>
+                    </form>
+
+                    <p class="text-center mt-3">Belum punya akun? <a href="/register">Register</a></p>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-container">
-        <h1>SELAMAT DATANG</h1>
-        <h3>LOGIN</h3>
-        <label for="username">Username :</label>
-        <input type="text" id="username" placeholder="Masukkan username">
-        <label for="password">Password :</label>
-        <input type="password" id="password" placeholder="Masukkan password">
-        <div class ="login"></div>
-        <a href="{{ route('home') }}" class="login-button">Login</a>
-        <div class="register-link">
-            <a href="{{ route('register') }}">Belum punya akun?</a>
-        </div>
-    </div>
-</div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
