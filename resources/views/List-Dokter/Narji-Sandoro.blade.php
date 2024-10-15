@@ -1,49 +1,4 @@
 @include('includes.header')
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Profile</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .profile-caption {
-            background-color: #f8f9fa;
-            border-top: 1px solid #ddd;
-            border-radius: 0 0 15px 15px;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .profile-caption h5 {
-            margin: 0;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .profile-caption p {
-            margin: 0;
-            font-size: 14px;
-            color: #333;
-        }
-
-        .profile-image-container {
-            border: 1px solid #ddd;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-image-container img {
-            width: 100%;
-            height: auto;
-        }
-
-        .contact {
-            text-align: right;
-        }
-    </style>
-</head>
-
 <body>
     <div class="container my-5" style="padding-top: 50px;">
         <div class="card shadow-lg p-4 " style="border-radius: 15px;">
@@ -115,9 +70,43 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.js"></script>
+    <style>
+        .profile-caption {
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            border-radius: 0 0 15px 15px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .profile-caption h5 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .profile-caption p {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .profile-image-container {
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .contact {
+            text-align: right;
+        }
+    </style>
 </body>
 
 @include('includes.footer')

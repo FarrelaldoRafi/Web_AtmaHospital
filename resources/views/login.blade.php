@@ -17,7 +17,7 @@
     <nav class="navbar navbar-light" style="background-color: transparent;">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('img/logo.png') }}" alt="Logo" height="70"> <!-- Sesuaikan link logo -->
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" height="70">
             </a>
         </div>
     </nav>
@@ -31,7 +31,7 @@
                 <div class="card p-4">
                     <h2 class="text-center">Selamat Datang</h2>
                     <p class="text-center">Login</p>
-                    <form action="{{ url('/') }}">
+                    <form id="loginForm">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input type="email" class="form-control" id="email" placeholder="Enter your email">
@@ -42,7 +42,6 @@
                         </div>
                         <button type="submit" class="btn btn-warning w-100" style="background-color: #FFD700; color: #004080;">Login</button>
                     </form>
-
                     <p class="text-center mt-3">Belum punya akun? <a href="/register">Register</a></p>
                 </div>
             </div>
@@ -50,5 +49,42 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const users = {
+            user1: {
+                name: "User 1",
+                role: "user",
+                redirect: "/" // Halaman tujuan untuk user
+            },
+            admin: {
+                name: "Admin",
+                role: "admin",
+                redirect: "/adminpage" // Halaman tujuan untuk admin
+            }
+        };
+
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah refresh halaman
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simulasi login: cek email dan password
+            if (email === "user1@example.com" && password === "password1") {
+                login('user1');
+            } else if (email === "admin@example.com" && password === "adminpass") {
+                login('admin');
+            } else {
+                alert("Email atau password salah!");
+            }
+        });
+
+        function login(userKey) {
+            localStorage.setItem('loggedInUser', JSON.stringify(users[userKey]));
+            // Redirect ke halaman yang sesuai
+            window.location.href = users[userKey].redirect; // Mengarahkan pengguna
+        }
+    </script>
 </body>
 </html>
