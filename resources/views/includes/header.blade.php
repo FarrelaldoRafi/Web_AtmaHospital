@@ -75,6 +75,8 @@
                     <ul class="dropdown-menu" aria-labelledby="userDropdown" style="background-color: rgba(0, 0, 0, 0.8);">
                         <li><a class="dropdown-item" href="/profile"><i class="fas fa-user"></i> Profile</a></li>
                         <li><a class="dropdown-item" href="/settings"><i class="fas fa-cog"></i> Settings</a></li>
+<!-- SEMENTARA                         -->
+                        <li><a class="dropdown-item" href="/login" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                         <li><a class="dropdown-item" href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>

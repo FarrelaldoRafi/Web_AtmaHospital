@@ -74,7 +74,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <a href="#" class="btn btn-custom">Lihat Profil</a>
+                        <a href="/List-Dokter/Narji-Sandoro" class="btn btn-custom">Lihat Profil</a>
                         <a href="#" class="btn btn-custom">Check Up</a>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                 <div class="card d-flex flex-row p-2 mt-2" style="background-color: #EFEFEF; border-radius: 20px;">
                     <img src="https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1).jpg" class="card-img-left" alt="d1" style="object-fit:cover; width: 210px; height: 232px; margin: 10px;">
                     <div class="card-body">
-                        <h5 class="card-title">dr. Narji Sandoro, Sp.PD.</h5>
+                        <h5 class="card-title">dr. Sandoro Narji, Sp.PD.</h5>
                         <span class="badge badge-specialization">Penyakit Dalam</span>
                         <table class="table">
                             <thead>
@@ -126,7 +126,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <a href="#" class="btn btn-custom">Lihat Profil</a>
+                        <a href="/List-Dokter/Sandoro-Narji" class="btn btn-custom">Lihat Profil</a>
                         <a href="#" class="btn btn-custom">Check Up</a>
                     </div>
                 </div>

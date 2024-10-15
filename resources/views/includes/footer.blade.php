@@ -74,7 +74,7 @@
                                 <p class="footer-title">TENTANG KAMI</p>
 
                                 <ul class="footer-list">
-                                    <li><a href="" target="_blank" class="text">Profil Rumah Sakit</a></li>
+                                    <li><a href="/" target="_blank" class="text">Profil Rumah Sakit</a></li>
                                 </ul>
                             </div>
                         </div>

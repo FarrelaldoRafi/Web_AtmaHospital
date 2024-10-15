@@ -156,9 +156,9 @@
             <div class="card d-flex flex-row">
                 <img src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; margin: 10px;">
                 <div class="card-body">
-                    <h5 class="card-title">Edukasi, Atma Hospital Group Paparkan Pentingnya Menjaga...</h5>
-                    <p class="card-text"><small class="text-muted">29 Sep 2024</small></p>
-                    <a href="#" class="btn btn-primary">Lihat berita &rarr;</a>
+                    <h5 class="card-title">Atma Hospital mengadakan sesi Imunisasi Anak...</h5>
+                    <p class="card-text"><small class="text-muted">17 September 2022</small></p>
+                    <a href="/List-Berita/berita1" class="btn btn-primary">Lihat berita &rarr;</a>
                 </div>
             </div>
         </div>
@@ -166,9 +166,9 @@
             <div class="card d-flex flex-row">
                 <img src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; margin: 10px;">
                 <div class="card-body">
-                    <h5 class="card-title">Perdana dan Terbesar YBW UII EXPO 2024 Hadir di Pakuwon Mall...</h5>
-                    <p class="card-text"><small class="text-muted">27 Sep 2024</small></p>
-                    <a href="#" class="btn btn-primary">Lihat berita &rarr;</a>
+                    <h5 class="card-title">Atma Hospital Adakan Seminar Kanker Payudara...</h5>
+                    <p class="card-text"><small class="text-muted">3 Oktober 2022</small></p>
+                    <a href="/List-Berita/berita2" class="btn btn-primary">Lihat berita &rarr;</a>
                 </div>
             </div>
         </div>
@@ -176,9 +176,9 @@
             <div class="card d-flex flex-row">
                 <img src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; margin: 10px;">
                 <div class="card-body">
-                    <h5 class="card-title">Pahami Gejala dan Tatalaksana Tuberkulosis Anak</h5>
-                    <p class="card-text"><small class="text-muted">25 Sep 2024</small></p>
-                    <a href="#" class="btn btn-primary">Lihat berita &rarr;</a>
+                    <h5 class="card-title">Atma Hospital Gelar Bakti Sosial di Yogyakarta</h5>
+                    <p class="card-text"><small class="text-muted">14 Februari 2023</small></p>
+                    <a href="/List-Berita/berita3" class="btn btn-primary">Lihat berita &rarr;</a>
                 </div>
             </div>
         </div>
@@ -186,9 +186,9 @@
             <div class="card d-flex flex-row">
                 <img src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; margin: 10px;">
                 <div class="card-body">
-                    <h5 class="card-title">Persalinan Minim Rasa Nyeri dengan Teknik ERACS</h5>
-                    <p class="card-text"><small class="text-muted">25 Sep 2024</small></p>
-                    <a href="#" class="btn btn-primary">Lihat berita &rarr;</a>
+                    <h5 class="card-title">Atma Hospital Mengadakan Donor Darah Massal</h5>
+                    <p class="card-text"><small class="text-muted">1 November 2023</small></p>
+                    <a href="/List-Berita/berita4" class="btn btn-primary">Lihat berita &rarr;</a>
                 </div>
             </div>
         </div>
