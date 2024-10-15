@@ -38,8 +38,6 @@
                     <!-- Welcome and Register Text -->
                     <h2 class="text-center">Selamat Datang</h2>
                     <p class="text-center">Register</p>
-
-<!-- ROUTE SEMENTARA                    Register Form -->
                     <form action="{{ url('/') }}">
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Nama Lengkap</label>

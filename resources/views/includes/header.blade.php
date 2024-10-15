@@ -77,6 +77,7 @@
                         <li><a class="dropdown-item" href="/settings"><i class="fas fa-cog"></i> Settings</a></li>
 <!-- SEMENTARA                         -->
                         <li><a class="dropdown-item" href="/login" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>

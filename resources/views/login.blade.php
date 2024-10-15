@@ -31,7 +31,6 @@
                 <div class="card p-4">
                     <h2 class="text-center">Selamat Datang</h2>
                     <p class="text-center">Login</p>
-<!-- ROUTE SEMENTARA                     -->
                     <form action="{{ url('/') }}">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
