@@ -21,7 +21,7 @@ Route::post('/profile/update', function (Request $request) {
 });
 
 Route::get('/', function () {
-    return view('home');
+    return view('janji');
 });
 
 Route::get('/jadwal', function () {
