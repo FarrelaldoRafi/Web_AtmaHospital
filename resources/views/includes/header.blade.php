@@ -26,9 +26,6 @@
         .dropdown-item:hover {
             background-color: rgba(255, 255, 255, 0.1); /* Hover effect */
         }
-        .d-none {
-    display: none !important; /* Tambahkan !important */
-}
     </style>
 </head>
 <body style="margin: 0; height: 100vh; background-image: url('/img/bg.png'); background-size: cover; background-position: center;">
@@ -69,80 +66,27 @@
                 </li>
             </ul>
             
-            <div id="userArea" class="d-none d-lg-flex align-items-center ms-lg-3 me-5 order-lg-1 order-2">
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle text-white" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none;">
-                        <img src="https://via.placeholder.com/40" alt="Profile" class="profile-img">
-                        <span class="ms-2" id="userName">Nama Pengguna</span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="userDropdown" style="background-color: rgba(0, 0, 0, 0.8);">
-                        <li><a class="dropdown-item" href="/profile"><i class="fas fa-user"></i> Profile</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                    </ul>
-                </div>
-            </div>
+            @if (session('user'))
+    <div id="userArea" class="d-flex align-items-center ms-lg-3 me-5 order-lg-1 order-2">
+        <div class="dropdown">
+            <button class="btn dropdown-toggle text-white" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none;">
+                <img src="{{ asset('storage/' . (session('user')['profile_picture'] ?? 'https://img.icons8.com/ios-glyphs/150/000000/user.png')) }}" alt="Profile" class="profile-img">
+                <span class="ms-2">{{ session('user')['name'] }}</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="userDropdown" style="background-color: rgba(0, 0, 0, 0.8);">
+                <li><a class="dropdown-item" href="/profile"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="{{ url('/logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+@else
+    <a href="{{ url('login') }}" class="btn btn-yellow ms-lg-3 me-5 order-lg-1 order-2" style="border-radius: 20px; background-color: #FFD700; color: #004080; width: 120px; height: auto;">
+        Login
+    </a>
+@endif
 
-            <a href="{{ url('login') }}" class="btn btn-yellow ms-lg-3 me-5 order-lg-1 order-2" style="border-radius: 20px; background-color: #FFD700; color: #004080; width: 120px; height: auto;" id="loginButton">
-                Login
-            </a>
         </div>
     </div>
 </nav>
-<script>
-// Simulasi user dan status login
-// Simulasi user dan status login
-const users = {
-    user1: {
-        name: "User 1",
-        role: "user",
-        redirect: "/"
-    },
-    admin: {
-        name: "Admin",
-        role: "admin",
-        redirect: "/adminpage"
-    }
-};
-
-// Fungsi untuk login simulasi
-function login(userKey) {
-    localStorage.setItem('loggedInUser', JSON.stringify(users[userKey]));
-    updateNavbar(); // Panggil updateNavbar setelah login
-}
-
-// Fungsi untuk logout
-function logout() {
-    localStorage.removeItem('loggedInUser'); // Hapus user dari local storage
-    updateNavbar(); // Panggil updateNavbar untuk memperbarui tampilan
-}
-
-
-// Menampilkan status user di navbar
-function updateNavbar() {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-
-    const userArea = document.getElementById('userArea');
-    const loginButton = document.getElementById('loginButton');
-    const userName = document.getElementById('userName');
-
-    console.log('User Logged In:', loggedInUser); // Debugging line
-
-    if (loggedInUser) {
-        // Jika ada user yang login
-        userArea.classList.remove('d-none'); // Tampilkan dropdown
-        loginButton.classList.add('d-none'); // Sembunyikan tombol login
-        userName.textContent = loggedInUser.name; // Set nama pengguna
-    } else {
-        // Jika tidak ada user yang login
-        userArea.classList.add('d-none'); // Sembunyikan dropdown
-        loginButton.classList.remove('d-none'); // Tampilkan tombol login
-        userName.textContent = ""; // Kosongkan nama pengguna
-    }
-}
-
-// Panggil fungsi ini saat halaman di-load
-document.addEventListener('DOMContentLoaded', updateNavbar);
-
-</script>
 </body>
 </html>

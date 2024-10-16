@@ -1,20 +1,27 @@
 @include('includes.header')
 <main>
-    <div class="container" style="padding-top: 80px; margin-top: 20px;"> <!-- Menambahkan padding-top untuk menghindari tumpang tindih dengan navbar -->
+<div class="container" style="padding-top: 80px; margin-top: 20px;">
         <div class="row">
             <div class="col-lg-4 text-center">
-                <div class="profile-container">
-                    <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
-                    <label for="file-input" class="change-photo-btn">
-                        <img src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png" alt="Change Photo">
-                    </label>
-                    <input id="file-input" type="file" class="hidden-input" accept="image/*">
-                </div>
+                <form action="{{ url('/profile/update') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="profile-container position-relative d-inline-block">
+                        <img src="{{ asset('storage/' . (session('user')['profile_picture'] ?? 'https://img.icons8.com/ios-glyphs/150/000000/user.png')) }}" alt="Profile Picture" class="profile-pic">
+                        <label for="file-input" class="change-photo-btn" title="Change Photo">
+                            <i class="fas fa-plus plus-icon"></i>
+                        </label>
+                        <input id="file-input" type="file" name="profile_picture" class="hidden-input" accept="image/*">
+                    </div>
+                    <!-- Save Button -->
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">Save Profile Picture</button>
+                    </div>
+                </form>
 
                 <!-- Edit Button -->
                 <div class="mt-3">
                     <button id="edit-profile" class="btn btn-link edit-icon" style="display: block; margin: 0 auto;">
-                        <img src="https://img.icons8.com/ios-glyphs/20/000000/pencil--v1.png" alt="Edit Icon" style="margin-right: 5px;"> 
+                        <i class="fas fa-pencil-alt" style="margin-right: 5px;"></i> 
                         Edit Profile
                     </button>
                 </div>
@@ -71,79 +78,91 @@
     </div>
 
     <style>
-    /* Internal CSS to handle profile image appearance */
     .profile-pic {
         width: 150px;
         height: 150px;
         border-radius: 50%;
-        position: relative;
         object-fit: cover;
-    }
-    .profile-container {
-        position: relative;
-        display: inline-block;
+        border: 2px solid #fff;
     }
     .change-photo-btn {
         position: absolute;
-        bottom: 0;
-        right: 0;
-        background-color: white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center it vertically and horizontally */
+        background-color: transparent;
         border-radius: 50%;
         padding: 5px;
-        width: 30px;
-        height: 30px;
-    }
-    .edit-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: flex; /* Use flex to center icon */
+        align-items: center; /* Align items vertically */
+        justify-content: center; /* Align items horizontally */
     }
     .hidden-input {
         display: none;
     }
-</style>
-    
-    <script>
-        const editBtn = document.getElementById('edit-profile');
-        const inputs = document.querySelectorAll('#profile-form input, #profile-form textarea');
-        const saveBtn = document.getElementById('save-btn');
-        const cancelBtn = document.getElementById('cancel-btn');
-
-        // Enable form inputs for editing
-        editBtn.addEventListener('click', () => {
-            inputs.forEach(input => input.disabled = false);
-            saveBtn.disabled = false;
-            cancelBtn.disabled = false;
-        });
-
-        // Reset form on cancel
-        cancelBtn.addEventListener('click', () => {
-            inputs.forEach(input => input.disabled = true);
-            saveBtn.disabled = true;
-            cancelBtn.disabled = true;
-        });
-
-        // Mock save action
-        saveBtn.addEventListener('click', () => {
-            alert('Profile saved successfully!');
-            inputs.forEach(input => input.disabled = true);
-            saveBtn.disabled = true;
-            cancelBtn.disabled = true;
-        });
-
-        // Change photo functionality
-        // Change photo functionality
-document.getElementById('file-input').addEventListener('change', function (event) {
-    const reader = new FileReader();
-    reader.onload = function () {
-        // Update the profile picture on the profile page
-        document.querySelector('.profile-pic').src = reader.result;
-        // Update the profile picture in the navbar
-        document.querySelector('.profile-img').src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-});
-
-    </script>
+    .plus-icon {
+        opacity: 0; /* Initially hidden */
+        transition: opacity 0.3s;
+        font-size: 30px; /* Adjust font size for plus icon */
+    }
+    .profile-container:hover .plus-icon {
+        opacity: 1; /* Show on hover */
+    }
+    .profile-container:hover .change-photo-btn {
+        background-color: rgba(255, 255, 255, 0.5); /* Light transparent background on hover */
+    }
+    </style>
 </main>
-@include('includes.footer')
+
+<script>
+    // JavaScript for image upload and profile editing
+    document.getElementById('file-input').addEventListener('change', function (event) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            // Update the profile picture on the profile page
+            document.querySelector('.profile-pic').src = reader.result;
+            // Update the profile picture in the navbar
+            document.querySelector('.profile-img').src = reader.result;
+
+            // Update session storage or handle the image upload here
+            // For simplicity, we're not storing in the session for now
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    });
+
+    // On page load, check if there's a saved profile picture in session storage
+    window.onload = function() {
+        const savedProfilePic = sessionStorage.getItem('profile_picture');
+        if (savedProfilePic) {
+            document.querySelector('.profile-pic').src = savedProfilePic;
+            document.querySelector('.profile-img').src = savedProfilePic;
+        }
+    };
+
+    // Enable editing on click
+    document.getElementById('edit-profile').addEventListener('click', function() {
+        document.querySelectorAll('#profile-form input, #profile-form textarea').forEach(input => {
+            input.disabled = false;
+        });
+        document.getElementById('cancel-btn').disabled = false;
+        document.getElementById('save-btn').disabled = false;
+        this.style.display = 'none'; // Hide edit button
+    });
+
+    // Cancel editing
+    document.getElementById('cancel-btn').addEventListener('click', function() {
+        document.querySelectorAll('#profile-form input, #profile-form textarea').forEach(input => {
+            input.disabled = true;
+        });
+        this.disabled = true;
+        document.getElementById('save-btn').disabled = true;
+        document.getElementById('edit-profile').style.display = 'block'; // Show edit button
+    });
+
+    // Save edited profile (you may implement AJAX call to save the data)
+    document.getElementById('save-btn').addEventListener('click', function() {
+        alert('Profile saved!'); // Dummy alert; implement your saving logic here
+    });
+</script>

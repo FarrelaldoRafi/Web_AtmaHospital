@@ -1,7 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
+Route::post('/profile/update', function (Request $request) {
+    $request->validate([
+        'profile_picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+    if ($request->hasFile('profile_picture')) {
+        $file = $request->file('profile_picture');
+        $path = $file->store('profile_pictures', 'public'); // Store the image
+
+        // Store the path in session
+        session(['user.profile_picture' => $path]);
+    }
+
+    return redirect('/profile')->with('success', 'Profile updated successfully.');
+});
 
 Route::get('/', function () {
     return view('home');
@@ -17,6 +34,35 @@ Route::get('/layanan', function () {
 
 Route::get('/login', function () {
     return view('login');
+});
+
+// Route to handle login submission
+Route::post('/login', function (Request $request) {
+    $credentials = $request->only('email', 'password');
+
+    if ($credentials['email'] === 'user@example.com' && $credentials['password'] === 'password') {
+        session(['user' => [
+            'name' => 'User', 
+            'role' => 'user', 
+            'profile_picture' => 'https://img.icons8.com/ios-glyphs/150/000000/user.png' // Default profile picture
+        ]]);
+        return redirect('/');
+    } elseif ($credentials['email'] === 'admin@example.com' && $credentials['password'] === 'adminpass') {
+        session(['user' => [
+            'name' => 'Admin', 
+            'role' => 'admin', 
+            'profile_picture' => 'https://img.icons8.com/ios-glyphs/150/000000/user.png' // Default profile picture
+        ]]);
+        return redirect('/');
+    }
+
+    return back()->withErrors(['email' => 'Invalid credentials.']);
+});
+
+// Route for logging out
+Route::get('/logout', function () {
+    session()->forget('user');
+    return redirect('/');
 });
 
 // Route::get('/adminpage', function () {
