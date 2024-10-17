@@ -18,7 +18,7 @@
             <!-- Service 0 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
-                    <a href="#service-0" data-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
+                    <a href="#service-0" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                         <span class="pattern-1"></span>
                         <p class="text">Layanan Unggulan</p>
                         <div class="next-desc">Cari tahu informasinya</div>
@@ -45,8 +45,8 @@
             <!-- Service 1 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
-                    <a href="#service-1" data-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2 collapsed">
-                        <span class="pattern-1"></span>
+                <a href="#service-1" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
+                <span class="pattern-1"></span>
                         <p class="text">Gawat Darurat</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
@@ -69,8 +69,8 @@
             <!-- Service 2 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
-                    <a href="#service-2" data-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                        <span class="pattern-1"></span>
+                <a href="#service-2" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
+                <span class="pattern-1"></span>
                         <p class="text">Layanan Gizi</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
@@ -87,8 +87,8 @@
             <!-- Service 3 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
-                    <a href="#service-3" data-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                        <span class="pattern-1"></span>
+                <a href="#service-3" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
+                <span class="pattern-1"></span>
                         <p class="text">Layanan Gizi</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
@@ -104,8 +104,8 @@
 
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
-                    <a href="#service-4" data-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                        <span class="pattern-1"></span>
+                <a href="#service-4" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
+                <span class="pattern-1"></span>
                         <p class="text">Layanan Gizi</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
@@ -121,8 +121,8 @@
 
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
-                    <a href="#service-5" data-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                        <span class="pattern-1"></span>
+                <a href="#service-5" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
+                <span class="pattern-1"></span>
                         <p class="text">Layanan Gizi</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>

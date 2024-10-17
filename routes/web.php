@@ -21,7 +21,7 @@ Route::post('/profile/update', function (Request $request) {
 });
 
 Route::get('/', function () {
-    return view('janji');
+    return view('home');
 });
 
 Route::get('/jadwal', function () {
@@ -53,7 +53,7 @@ Route::post('/login', function (Request $request) {
             'role' => 'admin', 
             'profile_picture' => 'https://img.icons8.com/ios-glyphs/150/000000/user.png' // Default profile picture
         ]]);
-        return redirect('/');
+        return redirect('/admin/dashadmin');
     }
 
     return back()->withErrors(['email' => 'Invalid credentials.']);
@@ -65,9 +65,21 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 
-// Route::get('/adminpage', function () {
-//     return view('adminpage');
-// });
+Route::get('/admin/dashadmin', function () {
+    return view('admin.dashadmin');
+});
+Route::get('/admin/sidebar', function () {
+    return view('admin.sidebar');
+});
+Route::get('/admin/tambahdokter', function () {
+    return view('admin.tambahdokter');
+});
+Route::get('/admin/tambahlayanan', function () {
+    return view('admin.tambahlayanan');
+});
+Route::get('/admin/medicalcheckup', function () {
+    return view('admin.medicalcheckup');
+});
 
 Route::get('/register', function () {
     return view('register');
