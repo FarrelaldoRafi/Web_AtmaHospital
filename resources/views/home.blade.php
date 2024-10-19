@@ -124,25 +124,25 @@
                     </div>
                     <h5 class="feature-title">Peralatan Medis Lengkap</h5>
                     <p class="feature-description">
-                        Atma Hospital selalu berinovasi dalam meningkatkan layanan untuk pasien. Hampir setiap tahun, Atma Hospital menghadirkan peralatan medis baru, modern dan canggih.
+                        Atma Hospital terus berinovasi menghadirkan layanan terbaik bagi pasien. Setiap tahun, kami memperbarui peralatan medis dengan teknologi modern dan canggih demi kualitas perawatan yang lebih optimal.
                     </p>
                 </div>
                 <div class="col-md-3">
                     <div class="feature-icon">
                         <i class="fas fa-file-medical-alt"></i>
                     </div>
-                    <h5 class="feature-title">Rekam Medis Elektronik</h5>
+                    <h5 class="feature-title">Fasilitas Nyaman</h5>
                     <p class="feature-description">
-                        Atma Hospital telah menerapkan Rekam Medis Elektronik, ini dapat meminimalkan kesalahan manusia yang tidak diinginkan dalam proses layanan rumah sakit.
+                    Atma Hospital menyediakan fasilitas ruang perawatan yang nyaman dan ramah pasien, dirancang untuk mendukung proses pemulihan secara optimal dengan lingkungan yang tenang dan berkualitas.
                     </p>
                 </div>
                 <div class="col-md-3">
                     <div class="feature-icon">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <h5 class="feature-title">24 Jam Emergency</h5>
+                    <h5 class="feature-title">Layanan 24 Jam</h5>
                     <p class="feature-description">
-                        Atma Hospital menyediakan layanan darurat 24 jam yang siap menangani segala kondisi medis kritis dengan dukungan tenaga medis profesional dan fasilitas lengkap.
+                        Atma Hospital, rumah sakit dengan layanan kesehatan profesional 24 jam, siap melayani kebutuhan medis Anda dengan cepat dan terpercaya, setiap hari tanpa henti.
                     </p>
                 </div>
             </div>
@@ -164,7 +164,7 @@
                     <div class="collapse" id="service-0">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/radiotherapy-center-rtc" class="service-link">Radiotherapy Center (RTC)</a>
+                                <a href="/List-Layanan/pemeriksaanDarah" class="service-link">Pemeriksaan Darah</a>
                             </div>
                             <div class="service-item">
                                 <a href="https://rs-jih.co.id/rsjih/service-detail/jih-kortex" class="service-link">JIH Kortex</a>
