@@ -133,3 +133,7 @@ Route::get('/List-Berita/berita6', function () {
 Route::get('/janji', function () {
     return view('janji');
 });
+
+Route::get('/List-Layanan/pemeriksaanDarah', function () {
+    return view('/List-Layanan/pemeriksaanDarah');
+});

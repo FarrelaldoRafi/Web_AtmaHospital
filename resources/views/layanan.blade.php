@@ -25,16 +25,7 @@
                     <div class="collapse" id="service-0">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/radiotherapy-center-rtc" class="service-link">Radiotherapy Center (RTC)</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/jih-kortex" class="service-link">JIH Kortex</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/jih-morula-bayi-tabung" class="service-link">JIH Morula (Bayi Tabung)</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://cardiacare.id/" class="service-link">JIH Cardiac</a>
+                                <a href="/List-Layanan/pemeriksaanDarah" class="service-link">Pemeriksaan Darah</a>
                             </div>
                         </div>
                     </div>
@@ -83,60 +74,54 @@
             </div>
         </div>
     </section>
-    <div class="d-flex align-items-center mt-4">
-        <div class="container">
-            <h2 class="text-muted-small ms-3">GET IN TOUCH</h2>
-            <h2 class="mb-3 ms-3">Lebih Dekat dengan Atma Hospital</h2>
-            <div class="quick-link-hospital desktop">
-                <div class="container">
-                    <div class="wrap-all-hospital">
-                        <div class="hospital-items">
-                            <a href="" class="card card-style card-hospital">
-                                <div class="hospital-content">
-                                    <div class="hospital-img">
-                                        <img class="img-fluid img-contain lazyload" src="{{ asset('icon/dokter.svg') }}">
-                                    </div>
-                                    <h3 class="hospital-title section-description-md">CARI DOKTER</h3>
-                                </div>
-                            </a>
-                        </div>
+    <div class="quick-link-hospital desktop">
+		<div class="container">
+			<div class="wrap-all-hospital">
+				<div class="hospital-items">
+					<a href="/infojanji" class="card card-style card-hospital">
+						<div class="hospital-content">
+							<div class="hospital-img">
+								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/infoant.svg') }}">
+							</div>
+							<h3 class="hospital-title section-description-md">INFO ANTRIAN</h3>
+						</div>
+					</a>
+				</div>
 
-                        <div class="hospital-items">
-                            <a href="" target="_blank" class="card card-style card-hospital">
-                                <div class="hospital-content">
-                                    <div class="hospital-img">
-                                        <img class="img-fluid img-contain lazyload" src="{{ asset('icon/antrian.svg') }}">
-                                    </div>
-                                    <h3 class="hospital-title section-description-md">INFO ANTRIAN</h3>
-                                </div>
-                            </a>
-                        </div>
+				<div class="hospital-items">
+					<a href="/janji" target="_blank" class="card card-style card-hospital">
+						<div class="hospital-content">
+							<div class="hospital-img">
+								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/antrian.svg') }}">
+							</div>
+							<h3 class="hospital-title section-description-md">TAMBAH ANTRIAN</h3>
+						</div>
+					</a>
+				</div>
 
-                        <div class="hospital-items">
-                            <a href="" class="card card-style card-hospital">
-                                <div class="hospital-content">
-                                    <div class="hospital-img">
-                                        <img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">
-                                    </div>
-                                    <h3 class="hospital-title section-description-md">WHATSAPP</h3>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="hospital-items">
-                            <a href="" class="card card-style card-hospital">
-                                <div class="hospital-content">
-                                    <div class="hospital-img">
-                                        <img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">
-                                    </div>
-                                    <h3 class="hospital-title section-description-md">WHATSAPP</h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+				<div class="hospital-items">
+					<a href="/janji" class="card card-style card-hospital">
+						<div class="hospital-content">
+							<div class="hospital-img">
+								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">
+							</div>
+							<h3 class="hospital-title section-description-md">MEDICAL CHECK UP</h3>
+						</div>
+					</a>
+				</div>
+				<div class="hospital-items">
+					<a href="" class="card card-style card-hospital">
+						<div class="hospital-content">
+							<div class="hospital-img">
+								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">
+							</div>
+							<h3 class="hospital-title section-description-md">INFO MEDICAL CHECK UP</h3>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </main>
 
 @include('includes.footer')
