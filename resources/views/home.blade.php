@@ -64,7 +64,7 @@
 				</div>
 
 				<div class="hospital-items">
-					<a href="/janji" class="card card-style card-hospital">
+					<a href="/medicalcheckup" class="card card-style card-hospital">
 						<div class="hospital-content">
 							<div class="hospital-img">
 								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">

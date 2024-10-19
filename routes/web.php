@@ -134,6 +134,10 @@ Route::get('/janji', function () {
     return view('janji');
 });
 
+Route::get('/medicalcheckup', function () {
+    return view('medicalcheckup');
+});
+
 Route::get('/List-Layanan/pemeriksaanDarah', function () {
     return view('/List-Layanan/pemeriksaanDarah');
 });
