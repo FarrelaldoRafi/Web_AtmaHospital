@@ -15,12 +15,11 @@
     <section class="services-excellent section-md pb-5">
     <div class="container">
         <div class="row" id="load_category_service">
-            <!-- Service 0 -->
-            <div class="col-6 col-md-4 mb-3">
+        <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
                     <a href="#service-0" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                         <span class="pattern-1"></span>
-                        <p class="text">Layanan Unggulan</p>
+                        <p class="text">Poliklinik</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
                     <div class="collapse" id="service-0">
@@ -42,12 +41,11 @@
                 </div>
             </div>
 
-            <!-- Service 1 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
                 <a href="#service-1" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                 <span class="pattern-1"></span>
-                        <p class="text">Gawat Darurat</p>
+                        <p class="text">Laboratorium</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
                     <div class="collapse" id="service-1">
@@ -66,67 +64,14 @@
                 </div>
             </div>
 
-            <!-- Service 2 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
                 <a href="#service-2" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                 <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
+                        <p class="text">Radiologi</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
                     <div class="collapse" id="service-2">
-                        <div class="service-body scrollablex">
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 3 -->
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
-                <a href="#service-3" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-3">
-                        <div class="service-body scrollablex">
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
-                <a href="#service-4" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-4">
-                        <div class="service-body scrollablex">
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
-                <a href="#service-5" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-5">
                         <div class="service-body scrollablex">
                             <div class="service-item">
                                 <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>

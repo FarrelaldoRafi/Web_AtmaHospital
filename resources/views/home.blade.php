@@ -64,12 +64,12 @@
 				</div>
 
 				<div class="hospital-items">
-					<a href="" class="card card-style card-hospital">
+					<a href="/janji" class="card card-style card-hospital">
 						<div class="hospital-content">
 							<div class="hospital-img">
 								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">
 							</div>
-							<h3 class="hospital-title section-description-md">WHATSAPP</h3>
+							<h3 class="hospital-title section-description-md">BUAT JANJI</h3>
 						</div>
 					</a>
 				</div>
@@ -95,7 +95,7 @@
                     <h3 class="text-custom">Atma Hospital memiliki kenyamanan yang khas</h3>
                     <p>Dimulai dengan senyum ramah dari staf, empati dari perawat, dan dokter yang selalu siap untuk mendengarkan dan memberikan penjelasan tentang penyakit yang diderita pasien.</p>
                     <a class="custom-btn" href='#'">
-                        Temukan Layanan 
+                        Selengkapnya 
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -115,7 +115,7 @@
                     </div>
                     <h5 class="feature-title">Tenaga Medis Profesional</h5>
                     <p class="feature-description">
-                        Sebagai salah satu rumah sakit besar di Yogyakarta, Atma Hospital membuka layanan Poliklinik Spesialis setiap saat, mulai pukul 08.00 WIB hingga 21.00 WIB.
+                        Rumah sakit kami memiliki beragam layanan dengan dokter-dokter terbaik dari berbagai lulusan sekolah berkualitas
                     </p>
                 </div>
                 <div class="col-md-3">
@@ -142,7 +142,7 @@
                     </div>
                     <h5 class="feature-title">24 Jam Emergency</h5>
                     <p class="feature-description">
-                        Atma Hospital didukung oleh 35 Dokter Sub Spesialis, 111 Dokter Spesialis, 24 Dokter Umum, 7 Dokter Gigi Umum, Ratusan Perawat dan Paramedis Profesional di bidangnya.
+                        Atma Hospital menyediakan layanan darurat 24 jam yang siap menangani segala kondisi medis kritis dengan dukungan tenaga medis profesional dan fasilitas lengkap.
                     </p>
                 </div>
             </div>
@@ -150,16 +150,15 @@
     </div>
 
     <div class="container mt-5">
-        <h2 class="text-left mb-3">Layanan</h2>
+        <h2 class="text-left mb-3">Layanan Kami</h2>
     </div>
     <div class="container">
         <div class="row" id="load_category_service">
-            <!-- Service 0 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
                     <a href="#service-0" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                         <span class="pattern-1"></span>
-                        <p class="text">Layanan Unggulan</p>
+                        <p class="text">Poliklinik</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
                     <div class="collapse" id="service-0">
@@ -181,12 +180,11 @@
                 </div>
             </div>
 
-            <!-- Service 1 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
                 <a href="#service-1" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                 <span class="pattern-1"></span>
-                        <p class="text">Gawat Darurat</p>
+                        <p class="text">Laboratorium</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
                     <div class="collapse" id="service-1">
@@ -205,67 +203,14 @@
                 </div>
             </div>
 
-            <!-- Service 2 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
                 <a href="#service-2" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                 <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
+                        <p class="text">Radiologi</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
                     <div class="collapse" id="service-2">
-                        <div class="service-body scrollablex">
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 3 -->
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
-                <a href="#service-3" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-3">
-                        <div class="service-body scrollablex">
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
-                <a href="#service-4" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-4">
-                        <div class="service-body scrollablex">
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
-                <a href="#service-5" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-5">
                         <div class="service-body scrollablex">
                             <div class="service-item">
                                 <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
@@ -278,7 +223,7 @@
     </div>
 
 <div class="container mt-5">
-    <h2 class="text-left mb-3">Atma Update</h2>
+    <h2 class="text-left mb-3">Atma Hospital News</h2>
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="card d-flex flex-row">

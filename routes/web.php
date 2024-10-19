@@ -11,9 +11,8 @@ Route::post('/profile/update', function (Request $request) {
 
     if ($request->hasFile('profile_picture')) {
         $file = $request->file('profile_picture');
-        $path = $file->store('profile_pictures', 'public'); // Store the image
+        $path = $file->store('profile_pictures', 'public');
 
-        // Store the path in session
         session(['user.profile_picture' => $path]);
     }
 
@@ -36,18 +35,17 @@ Route::get('/login', function () {
     return view('login');
 });
 
-// Route to handle login submission
 Route::post('/login', function (Request $request) {
-    $credentials = $request->only('email', 'password');
+    $credentials = $request->only('username', 'password');
 
-    if ($credentials['email'] === 'user@example.com' && $credentials['password'] === 'password') {
+    if ($credentials['username'] === 'user1' && $credentials['password'] === 'password') {
         session(['user' => [
             'name' => 'User', 
             'role' => 'user', 
             'profile_picture' => 'https://img.icons8.com/ios-glyphs/150/000000/user.png' // Default profile picture
         ]]);
         return redirect('/');
-    } elseif ($credentials['email'] === 'admin@example.com' && $credentials['password'] === 'adminpass') {
+    } elseif ($credentials['username'] === 'admin1' && $credentials['password'] === 'adminpass') {
         session(['user' => [
             'name' => 'Admin', 
             'role' => 'admin', 
@@ -56,10 +54,9 @@ Route::post('/login', function (Request $request) {
         return redirect('/admin/dashadmin');
     }
 
-    return back()->withErrors(['email' => 'Invalid credentials.']);
+    return back()->withErrors(['username' => 'Invalid credentials.']);
 });
 
-// Route for logging out
 Route::get('/logout', function () {
     session()->forget('user');
     return redirect('/');

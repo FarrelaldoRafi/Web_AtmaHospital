@@ -4,9 +4,6 @@
     p{
         margin: 0;
     }
-    div{
-        /* border: 2px solid red; */
-    }
     label span{
         color: red;
     }
