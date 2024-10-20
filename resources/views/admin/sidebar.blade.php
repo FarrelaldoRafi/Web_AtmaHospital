@@ -34,7 +34,7 @@
             overflow: hidden;
         }
 
-        .admin-info img {
+        .admin-info i {
             border-radius: 50%;
             width: 35px;
             height: 35px;
@@ -78,7 +78,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light fixed-top">
             <div class="container-fluid d-flex justify-content-between align-items-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -89,12 +89,12 @@
             </div>
         </nav>
 
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="#" class="brand-link">
-                <img src="{{ asset('img/logo.png') }}" alt="Atma Hospital Logo" class="brand-image">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #18428A;">
+            <a href="#">
+                <img src="{{ asset('img/logo.png') }}" alt="Atma Hospital Logo" class="brand-image d-block m-auto" style="height: 87px; width: auto;">
             </a>
-            <div class="admin-info">
-                <img src="path/to/admin-avatar.jpg" alt="Admin Avatar">
+            <div class="admin-info border-bottom border-top">
+                <i class="fas fa-user-circle fa-2x text-white ms-2"></i>
                 <span class="admin-name">John Doe</span>
             </div>
             <div class="sidebar">
@@ -129,7 +129,7 @@
             </div>
         </aside>
 
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="padding-top: 60px;">
             <section class="content">
                 <div class="container-fluid">
                     @yield('content')

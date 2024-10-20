@@ -1,13 +1,5 @@
 
 @include('includes.header')
-<style>
-    div{
-        /* border:2px solid red; */
-    }
-    section{
-        /* border:2px solid blue; */
-    }
-</style>
 <main>
     <div class="container-fluid text-white text-left d-flex justify-content-center" 
         style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">

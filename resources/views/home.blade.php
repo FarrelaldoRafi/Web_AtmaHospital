@@ -47,18 +47,7 @@
 							<div class="hospital-img">
 								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/infoant.svg') }}">
 							</div>
-							<h3 class="hospital-title section-description-md">INFO ANTRIAN</h3>
-						</div>
-					</a>
-				</div>
-
-				<div class="hospital-items">
-					<a href="" target="_blank" class="card card-style card-hospital">
-						<div class="hospital-content">
-							<div class="hospital-img">
-								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/antrian.svg') }}">
-							</div>
-							<h3 class="hospital-title section-description-md">TAMBAH ANTRIAN</h3>
+							<h3 class="hospital-title section-description-md">INFO ANTRIAN JANJI</h3>
 						</div>
 					</a>
 				</div>
@@ -67,19 +56,30 @@
 					<a href="/janji" class="card card-style card-hospital">
 						<div class="hospital-content">
 							<div class="hospital-img">
-								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">
+								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/antrian.svg') }}">
 							</div>
-							<h3 class="hospital-title section-description-md">BUAT JANJI</h3>
+							<h3 class="hospital-title section-description-md">TAMBAH ANTRIAN JANJI</h3>
+						</div>
+					</a>
+				</div>
+
+				<div class="hospital-items">
+					<a href="/medicalcheckup" class="card card-style card-hospital">
+						<div class="hospital-content">
+							<div class="hospital-img">
+								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/steto.svg') }}">
+							</div>
+							<h3 class="hospital-title section-description-md">MEDICAL CHECK UP</h3>
 						</div>
 					</a>
 				</div>
 				<div class="hospital-items">
-					<a href="" class="card card-style card-hospital">
+					<a href="/infomcu" class="card card-style card-hospital">
 						<div class="hospital-content">
 							<div class="hospital-img">
-								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">
+								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/infomcu.svg') }}">
 							</div>
-							<h3 class="hospital-title section-description-md">WHATSAPP</h3>
+							<h3 class="hospital-title section-description-md">INFO MEDICAL CHECK UP</h3>
 						</div>
 					</a>
 				</div>
@@ -164,16 +164,7 @@
                     <div class="collapse" id="service-0">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/radiotherapy-center-rtc" class="service-link">Radiotherapy Center (RTC)</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/jih-kortex" class="service-link">JIH Kortex</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/jih-morula-bayi-tabung" class="service-link">JIH Morula (Bayi Tabung)</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://cardiacare.id/" class="service-link">JIH Cardiac</a>
+                                <a href="/List-Layanan/pemeriksaanDarah" class="service-link">Pemeriksaan Darah</a>
                             </div>
                         </div>
                     </div>
@@ -190,13 +181,7 @@
                     <div class="collapse" id="service-1">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/emergency-kids" class="service-link">Emergency Kids</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/layanan-ambulans" class="service-link">Layanan Ambulans</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/tentang-layanan-ugd" class="service-link">Tentang Layanan UGD</a>
+                                <a href="#" class="service-link">Pemeriksaan Darah</a>
                             </div>
                         </div>
                     </div>
@@ -213,7 +198,7 @@
                     <div class="collapse" id="service-2">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
+                                <a href="#" class="service-link">Pemeriksaan Darah</a>
                             </div>
                         </div>
                     </div>

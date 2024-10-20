@@ -45,37 +45,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>08:00-10:00</td>
-                                    <td>11:00-12:00 (Poli Imunisasi)</td>
-                                    <td>-</td>
-                                    <td>10:00-11:00</td>
-                                    <td>12:00-13:00</td>
-                                    <td>-</td>
-                                    <td>09:00-10:00</td>
-                                </tr>
-                                <tr>
-                                    <td>10:00-11:00</td>
-                                    <td>-</td>
-                                    <td>08:00-09:00</td>
-                                    <td>-</td>
-                                    <td>14:00-15:00</td>
-                                    <td>09:00-10:00</td>
-                                    <td>10:00-11:00</td>
-                                </tr>
-                                <tr>
-                                    <td>11:00-12:00</td>
-                                    <td>08:00-09:00</td>
-                                    <td>09:00-10:00</td>
-                                    <td>-</td>
-                                    <td>11:00-12:00</td>
-                                    <td>10:00-11:00</td>
-                                    <td>-</td>
-                                </tr>
+                            <tr>
+                                <td>10:00 - 15:00</td>
+                                <td>11:00 - 16:00</td>
+                                <td>10:00 - 14:00</td>
+                                <td>10:00 - 14:00</td>
+                                <td>10:00 - 13:00</td>
+                                <td>10:00 - 15:00</td>
+                                <td>09:00 - 12:00</td>
+                            </tr>
                             </tbody>
                         </table>
                         <a href="/List-Dokter/Narji-Sandoro" class="btn btn-custom">Lihat Profil</a>
-                        <a href="#" class="btn btn-custom">Check Up</a>
+                        <a href="/medicalcheckup" class="btn btn-custom">Check Up</a>
                     </div>
                 </div>
 
@@ -97,37 +79,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>08:00-10:00</td>
-                                    <td>11:00-12:00 (Poli Imunisasi)</td>
-                                    <td>-</td>
-                                    <td>10:00-11:00</td>
-                                    <td>12:00-13:00</td>
-                                    <td>-</td>
-                                    <td>09:00-10:00</td>
-                                </tr>
-                                <tr>
-                                    <td>10:00-11:00</td>
-                                    <td>-</td>
-                                    <td>08:00-09:00</td>
-                                    <td>-</td>
-                                    <td>14:00-15:00</td>
-                                    <td>09:00-10:00</td>
-                                    <td>10:00-11:00</td>
-                                </tr>
-                                <tr>
-                                    <td>11:00-12:00</td>
-                                    <td>08:00-09:00</td>
-                                    <td>09:00-10:00</td>
-                                    <td>-</td>
-                                    <td>11:00-12:00</td>
-                                    <td>10:00-11:00</td>
-                                    <td>-</td>
-                                </tr>
+                            <tr>
+                                <td>10:00 - 15:00</td>
+                                <td>11:00 - 16:00</td>
+                                <td>10:00 - 14:00</td>
+                                <td>10:00 - 14:00</td>
+                                <td>10:00 - 13:00</td>
+                                <td>10:00 - 15:00</td>
+                                <td>09:00 - 12:00</td>
+                            </tr>
                             </tbody>
                         </table>
                         <a href="/List-Dokter/Sandoro-Narji" class="btn btn-custom">Lihat Profil</a>
-                        <a href="#" class="btn btn-custom">Check Up</a>
+                        <a href="/medicalcheckup" class="btn btn-custom">Check Up</a>
                     </div>
                 </div>
             </div>

@@ -40,21 +40,17 @@ Route::post('/login', function (Request $request) {
 
     if ($credentials['username'] === 'user1' && $credentials['password'] === 'password') {
         session(['user' => [
-            'name' => 'User', 
-            'role' => 'user', 
-            'profile_picture' => 'https://img.icons8.com/ios-glyphs/150/000000/user.png' // Default profile picture
+            'name' => 'User',
+            'role' => 'user'
         ]]);
         return redirect('/');
     } elseif ($credentials['username'] === 'admin1' && $credentials['password'] === 'adminpass') {
         session(['user' => [
             'name' => 'Admin', 
-            'role' => 'admin', 
-            'profile_picture' => 'https://img.icons8.com/ios-glyphs/150/000000/user.png' // Default profile picture
+            'role' => 'admin'
         ]]);
         return redirect('/admin/dashadmin');
     }
-
-    return back()->withErrors(['username' => 'Invalid credentials.']);
 });
 
 Route::get('/logout', function () {
@@ -132,4 +128,16 @@ Route::get('/List-Berita/berita6', function () {
 
 Route::get('/janji', function () {
     return view('janji');
+});
+
+Route::get('/infomcu', function () {
+    return view('infomcu');
+});
+
+Route::get('/medicalcheckup', function () {
+    return view('medicalcheckup');
+});
+
+Route::get('/List-Layanan/pemeriksaanDarah', function () {
+    return view('/List-Layanan/pemeriksaanDarah');
 });
