@@ -45,11 +45,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+
                     <a class="nav-link {{ Request::is('jadwal') || Request::is('List-Dokter/Narji-Sandoro') ? 'active' : '' }}" href="/jadwal">
                         <span class="dropdown-icon"><i class="fas fa-calendar-alt"></i></span>Jadwal Dokter
                     </a>
                 </li>
                 <li class="nav-item">
+
                     <a class="nav-link {{ Request::is('layanan') || Request::is('janji') || Request::is('infojanji') || Request::is('infomcu') || Request::is('medicalcheckup') || Request::is('List-Layanan/pemeriksaanDarah') ? 'active' : '' }}" href="/layanan">
                         <span class="dropdown-icon"><i class="fas fa-hospital"></i></span>Layanan
                     </a>

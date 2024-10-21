@@ -25,6 +25,7 @@
     <section class="section-md">
     <div class="container mt-0">
         <h2 class="text-left mb-4"><strong>Daftar Dokter di Atma Hospital sesuai dengan kebutuhan Anda</strong></h2>
+
         <div class="row" id="jadwal-row">
             <div class="col-md-15 mb-2">
                 <div class="card d-flex flex-row p-2 mt-2" style="background-color: #EFEFEF; border-radius: 20px;">
@@ -90,6 +91,7 @@
                             </tbody>
                         </table>
                         <a href="/List-Dokter/Sandoro-Narji" class="btn btn-custom">Lihat Profil</a>
+
                     </div>
                 </div>
             </div>
