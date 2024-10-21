@@ -25,7 +25,7 @@
     <section class="section-md">
     <div class="container mt-0">
         <h2 class="text-left mb-4"><strong>Daftar Dokter di Atma Hospital sesuai dengan kebutuhan Anda</strong></h2>
-        <div class="row">
+        <div class="row" id="jadwal-row">
             <div class="col-md-15 mb-2">
                 <div class="card d-flex flex-row p-2 mt-2" style="background-color: #EFEFEF; border-radius: 20px;">
                     <img src="https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1).jpg" class="card-img-left" alt="d1" style="object-fit:cover; width: 210px; height: 232px; margin: 10px;">
@@ -57,7 +57,6 @@
                             </tbody>
                         </table>
                         <a href="/List-Dokter/Narji-Sandoro" class="btn btn-custom">Lihat Profil</a>
-                        <a href="/medicalcheckup" class="btn btn-custom">Check Up</a>
                     </div>
                 </div>
 
@@ -91,12 +90,69 @@
                             </tbody>
                         </table>
                         <a href="/List-Dokter/Sandoro-Narji" class="btn btn-custom">Lihat Profil</a>
-                        <a href="/medicalcheckup" class="btn btn-custom">Check Up</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="d-flex justify-content-center mt-4">
+        <button class="btn btn-warning px-5 py-2" id="load-more-btn">LOAD MORE</button>
+    </div>
 </section>
 </main>
 @include('includes.footer')
+
+<script>
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    let isExpanded = false;
+
+    loadMoreBtn.addEventListener('click', function () {
+        if (!isExpanded) {
+            const newCards = `
+                <div class="card d-flex flex-row p-2 mt-2 additional-jadwal" style="background-color: #EFEFEF; border-radius: 20px;">
+                    <img src="https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1).jpg" class="card-img-left" alt="d1" style="object-fit:cover; width: 210px; height: 232px; margin: 10px;">
+                    <div class="card-body">
+                        <h5 class="card-title">dr. Sandoro, Sp.PD.</h5>
+                        <span class="badge badge-specialization">Penyakit Dalam</span>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Senin</th>
+                                    <th>Selasa</th>
+                                    <th>Rabu</th>
+                                    <th>Kamis</th>
+                                    <th>Jumat</th>
+                                    <th>Sabtu</th>
+                                    <th>Minggu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>10:00 - 15:00</td>
+                                <td>11:00 - 16:00</td>
+                                <td>10:00 - 14:00</td>
+                                <td>10:00 - 14:00</td>
+                                <td>10:00 - 13:00</td>
+                                <td>10:00 - 15:00</td>
+                                <td>09:00 - 12:00</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a href="/List-Dokter/Sandoro-Narji" class="btn btn-custom">Lihat Profil</a>
+                    </div>
+                </div>
+            `;
+            document.getElementById('jadwal-row').insertAdjacentHTML('beforeend', newCards);
+
+            // loadMoreBtn.textContent = 'MINIMIZE';
+            // isExpanded = true;
+        } 
+        // else {
+        //     const additionalJadwal = document.querySelectorAll('.additional-jadwal');
+        //     additionalJadwal.forEach(news => news.remove());
+
+        //     loadMoreBtn.textContent = 'LOAD MORE';
+        //     isExpanded = false;
+        // }
+    });
+</script>

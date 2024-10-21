@@ -62,55 +62,6 @@
             <button class="btn btn-warning px-5 py-2" id="load-more-btn">LOAD MORE</button>
         </div>
     </div>
-
-    <div class="quick-link-hospital desktop">
-		<div class="container">
-			<div class="wrap-all-hospital">
-				<div class="hospital-items">
-					<a href="/infojanji" class="card card-style card-hospital">
-						<div class="hospital-content">
-							<div class="hospital-img">
-								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/infoant.svg') }}">
-							</div>
-							<h3 class="hospital-title section-description-md">INFO ANTRIAN</h3>
-						</div>
-					</a>
-				</div>
-
-				<div class="hospital-items">
-					<a href="/janji" target="_blank" class="card card-style card-hospital">
-						<div class="hospital-content">
-							<div class="hospital-img">
-								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/antrian.svg') }}">
-							</div>
-							<h3 class="hospital-title section-description-md">TAMBAH ANTRIAN</h3>
-						</div>
-					</a>
-				</div>
-
-				<div class="hospital-items">
-					<a href="/janji" class="card card-style card-hospital">
-						<div class="hospital-content">
-							<div class="hospital-img">
-								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">
-							</div>
-							<h3 class="hospital-title section-description-md">MEDICAL CHECK UP</h3>
-						</div>
-					</a>
-				</div>
-				<div class="hospital-items">
-					<a href="" class="card card-style card-hospital">
-						<div class="hospital-content">
-							<div class="hospital-img">
-								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">
-							</div>
-							<h3 class="hospital-title section-description-md">INFO MEDICAL CHECK UP</h3>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
 </main>
 
 @include('includes.footer')
@@ -169,14 +120,15 @@
             `;
             document.getElementById('news-row').insertAdjacentHTML('beforeend', newCards);
 
-            loadMoreBtn.textContent = 'MINIMIZE';
-            isExpanded = true;
-        } else {
-            const additionalNews = document.querySelectorAll('.additional-news');
-            additionalNews.forEach(news => news.remove());
+            // loadMoreBtn.textContent = 'MINIMIZE';
+            // isExpanded = true;
+        } 
+        // else {
+        //     const additionalNews = document.querySelectorAll('.additional-news');
+        //     additionalNews.forEach(news => news.remove());
 
-            loadMoreBtn.textContent = 'LOAD MORE';
-            isExpanded = false;
-        }
+        //     loadMoreBtn.textContent = 'LOAD MORE';
+        //     isExpanded = false;
+        // }
     });
 </script>

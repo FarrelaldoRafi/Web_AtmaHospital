@@ -99,7 +99,7 @@
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
-                <div class="col-lg-6 d-flex justify-content-lg-end mt-3 mt-lg-0 mb-2"> <!-- Menjaga gambar sejajar ke kanan pada layar besar -->
+                <div class="col-lg-6 d-flex justify-content-lg-end mt-3 mt-lg-0 mb-2">
                     <img src="https://primayahospital.b-cdn.net/wp-content/uploads/2022/08/Primaya-Hospital-Depok.jpg.webp" alt="Gambar Rumah Sakit" class="img-fluid rounded img-responsive">
                 </div>
             </div>
