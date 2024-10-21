@@ -1,41 +1,43 @@
 @include('includes.header')
 <main>
-        <div class="boxslider">
-            <div class="intro-section">
-                <div class="cards_box swiper">
-                    <div class="cards">
-                        <div class="swiper-wrapper">
-                            <section class="card_details swiper-slide">
-                                <div class="img-wrapper">
-                                    <img src="https://img.freepik.com/free-vector/flat-hospital-landing-page-template_23-2149613064.jpg" class="card_img">
-                                </div>
-                            </section>
-                            <section class="card_details swiper-slide">
-                                <div class="img-wrapper">
-                                    <img src="https://previews.123rf.com/images/teravector/teravector1912/teravector191200706/135594305-webpage-presents-information-about-high-quality-healthcare-at-new-modern-clinic-cartoon-professional.jpg" class="card_img">
-                                </div>
-                            </section>
-                            <section class="card_details swiper-slide">
-                                <div class="img-wrapper">
-                                    <img src="https://img.freepik.com/free-vector/flat-hospital-landing-page-template_23-2149613064.jpg" class="card_img">
-                                </div>
-                            </section>
-                            <section class="card_details swiper-slide">
-                                <div class="img-wrapper">
-                                    <img src="https://previews.123rf.com/images/teravector/teravector1912/teravector191200706/135594305-webpage-presents-information-about-high-quality-healthcare-at-new-modern-clinic-cartoon-professional.jpg" class="card_img">
-                                </div>
-                            </section>
-                        </div>
+    <div class="boxslider">
+        <div class="intro-section">
+            <div class="cards_box swiper">
+                <div class="cards">
+                    <div class="swiper-wrapper">
+                        <section class="card_details swiper-slide">
+                            <div class="img-wrapper">
+                                <img src="https://img.freepik.com/free-vector/flat-hospital-landing-page-template_23-2149613064.jpg" class="card_img">
+                            </div>
+                        </section>
+                        <section class="card_details swiper-slide">
+                            <div class="img-wrapper">
+                                <img src="https://previews.123rf.com/images/teravector/teravector1912/teravector191200706/135594305-webpage-presents-information-about-high-quality-healthcare-at-new-modern-clinic-cartoon-professional.jpg" class="card_img">
+                            </div>
+                        </section>
+                        <section class="card_details swiper-slide">
+                            <div class="img-wrapper">
+                                <img src="https://img.freepik.com/free-vector/flat-hospital-landing-page-template_23-2149613064.jpg" class="card_img">
+                            </div>
+                        </section>
+                        <section class="card_details swiper-slide">
+                            <div class="img-wrapper">
+                                <img src="https://previews.123rf.com/images/teravector/teravector1912/teravector191200706/135594305-webpage-presents-information-about-high-quality-healthcare-at-new-modern-clinic-cartoon-professional.jpg" class="card_img">
+                            </div>
+                        </section>
                     </div>
-                </div>        
-            </div>
-            <div class="swiper-button-next">
-                    <i class="fa-solid fa-angle-right"></i>
-            </div>     
-            <div class="swiper-button-prev">
-                    <i class="fa-solid fa-angle-left"></i>
-            </div>
+                </div>
+            </div>        
         </div>
+
+        <div class="swiper-button-next">
+            <i class="fa-solid fa-angle-right"></i>
+        </div>     
+        <div class="swiper-button-prev">
+            <i class="fa-solid fa-angle-left"></i>
+        </div>
+    </div>
+
 
 
     <div class="quick-link-hospital desktop">
@@ -47,39 +49,39 @@
 							<div class="hospital-img">
 								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/infoant.svg') }}">
 							</div>
-							<h3 class="hospital-title section-description-md">INFO ANTRIAN</h3>
+							<h3 class="hospital-title section-description-md">INFO ANTRIAN JANJI</h3>
 						</div>
 					</a>
 				</div>
 
 				<div class="hospital-items">
-					<a href="" target="_blank" class="card card-style card-hospital">
+					<a href="/janji" class="card card-style card-hospital">
 						<div class="hospital-content">
 							<div class="hospital-img">
 								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/antrian.svg') }}">
 							</div>
-							<h3 class="hospital-title section-description-md">TAMBAH ANTRIAN</h3>
+							<h3 class="hospital-title section-description-md">TAMBAH ANTRIAN JANJI</h3>
 						</div>
 					</a>
 				</div>
 
 				<div class="hospital-items">
-					<a href="" class="card card-style card-hospital">
+					<a href="/medicalcheckup" class="card card-style card-hospital">
 						<div class="hospital-content">
 							<div class="hospital-img">
-								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">
+								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/steto.svg') }}">
 							</div>
-							<h3 class="hospital-title section-description-md">WHATSAPP</h3>
+							<h3 class="hospital-title section-description-md">MEDICAL CHECK UP</h3>
 						</div>
 					</a>
 				</div>
 				<div class="hospital-items">
-					<a href="" class="card card-style card-hospital">
+					<a href="/infomcu" class="card card-style card-hospital">
 						<div class="hospital-content">
 							<div class="hospital-img">
-								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/wa.svg') }}">
+								<img class="img-fluid img-contain lazyload" src="{{ asset('icon/infomcu.svg') }}">
 							</div>
-							<h3 class="hospital-title section-description-md">WHATSAPP</h3>
+							<h3 class="hospital-title section-description-md">INFO MEDICAL CHECK UP</h3>
 						</div>
 					</a>
 				</div>
@@ -95,11 +97,11 @@
                     <h3 class="text-custom">Atma Hospital memiliki kenyamanan yang khas</h3>
                     <p>Dimulai dengan senyum ramah dari staf, empati dari perawat, dan dokter yang selalu siap untuk mendengarkan dan memberikan penjelasan tentang penyakit yang diderita pasien.</p>
                     <a class="custom-btn" href='#'">
-                        Temukan Layanan 
+                        Selengkapnya 
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
-                <div class="col-lg-6 d-flex justify-content-lg-end mt-3 mt-lg-0 mb-2"> <!-- Menjaga gambar sejajar ke kanan pada layar besar -->
+                <div class="col-lg-6 d-flex justify-content-lg-end mt-3 mt-lg-0 mb-2">
                     <img src="https://primayahospital.b-cdn.net/wp-content/uploads/2022/08/Primaya-Hospital-Depok.jpg.webp" alt="Gambar Rumah Sakit" class="img-fluid rounded img-responsive">
                 </div>
             </div>
@@ -115,7 +117,7 @@
                     </div>
                     <h5 class="feature-title">Tenaga Medis Profesional</h5>
                     <p class="feature-description">
-                        Sebagai salah satu rumah sakit besar di Yogyakarta, Atma Hospital membuka layanan Poliklinik Spesialis setiap saat, mulai pukul 08.00 WIB hingga 21.00 WIB.
+                        Rumah sakit kami memiliki beragam layanan dengan dokter-dokter terbaik dari berbagai lulusan sekolah berkualitas
                     </p>
                 </div>
                 <div class="col-md-3">
@@ -124,25 +126,25 @@
                     </div>
                     <h5 class="feature-title">Peralatan Medis Lengkap</h5>
                     <p class="feature-description">
-                        Atma Hospital selalu berinovasi dalam meningkatkan layanan untuk pasien. Hampir setiap tahun, Atma Hospital menghadirkan peralatan medis baru, modern dan canggih.
+                        Atma Hospital terus berinovasi menghadirkan layanan terbaik bagi pasien. Setiap tahun, kami memperbarui peralatan medis dengan teknologi modern dan canggih demi kualitas perawatan yang lebih optimal.
                     </p>
                 </div>
                 <div class="col-md-3">
                     <div class="feature-icon">
                         <i class="fas fa-file-medical-alt"></i>
                     </div>
-                    <h5 class="feature-title">Rekam Medis Elektronik</h5>
+                    <h5 class="feature-title">Fasilitas Nyaman</h5>
                     <p class="feature-description">
-                        Atma Hospital telah menerapkan Rekam Medis Elektronik, ini dapat meminimalkan kesalahan manusia yang tidak diinginkan dalam proses layanan rumah sakit.
+                    Atma Hospital menyediakan fasilitas ruang perawatan yang nyaman dan ramah pasien, dirancang untuk mendukung proses pemulihan secara optimal dengan lingkungan yang tenang dan berkualitas.
                     </p>
                 </div>
                 <div class="col-md-3">
                     <div class="feature-icon">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <h5 class="feature-title">24 Jam Emergency</h5>
+                    <h5 class="feature-title">Layanan 24 Jam</h5>
                     <p class="feature-description">
-                        Atma Hospital didukung oleh 35 Dokter Sub Spesialis, 111 Dokter Spesialis, 24 Dokter Umum, 7 Dokter Gigi Umum, Ratusan Perawat dan Paramedis Profesional di bidangnya.
+                        Atma Hospital, rumah sakit dengan layanan kesehatan profesional 24 jam, siap melayani kebutuhan medis Anda dengan cepat dan terpercaya, setiap hari tanpa henti.
                     </p>
                 </div>
             </div>
@@ -150,125 +152,58 @@
     </div>
 
     <div class="container mt-5">
-        <h2 class="text-left mb-3">Layanan</h2>
+        <h2 class="text-left mb-3">Layanan Kami</h2>
     </div>
     <div class="container">
         <div class="row" id="load_category_service">
-            <!-- Service 0 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
                     <a href="#service-0" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                         <span class="pattern-1"></span>
-                        <p class="text">Layanan Unggulan</p>
+                        <p class="text">Poliklinik</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
                     <div class="collapse" id="service-0">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/radiotherapy-center-rtc" class="service-link">Radiotherapy Center (RTC)</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/jih-kortex" class="service-link">JIH Kortex</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/jih-morula-bayi-tabung" class="service-link">JIH Morula (Bayi Tabung)</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://cardiacare.id/" class="service-link">JIH Cardiac</a>
+                                <a href="/List-Layanan/pemeriksaanDarah" class="service-link">Pemeriksaan Darah</a>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Service 1 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
                 <a href="#service-1" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                 <span class="pattern-1"></span>
-                        <p class="text">Gawat Darurat</p>
+                        <p class="text">Laboratorium</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
                     <div class="collapse" id="service-1">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/emergency-kids" class="service-link">Emergency Kids</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/layanan-ambulans" class="service-link">Layanan Ambulans</a>
-                            </div>
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/tentang-layanan-ugd" class="service-link">Tentang Layanan UGD</a>
+                                <a href="/List-Layanan/hematologi" class="service-link">Hematologi</a>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Service 2 -->
             <div class="col-6 col-md-4 mb-3">
                 <div class="flex-col service-item-area">
                 <a href="#service-2" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                 <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
+                        <p class="text">Radiologi</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
                     <div class="collapse" id="service-2">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                <a href="/List-Layanan/ct-scan" class="service-link">CT-Scan</a>
 
-            <!-- Service 3 -->
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
-                <a href="#service-3" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-3">
-                        <div class="service-body scrollablex">
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
-                <a href="#service-4" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-4">
-                        <div class="service-body scrollablex">
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
-                <a href="#service-5" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Layanan Gizi</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-5">
-                        <div class="service-body scrollablex">
-                            <div class="service-item">
-                                <a href="https://rs-jih.co.id/rsjih/service-detail/nutribest" class="service-link">Nutribest</a>
                             </div>
                         </div>
                     </div>
@@ -278,11 +213,12 @@
     </div>
 
 <div class="container mt-5">
-    <h2 class="text-left mb-3">Atma Update</h2>
+    <h2 class="text-left mb-3">Atma Hospital News</h2>
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="card d-flex flex-row">
-                <img src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; margin: 10px;">
+                <img src="https://www.bodrexin.com/public/content_images/Image_Artikel_2.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
+
                 <div class="card-body">
                     <h5 class="card-title">Atma Hospital mengadakan sesi Imunisasi Anak...</h5>
                     <p class="card-text"><small class="text-muted">17 September 2022</small></p>
@@ -292,7 +228,8 @@
         </div>
         <div class="col-md-6 mb-4">
             <div class="card d-flex flex-row">
-                <img src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; margin: 10px;">
+                <img src="https://www.keckmedicine.org/wp-content/uploads/2022/08/pancreatic-cancer-awareness-ribbon.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
+
                 <div class="card-body">
                     <h5 class="card-title">Atma Hospital Adakan Seminar Kanker Payudara...</h5>
                     <p class="card-text"><small class="text-muted">3 Oktober 2022</small></p>
@@ -302,7 +239,7 @@
         </div>
         <div class="col-md-6 mb-4">
             <div class="card d-flex flex-row">
-                <img src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; margin: 10px;">
+                <img src="https://smakstlouis1sby.sch.id/wp-content/uploads/2019/11/DSCF2873.jpg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
                 <div class="card-body">
                     <h5 class="card-title">Atma Hospital Gelar Bakti Sosial di Yogyakarta</h5>
                     <p class="card-text"><small class="text-muted">14 Februari 2023</small></p>
@@ -312,7 +249,7 @@
         </div>
         <div class="col-md-6 mb-4">
             <div class="card d-flex flex-row">
-                <img src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; margin: 10px;">
+                <img src="https://lan.go.id/wp-content/uploads/2022/04/5-3-1024x682.jpeg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px;margin: 10px;">
                 <div class="card-body">
                     <h5 class="card-title">Atma Hospital Mengadakan Donor Darah Massal</h5>
                     <p class="card-text"><small class="text-muted">1 November 2023</small></p>

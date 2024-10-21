@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="small-box bg-warning">
+            <div class="small-box bg-danger">
                 <div class="inner">
                     <h3>3</h3>
                     <p>Total Layanan</p>
@@ -41,10 +41,10 @@
             </div>
         </div>
         <div class="col">
-            <div class="small-box bg-danger">
+            <div class="small-box bg-primary">
                 <div class="inner">
                     <h3>1</h3>
-                    <p>Total Antrian</p>
+                    <p>Total Paket MCU</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-tasks"></i>
@@ -52,33 +52,32 @@
             </div>
         </div>
         <div class="col">
-            <div class="small-box bg-danger">
+            <div class="small-box bg-dark">
                 <div class="inner">
                     <h3>1</h3>
                     <p>Total Antrian</p>
                 </div>
                 <div class="icon">
-                    <i class="fas fa-tasks"></i>
+                    <i class="fas fa-user-group"></i>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="small-box bg-danger">
+            <div class="small-box bg-secondary">
                 <div class="inner">
                     <h3>1</h3>
-                    <p>Total Antrian</p>
+                    <p>Total Daftar MCU</p>
                 </div>
                 <div class="icon">
-                    <i class="fas fa-tasks"></i>
+                    <i class="fas fa-suitcase-medical"></i>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="table-responsive">
+    <div class="table-responsive mt-3">
         <h3>Pengguna</h3>
         <table class="table table-striped table-bordered">
-            <thead class="bg-primary text-white">
+            <thead class="bg-primary text-white text-center">
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
@@ -105,19 +104,11 @@
                     <td>Jl. Bahagia no 77</td>
                     <td>rockyg@gmail.com</td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Rocky Geram</td>
-                    <td>08562742281</td>
-                    <td>10 Januari 2004</td>
-                    <td>Jl. Bahagia no 77</td>
-                    <td>rockyg@gmail.com</td>
-                </tr>
             </tbody>
         </table>
     </div>
 
-    <div class="table-responsive mt-5">
+    <div class="table-responsive mt-3">
         <h3>Dokter</h3>
         <table class="table table-striped table-bordered">
             <thead class="bg-primary text-white text-center">
@@ -170,16 +161,16 @@
         </table>
     </div>
 
-    <div class="table-responsive mt-5">
+    <div class="table-responsive mt-3">
         <h3>Layanan</h3>
         <table class="table table-striped table-bordered">
             <thead class="bg-primary text-white text-center">
                 <tr>
-                    <th>No</th>
-                    <th>Nama Layanan</th>
-                    <th>Jenis</th>
-                    <th>Deskripsi</th>
-                    <th>Foto</th>
+                    <th class="align-middle">No</th>
+                    <th class="align-middle">Nama Layanan</th>
+                    <th class="align-middle">Jenis</th>
+                    <th class="align-middle">Deskripsi</th>
+                    <th class="align-middle">Foto</th>
                 </tr>
             </thead>
             <tbody>

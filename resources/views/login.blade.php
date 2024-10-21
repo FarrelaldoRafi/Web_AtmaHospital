@@ -9,7 +9,7 @@
 <body style="position: relative; 
         width: 100%;
         min-height: 100vh;
-        background-image: url('https://rs-jih.co.id/assets/bridge/img/bg-intro-2.png');
+        background-image: url('img/backlogin.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;">
@@ -34,8 +34,8 @@
                     <form action="{{ url('/login') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email address</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>

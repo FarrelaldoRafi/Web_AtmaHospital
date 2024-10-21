@@ -1,6 +1,14 @@
 @include('includes.header')
 
 <body>
+    <div class="container-fluid text-white text-left d-flex justify-content-center" 
+        style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
+        <div class="container d-flex align-items-center mt-5">
+            <div class="text-container mt-4 mx-auto" style="max-width: 650px;">
+                <h1 class="fw-bold">Profile Dokter</h1>
+            </div>
+        </div>
+    </div>
     <div class="container my-5" style="padding-top: 50px;">
         <div class="card shadow-lg p-4 " style="border-radius: 15px;">
             <div class="row g-0">

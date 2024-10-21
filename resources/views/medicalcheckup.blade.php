@@ -12,8 +12,8 @@
     <div class="container-fluid text-white text-left d-flex justify-content-center" 
         style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
         <div class="container d-flex align-items-center mt-5">
-            <div class="text-container mt-4" style="max-width: 650px;">
-                <h1 class="fw-bold">BUAT JANJI DOKTER</h1>
+            <div class="text-container mt-4 mx-auto" style="max-width: 650px;">
+                <h1 class="fw-bold">DAFTAR MEDICAL CHECK UP</h1>
             </div>
         </div>
     </div>
@@ -22,7 +22,6 @@
     <div class="container mx-auto">
         <div class="container justify-content-center fst-italic text-center p-0">
             <p>Pendaftaran antrian janji dokter dilakukan melalui website dengan mengisi formulir di bawah ini. 
-            <p>Pendaftaran antrian janji dokter hanya untuk layanan pribadi</p>
             <p>Bila terdapat kendala, silakan menghubungi kontak rumah sakit atau sosial media yang tertera di bawah</p>
         </div>
 
@@ -31,31 +30,18 @@
             <div class="container p-5" style="max-width: 800px; width: 100%;border-radius: 10px;">
                 <form id="formjanji">    
                     <div class="mb-3">
-                        <label for="spesialis" class="form-label fw-bold">Spesialis<span>*</span></label>
-                        <select class="form-control" id="spesialis" required>
-                            <option value="" selected hidden>Pilih Spesialis</option>
-                            <option value="spesialis1">Spesialis 1</option>
-                            <option value="spesialis2">Spesialis 2</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="dokter" class="form-label fw-bold">Dokter<span>*</span></label>
-                        <select class="form-control" id="dokter" required>
-                            <option value="" selected hidden>Pilih Dokter</option>
-                            <option value="narjisandoro">dr. Narji Sandoro, Sp.PD.</option>
-                            <option value="sandoronarji">dr. Sandoro Narji, Sp.PD.</option>
-                        </select>
+                        <label for="namalengkap" class="form-label fw-bold">Nama Pasien<span>*</span></label>
+                        <input type="text" class="form-control" id="namalengkap" placeholder="Masukkan Pasien" required>
                     </div>
     
                     <div class="mb-3">
-                        <label for="tanggalantrian" class="form-label fw-bold">Tanggal Antrian<span>*</span></label>
-                        <input type="date" class="form-control" id="tanggalantrian" placeholder="dd/mm/yyyy" required>
+                        <label for="tanggallahir" class="form-label fw-bold">Tanggal Lahir<span>*</span></label>
+                        <input type="date" class="form-control" id="tanggallahir" placeholder="dd/mm/yyyy" required>
                     </div>
     
                     <div class="mb-3">
-                        <label for="namalengkap" class="form-label fw-bold">Nama Lengkap<span>*</span></label>
-                        <input type="text" class="form-control" id="namalengkap" placeholder="Masukkan Nama Lengkap anda" required>
+                        <label for="namalengkap" class="form-label fw-bold">No. Telepon<span>*</span></label>
+                        <input type="text" class="form-control" id="namalengkap" placeholder="Masukkan Nomor Telepon Anda" required>
                     </div>
                     
                     <div class="mb-3">
@@ -68,7 +54,7 @@
                                 </label>
                             </div>
                             <div class="form-check mx-5">
-                                <input class="form-check-input" type="radio" name="jeniskelamin" id="perempuan" value="lakilaki">
+                                <input class="form-check-input" type="radio" name="jeniskelamin" id="perempuan" value="perempuan">
                                 <label class="form-check-label" for="perempuan">
                                     Perempuan
                                 </label>
@@ -77,19 +63,33 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="tanggallahir" class="form-label fw-bold">Tanggal Lahir<span>*</span></label>
-                        <input type="date" class="form-control" id="tanggallahir" placeholder="dd/mm/yyyy" required>
-                    </div>                    
+                        <label for="alamat" class="form-label fw-bold">Alamat<span>*</span></label>
+                        <input type="alamat" class="form-control" id="alamat" placeholder="Masukkan Alamat Anda" required>
+                    </div>                  
 
                     <div class="mb-3">
-                        <label for="email" class="form-label fw-bold">Email<span>*</span></label>
-                        <input type="email" class="form-control" id="email" placeholder="Masukkan Email Anda" required>
+                        <label for="riwayatPenyakit" class="form-label fw-bold">Riwayat Penyakit<span>*</span></label>
+                        <textarea id="riwayatPenyakit" class="form-control" placeholder="Masukkan Riwayat Penyakit Anda" required></textarea>
                     </div>
     
                     <div class="mb-3">
-                        <label for="telepon" class="form-label fw-bold">Nomor Telepon<span>*</span></label>
-                        <input type="tel" class="form-control" id="telepon" placeholder="Masukkan Nomor Telepon Anda" required>
+                        <label for="tanggalantrian" class="form-label fw-bold">Tanggal Periksa<span>*</span></label>
+                        <input type="date" class="form-control" id="tanggalantrian" placeholder="dd/mm/yyyy" required>
+                    </div>   
+
+                    <div class="mb-3">
+                        <label for="spesialis" class="form-label fw-bold">Pilih Paket<span>*</span></label>
+                        <select class="form-control" id="spesialis" required>
+                            <option value="" selected hidden>Pilih Paket</option>
+                            <option value="spesialis1">Paket Basic</option>
+                            <option value="spesialis2">Paket Premium</option>
+                        </select>
                     </div>
+
+                    <div class="mb-3">
+                        <label for="harga" class="form-label fw-bold">Harga<span>*</span></label>
+                        <input type="harga" class="form-control" placeholder="Rp..." id="harga" required readonly>
+                    </div>  
                     
                     <div class="form-check my-3">
                         <input class="form-check-input" type="checkbox" value="true" id="checksnk" required>
@@ -99,7 +99,7 @@
                     </div>
 
                     <div class="d-flex justify-content-center" style="padding-top: 5px;">
-                        <button type="submit" class="btn btn-primary px-4 py-2" data-bs-dismiss="modal">Buat Janji Antrian</button>
+                        <button type="submit" class="btn btn-primary px-4 py-2" data-bs-dismiss="modal">Buat Pendaftaran</button>
                     </div>                                             
                 </form>
             </div>

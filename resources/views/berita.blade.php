@@ -120,14 +120,15 @@
             `;
             document.getElementById('news-row').insertAdjacentHTML('beforeend', newCards);
 
-            loadMoreBtn.textContent = 'MINIMIZE';
-            isExpanded = true;
-        } else {
-            const additionalNews = document.querySelectorAll('.additional-news');
-            additionalNews.forEach(news => news.remove());
+            // loadMoreBtn.textContent = 'MINIMIZE';
+            // isExpanded = true;
+        } 
+        // else {
+        //     const additionalNews = document.querySelectorAll('.additional-news');
+        //     additionalNews.forEach(news => news.remove());
 
-            loadMoreBtn.textContent = 'LOAD MORE';
-            isExpanded = false;
-        }
+        //     loadMoreBtn.textContent = 'LOAD MORE';
+        //     isExpanded = false;
+        // }
     });
 </script>
