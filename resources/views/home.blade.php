@@ -217,7 +217,7 @@
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="card d-flex flex-row">
-                <img src="https://www.bodrexin.com/public/content_images/Image_Artikel_2.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
+                <img src="https://www.bodrexin.com/public/content_images/Image_Artikel_2.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;object-fit: cover;">
 
                 <div class="card-body">
                     <h5 class="card-title">Atma Hospital mengadakan sesi Imunisasi Anak...</h5>
@@ -228,7 +228,7 @@
         </div>
         <div class="col-md-6 mb-4">
             <div class="card d-flex flex-row">
-                <img src="https://www.keckmedicine.org/wp-content/uploads/2022/08/pancreatic-cancer-awareness-ribbon.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
+                <img src="https://www.keckmedicine.org/wp-content/uploads/2022/08/pancreatic-cancer-awareness-ribbon.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;object-fit: cover;">
 
                 <div class="card-body">
                     <h5 class="card-title">Atma Hospital Adakan Seminar Kanker Payudara...</h5>
@@ -239,7 +239,7 @@
         </div>
         <div class="col-md-6 mb-4">
             <div class="card d-flex flex-row">
-                <img src="https://smakstlouis1sby.sch.id/wp-content/uploads/2019/11/DSCF2873.jpg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
+                <img src="https://smakstlouis1sby.sch.id/wp-content/uploads/2019/11/DSCF2873.jpg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px; margin: 10px;object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Atma Hospital Gelar Bakti Sosial di Yogyakarta</h5>
                     <p class="card-text"><small class="text-muted">14 Februari 2023</small></p>
@@ -249,7 +249,7 @@
         </div>
         <div class="col-md-6 mb-4">
             <div class="card d-flex flex-row">
-                <img src="https://lan.go.id/wp-content/uploads/2022/04/5-3-1024x682.jpeg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px;margin: 10px;">
+                <img src="https://lan.go.id/wp-content/uploads/2022/04/5-3-1024x682.jpeg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px;margin: 10px;object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Atma Hospital Mengadakan Donor Darah Massal</h5>
                     <p class="card-text"><small class="text-muted">1 November 2023</small></p>

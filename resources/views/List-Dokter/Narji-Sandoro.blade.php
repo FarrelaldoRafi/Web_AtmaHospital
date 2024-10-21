@@ -42,7 +42,7 @@
                         </p>
                         <div class="contact">
                             <a href="tel:+6285115242432" class="btn btn-success">
-                                <i class="bi bi-whatsapp"></i> 085115242432
+                                <i class="fa-brands fa-whatsapp fa-lg"></i>  085115242432
                             </a>
                         </div>
                     </div>

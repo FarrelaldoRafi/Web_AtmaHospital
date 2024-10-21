@@ -8,7 +8,7 @@
 
     <div class="row text-center my-4 justify-content-center">
         <div class="col-md-3">
-            <div class="small-box bg-warning">
+            <div class="small-box bg-danger">
                 <div class="inner">
                     <h3>3</h3>
                     <p>Total Layanan</p>
