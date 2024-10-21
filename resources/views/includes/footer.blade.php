@@ -74,7 +74,7 @@
                                 <p class="footer-title">TENTANG KAMI</p>
 
                                 <ul class="footer-list">
-                                    <li><a href="" target="_blank" class="text">Profil Rumah Sakit</a></li>
+                                    <li><a href="/" target="_blank" class="text">Profil Rumah Sakit</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -83,10 +83,10 @@
                             <div class="footer-column">
                                 <p class="footer-title">LAINNYA</p>
                                 <ul class="footer-list">
-                                    <li><a href="" class="text">Berita</a></li>
-                                    <li><a href="" class="text">Layanan</a></li>
-                                    <li><a href="" class="text">Jadwal Dokter</a></li>
-                                    <li><a href="" class="text">Kontak</a></li>
+                                    <li><a href="/berita" class="text">Berita</a></li>
+                                    <li><a href="/layanan" class="text">Layanan</a></li>
+                                    <li><a href="/jadwal" class="text">Jadwal Dokter</a></li>
+                                    <li><a href="/kontak" class="text">Kontak</a></li>
                                 </ul>
                             </div>
                         </div>

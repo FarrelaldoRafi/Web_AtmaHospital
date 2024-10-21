@@ -38,9 +38,7 @@
                     <!-- Welcome and Register Text -->
                     <h2 class="text-center">Selamat Datang</h2>
                     <p class="text-center">Register</p>
-
-                    <!-- Register Form -->
-                    <form>
+                    <form action="{{ url('/') }}">
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Nama Lengkap</label>
                             <input type="text" class="form-control" id="fullname" placeholder="Masukkan nama lengkap">
