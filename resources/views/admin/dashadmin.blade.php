@@ -98,12 +98,12 @@
                     <td>rockyg@gmail.com</td>
                 </tr>
                 <tr>
-                    <td>1</td>
-                    <td>Rocky Geram</td>
-                    <td>08562742281</td>
-                    <td>10 Januari 2004</td>
-                    <td>Jl. Bahagia no 77</td>
-                    <td>rockyg@gmail.com</td>
+                    <td>2</td>
+                    <td>Richard Albertinus N</td>
+                    <td>08558892742</td>
+                    <td>29 Mei 2001</td>
+                    <td>Jl. Kemuning no 12</td>
+                    <td>richard@gmail.com</td>
                 </tr>
             </tbody>
         </table>
@@ -126,7 +126,7 @@
                     <td class="text-center">1</td>
                     <td>dr. Narji Sandoro, Sp.PD</td>
                     <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Doctor Image">
+                        <img src="{{asset('img\dokter1.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Penyakit Dalam</td>
                     <td>085115242432</td>
@@ -135,7 +135,7 @@
                     <td class="text-center">2</td>
                     <td>dr. Surya Martono, Sp.JP</td>
                     <td class="text-center">
-                        <img src="path/to/image2.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Doctor Image">
+                        <img src="{{asset('img\dokter2.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Jantung</td>
                     <td>085564721234</td>
@@ -144,7 +144,7 @@
                     <td class="text-center">3</td>
                     <td>drg. Susi Surusi, Sp.KGA</td>
                     <td class="text-center">
-                        <img src="path/to/image3.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Doctor Image">
+                        <img src="{{asset('img\dokter3.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Penyakit Dalam</td>
                     <td>081572899012</td>
@@ -153,7 +153,7 @@
                     <td class="text-center">4</td>
                     <td>dr. Faiz Farozi, Sp.OT</td>
                     <td class="text-center">
-                        <img src="path/to/image4.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
+                        <img src="{{asset('img\dokter4.png')}}" class="img-fluid" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Jantung</td>
                     <td>085775620091</td>
@@ -179,27 +179,27 @@
                     <td class="text-center">1</td>
                     <td>Pemeriksaan Darah</td>
                     <td>Laboratorium</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestias perferendis esse laudantium alias optio sequi corrupti minus voluptas! Praesentium, porro. Ratione consectetur blanditiis quae qui pariatur odit laudantium quasi!</td>
+                    <td>Laboratorium Pemeriksaan Darah di Atma Hospital menawarkan berbagai layanan tes darah untuk mendukung diagnosis dan perawatan pasien....</td>
                     <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
+                        <img src="{{asset('img\cekDarah.png')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center">1</td>
-                    <td>Pemeriksaan Darah</td>
-                    <td>Laboratorium</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestias perferendis esse laudantium alias optio sequi corrupti minus voluptas! Praesentium, porro. Ratione consectetur blanditiis quae qui pariatur odit laudantium quasi!</td>
+                    <td class="text-center">2</td>
+                    <td>CT-SCAN</td>
+                    <td>Radiologi</td>
+                    <td>Unit CT-Scan di Atma Hospital menawarkan layanan pencitraan medis yang canggih untuk mendukung diagnosis dan perawatan pasien dengan berbagai kondisi medis....</td>
                     <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
+                        <img src="{{asset('img\ct-scan.jpg')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center">1</td>
-                    <td>Pemeriksaan Darah</td>
-                    <td>Laboratorium</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestias perferendis esse laudantium alias optio sequi corrupti minus voluptas! Praesentium, porro. Ratione consectetur blanditiis quae qui pariatur odit laudantium quasi!</td>
+                    <td class="text-center">3</td>
+                    <td>Pemeriksaan Psikologi</td>
+                    <td>Poliklinik</td>
+                    <td>Poliklinik Psikologi di Atma Hospital menawarkan berbagai layanan pemeriksaan psikologis yang bertujuan untuk mengevaluasi kesehatan mental dan emosi pasien...</td>
                     <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
+                        <img src="{{asset('img\pemeriksaanPsikologi.png')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
                     </td>
                 </tr>
             </tbody>

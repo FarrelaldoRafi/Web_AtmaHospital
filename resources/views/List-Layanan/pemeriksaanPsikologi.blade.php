@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemeriksaan Darah</title>
 </head>
 
 <main>
@@ -12,7 +11,7 @@
         <div class="container d-flex align-items-center mt-5">
             <div class="text-container mt-4" style="max-width: 650px;">
                 <h1 class="fw-bold">TENTANG POLIKLINIK</h1>
-                <h3>Pemeriksaan Darah</h3>
+                <h3>PEMERIKSAAN PSIKOLOGI</h3>
             </div>
         </div>
     </div>
@@ -20,13 +19,13 @@
     <section class="services-excellent section-md pb-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <p>Laboratorium Pemeriksaan Darah di Atma Hospital menawarkan berbagai layanan tes darah untuk mendukung diagnosis dan perawatan pasien. </p>
-                    <p>Layanan ini mencakup tes cek gula darah, yang digunakan untuk memantau kadar glukosa dalam tubuh, serta tes koagulasi darah, yang penting untuk mengevaluasi kemampuan pembekuan darah pasien.</p>
-                    <p>Selain itu, laboratorium ini juga menyediakan berbagai tes lain yang membantu dalam mendeteksi kondisi medis seperti infeksi, anemia, gangguan fungsi hati, dan penyakit metabolik lainnya. Laboratorium Atma Hospital didukung oleh tenaga medis profesional dan teknologi terkini untuk memastikan hasil yang akurat dan cepat.</p>
+            <div class="col-md-6"> 
+                    <p>Poliklinik Psikologi di Atma Hospital menawarkan berbagai layanan pemeriksaan psikologis yang bertujuan untuk mengevaluasi kesehatan mental dan emosi pasien.</p>
+                    <p>Layanan ini mencakup tes kepribadian, tes intelegensi, dan evaluasi psikologis mendalam untuk mendeteksi gangguan kecemasan, depresi, gangguan stres pasca trauma, serta masalah mental lainnya. Selain itu, pemeriksaan ini juga bermanfaat dalam mendukung diagnosis gangguan perkembangan dan perilaku, seperti autisme dan ADHD.</p>
+                    <p>Didukung oleh psikolog profesional dan metode evaluasi terkini, Poliklinik Psikologi Atma Hospital berkomitmen memberikan hasil yang akurat dan solusi yang tepat untuk membantu meningkatkan kesehatan mental pasien.</p> 
                 </div>
                 <div class="col-md-6">
-                    <img src="{{asset('img/cekDarah.png') }}" alt="Pemeriksaan Darah" style="width: 100%; height: 80%;">
+                    <img src="{{asset('img/pemeriksaanPsikologi.png') }}" style="width: 100%; height: 80%;">
                 </div>
             </div>
         </div>
