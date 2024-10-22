@@ -93,7 +93,6 @@
                     <td class="text-center">
                         <img src="path/to/image1.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
                     </td>
-
                     <td class="text-center">
                         <span class="d-flex">
                             <a href="#">
@@ -113,7 +112,6 @@
                     <td class="text-center">
                         <img src="path/to/image1.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
                     </td>
-
                     <td class="text-center">
                         <span class="d-flex">
                             <a href="#">

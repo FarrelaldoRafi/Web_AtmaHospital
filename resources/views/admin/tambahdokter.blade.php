@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container-fluid pt-1">
-
     <div class="d-flex justify-content-center align-items-center my-4">
         <h1>DOKTER</h1>
     </div>
@@ -22,7 +21,6 @@
     </div>
 
     <div class="table-responsive">
-
         <div class="container d-flex justify-content-center">
             <div class="border p-4 mb-4" style="border-radius: 15px; border: 2px solid #6f42c1; width: 80%;"> <!-- Mengatur lebar form agar lebih pas di tengah -->
                 <form>
@@ -76,7 +74,6 @@
                     </td>
                     <td>Penyakit Dalam</td>
                     <td>085115242432</td>
-
                     <td class="text-center">
                         <span class="d-flex justify-content-center align-items-center">
                             <a href="#" class="me-3">

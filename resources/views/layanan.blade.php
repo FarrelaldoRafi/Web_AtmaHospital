@@ -27,7 +27,6 @@
                                 <div class="service-item">
                                     <a href="/List-Layanan/pemeriksaanDarah" class="service-link">Pemeriksaan Darah</a>
                                 </div>
-
                             </div>
                         </div>
                     </div>
