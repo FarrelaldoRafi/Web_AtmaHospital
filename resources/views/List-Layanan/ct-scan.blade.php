@@ -34,8 +34,8 @@
 
     <div class="d-flex align-items-center mt-4">
         <div class="container">
-            <h2 class="text-muted-small ms-3">GET IN TOUCH</h2>
-            <h2 class="mb-3 ms-3">Lebih Dekat dengan Atma Hospital</h2>
+            <h2 class="text-muted-small ms-3 hide-on-mobile">GET IN TOUCH</h2>
+            <h2 class="mb-3 ms-3 hide-on-mobile">Lebih Dekat dengan Atma Hospital</h2>
             <div class="quick-link-hospital desktop">
                 <div class="container">
                     <div class="wrap-all-hospital">

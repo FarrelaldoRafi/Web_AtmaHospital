@@ -40,9 +40,9 @@
                         <div class="d-flex">
                             <select class="form-select me-2" id="layanan" name="layanan" style="width: 100%;">
                                 <option value="" selected disabled>Pilih Layanan</option>
+                                <option value="pemeriksaan psikologi">Pemeriksaan Psikologi</option>
                                 <option value="pemeriksaan darah">Pemeriksaan Darah</option>
-                                <option value="rontgen">Rontgen (X-ray)</option>
-                                <option value="pemeriksaan fisik">Pemeriksaan Fisik</option>
+                                <option value="ct-scan">CT-Scan</option>
                             </select>
                             <button type="button" class="btn btn-primary">Add</button>
                         </div>
