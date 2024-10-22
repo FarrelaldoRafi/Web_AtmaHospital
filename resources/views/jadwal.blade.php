@@ -1,4 +1,11 @@
 @include('includes.header')
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Dokter</title>
+</head>
+
 <main>
     <div class="container-fluid text-white text-center d-flex justify-content-center align-items-center mt-5" style="height: 50vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center";>
         <div class="container bg-white shadow p-4" style="max-width: 1000px; border-radius: 30px; z-index: 2;">

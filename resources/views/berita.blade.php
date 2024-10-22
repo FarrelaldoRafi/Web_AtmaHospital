@@ -1,5 +1,11 @@
 @include('includes.header')
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita</title>
+</head>
+
 <main>
     <div class="container-fluid text-white text-left d-flex justify-content-center"style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
         <div class="container d-flex align-items-center mt-5">

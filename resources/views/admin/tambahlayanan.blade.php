@@ -8,7 +8,7 @@
 
     <div class="row text-center my-4 justify-content-center">
         <div class="col-md-3">
-            <div class="small-box bg-warning">
+            <div class="small-box bg-danger">
                 <div class="inner">
                     <h3>3</h3>
                     <p>Total Layanan</p>
@@ -31,7 +31,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="jenis" class="form-label">Jenis</label>
-                        <input type="text" class="form-control" id="jenis" placeholder="Jenis Layanana">
+                        <select class="form-select me-2" id="jenis" name="jenis" style="width: 100%;">
+                            <option value="" selected disabled>Pilih Layanan</option>
+                            <option value="laboratorium">Laboratorium</option>
+                            <option value="poliklinik">Poliklinik</option>
+                            <option value="radiologi">Radiologi</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
@@ -55,7 +60,7 @@
     <div class="table-responsive mt-3">
         <h3>Layanan</h3>
         <table class="table table-striped table-bordered">
-            <thead class="bg-primary text-white text-center">
+            <thead class="bg-danger text-white text-center">
                 <tr>
                     <th class="align-middle">No</th>
                     <th class="align-middle">Nama Layanan</th>

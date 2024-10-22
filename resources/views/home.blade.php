@@ -1,4 +1,11 @@
 @include('includes.header')
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atma Hospital</title>
+</head>
+
 <main>
     <div class="boxslider">
         <div class="intro-section">
@@ -96,7 +103,7 @@
                 <div class="col-lg-6">
                     <h3 class="text-custom">Atma Hospital memiliki kenyamanan yang khas</h3>
                     <p>Dimulai dengan senyum ramah dari staf, empati dari perawat, dan dokter yang selalu siap untuk mendengarkan dan memberikan penjelasan tentang penyakit yang diderita pasien.</p>
-                    <a class="custom-btn" href='#'">
+                    <a class="custom-btn" href='/tentangkami'">
                         Selengkapnya 
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -166,7 +173,7 @@
                     <div class="collapse" id="service-0">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="/List-Layanan/pemeriksaanDarah" class="service-link">Pemeriksaan Darah</a>
+                                <a href="/List-Layanan/pemeriksaanPsikologi" class="service-link">Pemeriksaan Psikologi</a>
                             </div>
                         </div>
                     </div>
@@ -180,10 +187,10 @@
                         <p class="text">Laboratorium</p>
                         <div class="next-desc">Cari tahu informasinya</div>
                     </a>
-                    <div class="collapse" id="service-1">
+                    <div class="collapse" id="service-0">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="/List-Layanan/hematologi" class="service-link">Hematologi</a>
+                                <a href="/List-Layanan/pemeriksaanDarah" class="service-link">Pemeriksaan Darah</a>
                             </div>
                         </div>
                     </div>

@@ -78,14 +78,14 @@
     <div class="table-responsive mt-3">
         <h3>Pengguna</h3>
         <table class="table table-striped table-bordered">
-            <thead class="bg-primary text-white text-center">
+            <thead class="text-white text-center bg-info">
                 <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>No Telepon</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Alamat</th>
-                    <th>Email</th>
+                    <th class="align-middle">No</th>
+                    <th class="align-middle">Nama</th>
+                    <th class="align-middle">No Telepon</th>
+                    <th class="align-middle">Tanggal Lahir</th>
+                    <th class="align-middle">Alamat</th>
+                    <th class="align-middle">Email</th>
                 </tr>
             </thead>
             <tbody>
@@ -112,13 +112,13 @@
     <div class="table-responsive mt-3">
         <h3>Dokter</h3>
         <table class="table table-striped table-bordered">
-            <thead class="bg-primary text-white text-center">
+            <thead class="bg-success text-white text-center">
                 <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Gambar</th>
-                    <th>Spesialis</th>
-                    <th>No Telepon</th>
+                    <th class="align-middle">No</th>
+                    <th class="align-middle">Nama</th>
+                    <th class="align-middle">Gambar</th>
+                    <th class="align-middle">Spesialis</th>
+                    <th class="align-middle">No Telepon</th>
                 </tr>
             </thead>
             <tbody>
@@ -165,7 +165,7 @@
     <div class="table-responsive mt-3">
         <h3>Layanan</h3>
         <table class="table table-striped table-bordered">
-            <thead class="bg-primary text-white text-center">
+            <thead class="bg-danger text-white text-center">
                 <tr>
                     <th class="align-middle">No</th>
                     <th class="align-middle">Nama Layanan</th>

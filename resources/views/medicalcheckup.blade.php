@@ -1,5 +1,12 @@
 
 @include('includes.header')
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Check Up</title>
+</head>
+
 <style>
     p{
         margin: 0;
@@ -12,7 +19,7 @@
     <div class="container-fluid text-white text-left d-flex justify-content-center" 
         style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
         <div class="container d-flex align-items-center mt-5">
-            <div class="text-container mt-4 mx-auto" style="max-width: 650px;">
+            <div class="text-container mt-4" style="max-width: 650px;">
                 <h1 class="fw-bold">DAFTAR MEDICAL CHECK UP</h1>
             </div>
         </div>
@@ -21,12 +28,12 @@
     <section class="services-excellent section-md pb-5">
     <div class="container mx-auto">
         <div class="container justify-content-center fst-italic text-center p-0">
-            <p>Pendaftaran antrian janji dokter dilakukan melalui website dengan mengisi formulir di bawah ini. 
+            <p>Pendaftaran medical check up dilakukan melalui website dengan mengisi formulir di bawah ini. 
             <p>Bila terdapat kendala, silakan menghubungi kontak rumah sakit atau sosial media yang tertera di bawah</p>
         </div>
 
         <div class="container d-flex my-5 align-items-center mx-auto flex-column" style="padding-top: 20px;">
-            <h1><strong>ISI FORMULIR ANTRIAN</strong></h1>
+            <h1><strong>ISI FORMULIR PENDAFTARAN</strong></h1>
             <div class="container p-5" style="max-width: 800px; width: 100%;border-radius: 10px;">
                 <form id="formjanji">    
                     <div class="mb-3">

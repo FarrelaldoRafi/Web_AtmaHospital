@@ -3,21 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-
-Route::post('/profile/update', function (Request $request) {
-    $request->validate([
-        'profile_picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    ]);
-
-    if ($request->hasFile('profile_picture')) {
-        $file = $request->file('profile_picture');
-        $path = $file->store('profile_pictures', 'public');
-
-        session(['user.profile_picture' => $path]);
-    }
-
-    return redirect('/profile')->with('success', 'Profile updated successfully.');
-});
+use Illuminate\Support\Facades\Storage;
 
 Route::get('/', function () {
     return view('home');
@@ -41,6 +27,11 @@ Route::post('/login', function (Request $request) {
     if ($credentials['username'] === 'user1' && $credentials['password'] === 'password') {
         session(['user' => [
             'name' => 'User',
+            'username' => 'User1',
+            'email' => 'User1@gmail.com',
+            'phone' => 1234567890,
+            'dob' => '1990-01-01',
+            'address' => 'Jl. Abcdef No.999',
             'role' => 'user'
         ]]);
         return redirect('/');
@@ -53,7 +44,62 @@ Route::post('/login', function (Request $request) {
     }
 });
 
+Route::post('/profile/update', function (Request $request) {
+    $response = ['success' => false];
+    
+    try {
+        $currentUser = session('user', []);
+        
+        // Handle profile picture upload
+        if ($request->hasFile('profile_picture')) {
+            $file = $request->file('profile_picture');
+            
+            if ($file->isValid()) {
+                // Delete old profile picture if exists
+                if (isset($currentUser['profile_picture']) && Storage::disk('public')->exists($currentUser['profile_picture'])) {
+                    Storage::disk('public')->delete($currentUser['profile_picture']);
+                }
+                
+                // Store new file with unique name
+                $path = $file->store('profile_pictures', 'public');
+                
+                // Update user data with new profile picture
+                $currentUser['profile_picture'] = $path;
+                
+                // Add image URL to response
+                $response['image_url'] = asset('storage/' . $path);
+            }
+        }
+        
+        // Update user data
+        $userData = [
+            'name' => $request->input('fullName'),
+            'username' => $request->input('username'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'dob' => $request->input('dob'),
+            'address' => $request->input('address')
+        ];
+        
+        // Merge and store in session
+        session(['user' => array_merge($currentUser, $userData)]);
+        
+        $response['success'] = true;
+        
+    } catch (\Exception $e) {
+        $response['error'] = $e->getMessage();
+    }
+    
+    return response()->json($response);
+});
+
+// Logout route modification
 Route::get('/logout', function () {
+    // Delete profile picture if exists
+    if (session('user.profile_picture')) {
+        Storage::disk('public')->delete(session('user.profile_picture'));
+        session()->forget('user.profile_picture');
+    }
     session()->forget('user');
     return redirect('/');
 });
@@ -90,8 +136,8 @@ Route::get('/berita', function () {
     return view('berita');
 });
 
-Route::get('/kontak', function () {
-    return view('kontak');
+Route::get('/tentangkami', function () {
+    return view('tentangkami');
 });
 
 Route::get('/List-Dokter/Narji-Sandoro', function () {

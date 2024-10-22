@@ -42,8 +42,8 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="list layanan" class="form-label">List Layanan</label>
-                        <input type="text" class="form-control" id="list layanan" placeholder="list Layanan">
+                        <label for="list-layanan" class="form-label">List Layanan</label>
+                        <textarea class="form-control" style="background-color: white;" id="list-layanan" rows="5" readonly></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
@@ -65,16 +65,16 @@
     </div>
 
     <div class="table-responsive mt-5">
-        <h3>Layanan</h3>
+        <h3>Paket Medical Check Up</h3>
         <table class="table table-striped table-bordered">
             <thead class="bg-primary text-white text-center">
                 <tr>
-                    <th>No</th>
-                    <th>Nama Paket</th>
-                    <th>Layanan</th>
-                    <th>Deskripsi</th>
-                    <th>Harga</th>
-                    <th>Aksi</th>
+                    <th class="align-middle">No</th>
+                    <th class="align-middle">Nama Paket</th>
+                    <th class="align-middle">Layanan</th>
+                    <th class="align-middle">Deskripsi</th>
+                    <th class="align-middle">Harga</th>
+                    <th class="align-middle">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -116,7 +116,7 @@
     <div class="table-responsive mt-3">
         <h3>Pesanan Medical Check Up</h3>
         <table class="table table-striped table-bordered">
-            <thead class="bg-primary text-white text-center">
+            <thead class="bg-secondary text-white text-center">
                 <tr>
                     <th class="align-middle">No</th>
                     <th class="align-middle">Nama Pasien</th>

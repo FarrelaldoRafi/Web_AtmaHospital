@@ -6,6 +6,10 @@ body {
   background-position: center;
 }
 
+.th{
+  vertical-align: middle;
+}
+
 .card-img-left {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -251,6 +255,9 @@ body {
   }
 
   @media screen and (max-width: 768px) {
+    .hide-on-mobile {
+      display: none;
+  }
     .quick-link-hospital.desktop {
         position: fixed;
         bottom: 0;

@@ -38,13 +38,31 @@
                         <input type="text" class="form-control" id="phone" placeholder="No Telepon">
                     </div>
                     <div class="mb-3">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Jam Mulai</th>
+                                    <th>Jam Selesai</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="time" class="form-control" id="startTime">
+                                    </td>
+                                    <td>
+                                        <input type="time" class="form-control" id="endTime">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mb-3">
                         <label for="photo" class="form-label">Foto</label>
                         <input type="file" class="form-control" id="photo">
                     </div>
                     <div class="d-flex justify-content-end">
-                        <!-- Tombol Batal di sebelah kiri -->
                         <button type="cancel" class="btn btn-danger me-2">Batal</button>
-                        <!-- Tombol Simpan di sebelah kanan -->
                         <button type="submit" class="btn btn-success">Simpan</button>
                     </div>
                 </form>
@@ -55,7 +73,7 @@
     <div class="table-responsive mt-3">
         <h3>Dokter</h3>
         <table class="table table-striped table-bordered">
-            <thead class="bg-primary text-white text-center">
+            <thead class="bg-success text-white text-center">
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
@@ -163,7 +181,7 @@
     <div class="table-responsive mt-3">
         <h3>Daftar Total Antrian</h3>
         <table class="table table-striped table-bordered">
-            <thead class="bg-primary text-white text-center">
+            <thead class="bg-dark text-white text-center">
                 <tr>
                     <th class="align-middle">No Antrian</th>
                     <th class="align-middle">Nama Dokter</th>
@@ -174,6 +192,7 @@
                     <th class="align-middle">Tanggal Antrian</th>
                     <th class="align-middle">Email</th>
                     <th class="align-middle">No Telepon Pasien</th>
+                    <th class="align-middle">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -187,6 +206,11 @@
                     <td>10 September 2024</td>
                     <td>rockyg@gmail.com</td>
                     <td>08562742281</td>
+                    <td class="text-center">
+                            <a href="#">
+                                <i class="fa-solid fa-trash text-danger"></i>
+                            </a>
+                    </td>
                 </tr>
             </tbody>
         </table>
