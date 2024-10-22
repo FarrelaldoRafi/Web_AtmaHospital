@@ -67,7 +67,6 @@
                     <th class="align-middle">Jenis</th>
                     <th class="align-middle">Deskripsi</th>
                     <th class="align-middle">Foto</th>
-                    <th class="align-middle">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -75,57 +74,27 @@
                     <td class="text-center">1</td>
                     <td>Pemeriksaan Darah</td>
                     <td>Laboratorium</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestias perferendis esse laudantium alias optio sequi corrupti minus voluptas! Praesentium, porro. Ratione consectetur blanditiis quae qui pariatur odit laudantium quasi!</td>
+                    <td>Laboratorium Pemeriksaan Darah di Atma Hospital menawarkan berbagai layanan tes darah untuk mendukung diagnosis dan perawatan pasien....</td>
                     <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
-                    </td>
-                    <td class="text-center">
-                        <span class="d-flex">
-                            <a href="#">
-                                <i class="fa-solid fa-pen-to-square me-3"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-trash text-danger"></i>
-                            </a>
-                        </span>
+                        <img src="{{asset('img\cekDarah.png')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center">1</td>
-                    <td>Pemeriksaan Darah</td>
-                    <td>Laboratorium</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestias perferendis esse laudantium alias optio sequi corrupti minus voluptas! Praesentium, porro. Ratione consectetur blanditiis quae qui pariatur odit laudantium quasi!</td>
+                    <td class="text-center">2</td>
+                    <td>CT-SCAN</td>
+                    <td>Radiologi</td>
+                    <td>Unit CT-Scan di Atma Hospital menawarkan layanan pencitraan medis yang canggih untuk mendukung diagnosis dan perawatan pasien dengan berbagai kondisi medis....</td>
                     <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
-                    </td>
-                    <td class="text-center">
-                        <span class="d-flex">
-                            <a href="#">
-                                <i class="fa-solid fa-pen-to-square me-3"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-trash text-danger"></i>
-                            </a>
-                        </span>
+                        <img src="{{asset('img\ct-scan.jpg')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center">1</td>
-                    <td>Pemeriksaan Darah</td>
-                    <td>Laboratorium</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestias perferendis esse laudantium alias optio sequi corrupti minus voluptas! Praesentium, porro. Ratione consectetur blanditiis quae qui pariatur odit laudantium quasi!</td>
+                    <td class="text-center">3</td>
+                    <td>Pemeriksaan Psikologi</td>
+                    <td>Poliklinik</td>
+                    <td>Poliklinik Psikologi di Atma Hospital menawarkan berbagai layanan pemeriksaan psikologis yang bertujuan untuk mengevaluasi kesehatan mental dan emosi pasien...</td>
                     <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
-                    </td>
-                    <td class="text-center">
-                        <span class="d-flex">
-                            <a href="#">
-                                <i class="fa-solid fa-pen-to-square me-3"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-trash text-danger"></i>
-                            </a>
-                        </span>
+                        <img src="{{asset('img\pemeriksaanPsikologi.png')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
                     </td>
                 </tr>
             </tbody>

@@ -128,6 +128,7 @@
                     <th class="align-middle">Nama Paket</th>
                     <th class="align-middle">Tanggal Periksa</th>
                     <th class="align-middle">Harga</th>
+                    <th class="align-middle">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -142,6 +143,11 @@
                     <td>Paket Basic</td>
                     <td>10 September 2024</td>
                     <td>Rp.200.000</td>
+                    <td class="text-center">
+                            <a href="#">
+                                <i class="fa-solid fa-trash text-danger"></i>
+                            </a>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -88,7 +88,7 @@
                     <td class="text-center">1</td>
                     <td>dr. Narji Sandoro, Sp.PD</td>
                     <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Doctor Image">
+                        <img src="{{asset('img\dokter1.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Penyakit Dalam</td>
                     <td>085115242432</td>
@@ -107,7 +107,7 @@
                     <td class="text-center">2</td>
                     <td>dr. Surya Martono, Sp.JP</td>
                     <td class="text-center">
-                        <img src="path/to/image2.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Doctor Image">
+                        <img src="{{asset('img\dokter2.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Jantung</td>
                     <td>085564721234</td>
@@ -126,7 +126,7 @@
                     <td class="text-center">3</td>
                     <td>drg. Susi Surusi, Sp.KGA</td>
                     <td class="text-center">
-                        <img src="path/to/image3.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Doctor Image">
+                        <img src="{{asset('img\dokter3.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Penyakit Dalam</td>
                     <td>081572899012</td>
@@ -145,7 +145,7 @@
                     <td class="text-center">4</td>
                     <td>dr. Faiz Farozi, Sp.OT</td>
                     <td class="text-center">
-                        <img src="path/to/image4.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
+                        <img src="{{asset('img\dokter4.png')}}" class="img-fluid" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Jantung</td>
                     <td>085775620091</td>

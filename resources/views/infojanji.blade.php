@@ -47,7 +47,7 @@
                 <div class="row card-centered mx-auto p-2 my-5 col-md-10 d-flex justify-content-center">
                     <div class="col-md-3 col-sm-12 mb-3">
                         <div class="card border border-black">
-                            <img src="https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1).jpg" alt="d1" class="card-img-top" style="object-fit:cover; height: 300px;">
+                            <img src="{{asset ('img\dokter1.png') }}" alt="d1" class="card-img-top" style="object-fit:cover; height: 300px;">
                             <div class="card-body bg-body-secondary border border-black text-center">
                                 <h6 class="fw-bold">dr. Narji Sandoro, Sp.PD.</h6>
                             </div>

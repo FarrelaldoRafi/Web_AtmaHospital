@@ -25,7 +25,7 @@
                     <div class="flex-col service-item-area">
                         <a href="#service-0" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                             <span class="pattern-1"></span>
-                            <p class="text">Poliklinik</p>
+                            <p class="text">Laboratorium</p>
                             <div class="next-desc">Cari tahu informasinya</div>
                         </a>
                         <div class="collapse" id="service-0">
@@ -42,13 +42,13 @@
                     <div class="flex-col service-item-area">
                     <a href="#service-1" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                     <span class="pattern-1"></span>
-                            <p class="text">Laboratorium</p>
+                            <p class="text">Poliklinik</p>
                             <div class="next-desc">Cari tahu informasinya</div>
                         </a>
                         <div class="collapse" id="service-1">
                             <div class="service-body scrollablex">
                                 <div class="service-item">
-                                    <a href="/List-Layanan/hematologi" class="service-link">Hematologi</a>
+                                    <a href="/List-Layanan/hematologi" class="service-link">Pemeriksaan Psikologi</a>
                                 </div>
                             </div>
                         </div>

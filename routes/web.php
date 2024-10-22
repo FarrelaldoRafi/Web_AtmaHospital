@@ -188,8 +188,8 @@ Route::get('/List-Layanan/pemeriksaanDarah', function () {
     return view('/List-Layanan/pemeriksaanDarah');
 });
 
-Route::get('/List-Layanan/hematologi', function () {
-    return view('/List-Layanan/hematologi');
+Route::get('/List-Layanan/pemeriksaanPsikologi', function () {
+    return view('/List-Layanan/pemeriksaanPsikologi');
 });
 
 Route::get('/List-Layanan/ct-scan', function () {

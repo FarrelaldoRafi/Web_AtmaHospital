@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemeriksaan Darah</title>
 </head>
 
 <main>
@@ -10,8 +11,8 @@
         style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
         <div class="container d-flex align-items-center mt-5">
             <div class="text-container mt-4" style="max-width: 650px;">
-                <h1 class="fw-bold">TENTANG LABORATORIUM</h1>
-                <h3>HEMATOLOGI</h3>
+                <h1 class="fw-bold">TENTANG POLIKLINIK</h1>
+                <h3>Pemeriksaan Darah</h3>
             </div>
         </div>
     </div>
@@ -19,13 +20,13 @@
     <section class="services-excellent section-md pb-5">
         <div class="container">
             <div class="row">
-            <div class="col-md-6"> 
-                    <p>Laboratorium Hematologi di Atma Hospital menawarkan berbagai layanan pemeriksaan darah yang fokus pada evaluasi kondisi kesehatan terkait darah dan sistem hematopoietik.</p>
-                    <p>Layanan ini mencakup tes cek hemoglobin dan hitung darah lengkap, yang digunakan untuk mendeteksi anemia dan gangguan darah lainnya, serta tes koagulasi darah, yang penting untuk mengevaluasi kemampuan pembekuan darah pasien.</p>
-                    <p>Selain itu, laboratorium ini juga menyediakan berbagai tes hematologi lainnya untuk membantu diagnosis kondisi medis seperti leukemia, infeksi, gangguan autoimun, dan penyakit darah lainnya. Laboratorium Atma Hospital didukung oleh tenaga medis profesional dan teknologi terkini untuk memastikan hasil yang akurat dan cepat.</p> 
+                <div class="col-md-6">
+                    <p>Laboratorium Pemeriksaan Darah di Atma Hospital menawarkan berbagai layanan tes darah untuk mendukung diagnosis dan perawatan pasien. </p>
+                    <p>Layanan ini mencakup tes cek gula darah, yang digunakan untuk memantau kadar glukosa dalam tubuh, serta tes koagulasi darah, yang penting untuk mengevaluasi kemampuan pembekuan darah pasien.</p>
+                    <p>Selain itu, laboratorium ini juga menyediakan berbagai tes lain yang membantu dalam mendeteksi kondisi medis seperti infeksi, anemia, gangguan fungsi hati, dan penyakit metabolik lainnya. Laboratorium Atma Hospital didukung oleh tenaga medis profesional dan teknologi terkini untuk memastikan hasil yang akurat dan cepat.</p>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{asset('img/hematologi.jpg') }}" style="width: 100%; height: 80%;">
+                    <img src="{{asset('img/cekDarah.png') }}" alt="Pemeriksaan Darah" style="width: 100%; height: 80%;">
                 </div>
             </div>
         </div>
