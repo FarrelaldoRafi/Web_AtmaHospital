@@ -21,7 +21,7 @@
             <div class="row">
                 <h2 class="mb-4"><strong>LATAR BELAKANG</strong></h2>
                 <div class="col-md-6">
-                    <img src="{{asset('img/cekDarah.png') }}" alt="Pemeriksaan Darah" style="width: 100%; height: 80%;">
+                    <img src="https://primayahospital.b-cdn.net/wp-content/uploads/2022/08/Primaya-Hospital-Depok.jpg.webp" alt="rs" style="width: 100%; height: 80%; border-radius:8px;">
                 </div>
                 <div class="col-md-6">
                     <p>Atma Hospital didirikan dengan komitmen untuk memberikan pelayanan kesehatan yang berkualitas dan holistik. Dalam menghadapi tantangan di bidang kesehatan, kami memahami bahwa setiap pasien memiliki kebutuhan unik yang memerlukan pendekatan personal. Dengan dukungan teknologi medis terkini dan tim medis yang berpengalaman, Atma Hospital berupaya menjadi rumah sakit pilihan yang terpercaya untuk masyarakat. Kami berkomitmen untuk memberikan pelayanan terbaik dan menciptakan lingkungan yang nyaman bagi pasien dan keluarga.</p>
@@ -45,11 +45,8 @@
             <div class="row">
                 <h4 class="mt-3" style="color:grey;">Kenapa Memilih Kami?</h4>
                 <h2 class="mb-3"><strong>Atma Hospital memiliki kenyamanan yang khas</strong></h2>
-                <div class="col-md-6">
+                <div class="col">
                     <p>Kami memiliki misi untuk memberikan pelayanan kesehatan yang berkualitas tinggi dan komprehensif kepada semua pasien, mengutamakan keselamatan dan kenyamanan pasien dalam setiap layanan yang kami berikan, serta mengedukasi masyarakat mengenai pentingnya kesehatan dan pencegahan penyakit. Selain itu, kami berkomitmen untuk membangun tim medis yang profesional, terlatih, dan berkomitmen untuk memberikan pelayanan terbaik, serta mengintegrasikan teknologi modern dalam pelayanan kesehatan untuk meningkatkan efisiensi dan efektivitas.</p>
-                </div>
-                <div class="col-md-6">
-                    <img src="https://primayahospital.b-cdn.net/wp-content/uploads/2022/08/Primaya-Hospital-Depok.jpg.webp" alt="Pemeriksaan Darah" style="width: 100%; height: 80%;">
                 </div>
             </div>
         </div>

@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 Route::get('/', function () {
@@ -50,28 +49,20 @@ Route::post('/profile/update', function (Request $request) {
     try {
         $currentUser = session('user', []);
         
-        // Handle profile picture upload
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
             
             if ($file->isValid()) {
-                // Delete old profile picture if exists
                 if (isset($currentUser['profile_picture']) && Storage::disk('public')->exists($currentUser['profile_picture'])) {
                     Storage::disk('public')->delete($currentUser['profile_picture']);
                 }
                 
-                // Store new file with unique name
                 $path = $file->store('profile_pictures', 'public');
-                
-                // Update user data with new profile picture
                 $currentUser['profile_picture'] = $path;
-                
-                // Add image URL to response
                 $response['image_url'] = asset('storage/' . $path);
             }
         }
         
-        // Update user data
         $userData = [
             'name' => $request->input('fullName'),
             'username' => $request->input('username'),
@@ -81,7 +72,6 @@ Route::post('/profile/update', function (Request $request) {
             'address' => $request->input('address')
         ];
         
-        // Merge and store in session
         session(['user' => array_merge($currentUser, $userData)]);
         
         $response['success'] = true;
@@ -93,9 +83,7 @@ Route::post('/profile/update', function (Request $request) {
     return response()->json($response);
 });
 
-// Logout route modification
 Route::get('/logout', function () {
-    // Delete profile picture if exists
     if (session('user.profile_picture')) {
         Storage::disk('public')->delete(session('user.profile_picture'));
         session()->forget('user.profile_picture');
@@ -107,15 +95,19 @@ Route::get('/logout', function () {
 Route::get('/admin/dashadmin', function () {
     return view('admin.dashadmin');
 });
+
 Route::get('/admin/sidebar', function () {
     return view('admin.sidebar');
 });
+
 Route::get('/admin/tambahdokter', function () {
     return view('admin.tambahdokter');
 });
+
 Route::get('/admin/tambahlayanan', function () {
     return view('admin.tambahlayanan');
 });
+
 Route::get('/admin/medicalcheckup', function () {
     return view('admin.medicalcheckup');
 });

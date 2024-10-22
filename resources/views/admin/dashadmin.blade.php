@@ -1,6 +1,12 @@
 @extends('admin.sidebar')
 
 @section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+</head>
+
 <div class="container-fluid pt-1">
     <div class="d-flex justify-content-between align-items-center my-4">
         <h1>DASHBOARD</h1>
@@ -126,7 +132,7 @@
                     <td class="text-center">1</td>
                     <td>dr. Narji Sandoro, Sp.PD</td>
                     <td class="text-center">
-                        <img src="{{asset('img\dokter1.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
+                        <img src="{{asset('img/dokter1.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Penyakit Dalam</td>
                     <td>085115242432</td>
@@ -135,7 +141,7 @@
                     <td class="text-center">2</td>
                     <td>dr. Surya Martono, Sp.JP</td>
                     <td class="text-center">
-                        <img src="{{asset('img\dokter2.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
+                        <img src="{{asset('img/dokter2.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Jantung</td>
                     <td>085564721234</td>
@@ -144,7 +150,7 @@
                     <td class="text-center">3</td>
                     <td>drg. Susi Surusi, Sp.KGA</td>
                     <td class="text-center">
-                        <img src="{{asset('img\dokter3.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
+                        <img src="{{asset('img/dokter3.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Penyakit Dalam</td>
                     <td>081572899012</td>
@@ -153,7 +159,7 @@
                     <td class="text-center">4</td>
                     <td>dr. Faiz Farozi, Sp.OT</td>
                     <td class="text-center">
-                        <img src="{{asset('img\dokter4.png')}}" class="img-fluid" style="width: 100px; height: 100px;" alt="Doctor Image">
+                        <img src="{{asset('img/dokter4.png')}}" class="img-fluid" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Jantung</td>
                     <td>085775620091</td>
@@ -181,7 +187,7 @@
                     <td>Laboratorium</td>
                     <td>Laboratorium Pemeriksaan Darah di Atma Hospital menawarkan berbagai layanan tes darah untuk mendukung diagnosis dan perawatan pasien....</td>
                     <td class="text-center">
-                        <img src="{{asset('img\cekDarah.png')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
+                        <img src="{{asset('img/cekDarah.png')}}" class="img-fluid" style="width: 600px; height: 100px;" alt="Doctor Image">
                     </td>
                 </tr>
                 <tr>
@@ -190,7 +196,7 @@
                     <td>Radiologi</td>
                     <td>Unit CT-Scan di Atma Hospital menawarkan layanan pencitraan medis yang canggih untuk mendukung diagnosis dan perawatan pasien dengan berbagai kondisi medis....</td>
                     <td class="text-center">
-                        <img src="{{asset('img\ct-scan.jpg')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
+                        <img src="{{asset('img/ct-scan.jpg')}}" class="img-fluid" style="width: 600px; height: 100px;" alt="Doctor Image">
                     </td>
                 </tr>
                 <tr>
@@ -199,7 +205,7 @@
                     <td>Poliklinik</td>
                     <td>Poliklinik Psikologi di Atma Hospital menawarkan berbagai layanan pemeriksaan psikologis yang bertujuan untuk mengevaluasi kesehatan mental dan emosi pasien...</td>
                     <td class="text-center">
-                        <img src="{{asset('img\pemeriksaanPsikologi.png')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
+                        <img src="{{asset('img/pemeriksaanPsikologi.png')}}" class="img-fluid" style="width: 600px; height: 100px;" alt="Doctor Image">
                     </td>
                 </tr>
             </tbody>

@@ -3,37 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-
     <style>
         .sidebar-mini.sidebar-collapse .main-sidebar {
             width: 80px;
         }
-
         .sidebar-mini.sidebar-collapse .main-sidebar:hover {
             width: 250px;
             transition: width 0.3s ease-in-out;
         }
-
         .sidebar-mini.sidebar-collapse .content-wrapper {
             margin-left: 80px;
         }
-
         .sidebar-mini.sidebar-collapse .main-sidebar:hover ~ .content-wrapper {
             margin-left: 250px;
             transition: margin-left 0.3s ease-in-out;
         }
-
         .admin-info {
             display: flex;
             align-items: center;
             padding: 15px;
             overflow: hidden;
         }
-
         .admin-info i {
             border-radius: 50%;
             width: 35px;
@@ -41,7 +34,6 @@
             margin-right: 10px;
             transition: all 0.3s ease;
         }
-
         .admin-info .admin-name {
             color: white;
             opacity: 1;
@@ -49,26 +41,21 @@
             transition: opacity 0.3s ease, margin-left 0.3s ease;
             margin-left: 0px;
         }
-
         .sidebar-mini.sidebar-collapse .admin-name {
             opacity: 0;
             margin-left: -50px;
         }
-
         .sidebar-mini.sidebar-collapse .main-sidebar:hover .admin-name {
             opacity: 1;
             margin-left: 10px;
         }
-
         .content-wrapper, .content {
             padding-top: 0;
             margin-top: 0;
         }
-
         .main-header {
             z-index: 1030;
         }
-
         .brand-link {
             display: flex;
             align-items: center;
@@ -88,7 +75,6 @@
                 <a class="btn btn-danger rounded-pill px-4" href="{{ url('/logout') }}">LOGOUT</a>
             </div>
         </nav>
-
         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #18428A;">
             <a href="#">
                 <img src="{{ asset('img/logo.png') }}" alt="Atma Hospital Logo" class="brand-image d-block m-auto" style="height: 87px; width: auto;">
@@ -128,7 +114,6 @@
                 </nav>
             </div>
         </aside>
-
         <div class="content-wrapper" style="padding-top: 60px;">
             <section class="content">
                 <div class="container-fluid">
@@ -137,7 +122,6 @@
             </section>
         </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>

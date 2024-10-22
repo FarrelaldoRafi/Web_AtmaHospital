@@ -1,6 +1,12 @@
 @extends('admin.sidebar')
 
 @section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Dokter</title>
+</head>
+
 <div class="container-fluid pt-1">
     <div class="d-flex justify-content-center align-items-center my-4">
         <h1>DOKTER</h1>
@@ -22,7 +28,7 @@
 
     <div class="table-responsive">
         <div class="container d-flex justify-content-center">
-            <div class="border p-4 mb-4" style="border-radius: 15px; border: 2px solid #6f42c1; width: 80%;"> <!-- Mengatur lebar form agar lebih pas di tengah -->
+            <div class="border p-4 mb-4" style="border-radius: 15px; border: 2px solid #6f42c1; width: 80%;">
                 <form>
                     <h3 class="text-center mb-4">Tambah Dokter</h3>
                     <div class="mb-3">
@@ -88,7 +94,7 @@
                     <td class="text-center">1</td>
                     <td>dr. Narji Sandoro, Sp.PD</td>
                     <td class="text-center">
-                        <img src="{{asset('img\dokter1.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
+                        <img src="{{asset('img/dokter1.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Penyakit Dalam</td>
                     <td>085115242432</td>
@@ -107,7 +113,7 @@
                     <td class="text-center">2</td>
                     <td>dr. Surya Martono, Sp.JP</td>
                     <td class="text-center">
-                        <img src="{{asset('img\dokter2.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
+                        <img src="{{asset('img/dokter2.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Jantung</td>
                     <td>085564721234</td>
@@ -126,7 +132,7 @@
                     <td class="text-center">3</td>
                     <td>drg. Susi Surusi, Sp.KGA</td>
                     <td class="text-center">
-                        <img src="{{asset('img\dokter3.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
+                        <img src="{{asset('img/dokter3.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Penyakit Dalam</td>
                     <td>081572899012</td>
@@ -145,7 +151,7 @@
                     <td class="text-center">4</td>
                     <td>dr. Faiz Farozi, Sp.OT</td>
                     <td class="text-center">
-                        <img src="{{asset('img\dokter4.png')}}" class="img-fluid" style="width: 100px; height: 100px;" alt="Doctor Image">
+                        <img src="{{asset('img/dokter4.png')}}" class="img-fluid" style="width: 100px; height: 100px;" alt="Doctor Image">
                     </td>
                     <td>Jantung</td>
                     <td>085775620091</td>
@@ -207,14 +213,13 @@
                     <td>rockyg@gmail.com</td>
                     <td>08562742281</td>
                     <td class="text-center">
-                            <a href="#">
-                                <i class="fa-solid fa-trash text-danger"></i>
-                            </a>
+                        <a href="#">
+                            <i class="fa-solid fa-trash text-danger"></i>
+                        </a>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-
 </div>
 @endsection

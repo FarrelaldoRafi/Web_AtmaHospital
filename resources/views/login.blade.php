@@ -26,7 +26,6 @@
             <div class="col-lg-6 text-center">
                 <img src="{{ asset('img/header-img.png') }}" alt="header-img" class="img-fluid">
             </div>
-
             <div class="col-lg-6">
                 <div class="card p-4">
                     <h2 class="text-center">Selamat Datang</h2>
