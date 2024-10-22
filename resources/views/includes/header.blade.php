@@ -9,22 +9,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <style>
-        /* Internal CSS for user profile image */
         .profile-img {
             width: 40px;
             height: 40px;
             border-radius: 50%;
             object-fit: cover;
         }
-        /* Style for dropdown menu items */
         .dropdown-item i {
-            color: white; /* Icon color */
+            color: white;
         }
         .dropdown-item {
-            color: white; /* Text color */
+            color: white;
         }
         .dropdown-item:hover {
-            background-color: rgba(255, 255, 255, 0.1); /* Hover effect */
+            background-color: rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
@@ -80,7 +78,7 @@
         </div>
     </div>
 @else
-    <a href="{{ url('login') }}" class="btn btn-yellow ms-lg-3 me-5 order-lg-1 order-2" style="border-radius: 20px; background-color: #FFD700; color: #004080; width: 120px; height: auto;">
+    <a href="{{ url('login') }}" class="btn btn-yellow ms-lg-3 me-5 order-lg-1 order-2 mb-1" style="border-radius: 20px; background-color: #FFD700; color: #004080; width: 120px; height: auto;">
         Login
     </a>
 @endif

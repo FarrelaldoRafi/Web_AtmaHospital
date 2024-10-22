@@ -125,9 +125,6 @@
             document.querySelector('.profile-pic').src = reader.result;
             // Update the profile picture in the navbar
             document.querySelector('.profile-img').src = reader.result;
-
-            // Update session storage or handle the image upload here
-            // For simplicity, we're not storing in the session for now
         };
         reader.readAsDataURL(event.target.files[0]);
     });
