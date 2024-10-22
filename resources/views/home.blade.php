@@ -1,41 +1,43 @@
 @include('includes.header')
 <main>
-        <div class="boxslider">
-            <div class="intro-section">
-                <div class="cards_box swiper">
-                    <div class="cards">
-                        <div class="swiper-wrapper">
-                            <section class="card_details swiper-slide">
-                                <div class="img-wrapper">
-                                    <img src="https://img.freepik.com/free-vector/flat-hospital-landing-page-template_23-2149613064.jpg" class="card_img">
-                                </div>
-                            </section>
-                            <section class="card_details swiper-slide">
-                                <div class="img-wrapper">
-                                    <img src="https://previews.123rf.com/images/teravector/teravector1912/teravector191200706/135594305-webpage-presents-information-about-high-quality-healthcare-at-new-modern-clinic-cartoon-professional.jpg" class="card_img">
-                                </div>
-                            </section>
-                            <section class="card_details swiper-slide">
-                                <div class="img-wrapper">
-                                    <img src="https://img.freepik.com/free-vector/flat-hospital-landing-page-template_23-2149613064.jpg" class="card_img">
-                                </div>
-                            </section>
-                            <section class="card_details swiper-slide">
-                                <div class="img-wrapper">
-                                    <img src="https://previews.123rf.com/images/teravector/teravector1912/teravector191200706/135594305-webpage-presents-information-about-high-quality-healthcare-at-new-modern-clinic-cartoon-professional.jpg" class="card_img">
-                                </div>
-                            </section>
-                        </div>
+    <div class="boxslider">
+        <div class="intro-section">
+            <div class="cards_box swiper">
+                <div class="cards">
+                    <div class="swiper-wrapper">
+                        <section class="card_details swiper-slide">
+                            <div class="img-wrapper">
+                                <img src="https://img.freepik.com/free-vector/flat-hospital-landing-page-template_23-2149613064.jpg" class="card_img">
+                            </div>
+                        </section>
+                        <section class="card_details swiper-slide">
+                            <div class="img-wrapper">
+                                <img src="https://previews.123rf.com/images/teravector/teravector1912/teravector191200706/135594305-webpage-presents-information-about-high-quality-healthcare-at-new-modern-clinic-cartoon-professional.jpg" class="card_img">
+                            </div>
+                        </section>
+                        <section class="card_details swiper-slide">
+                            <div class="img-wrapper">
+                                <img src="https://img.freepik.com/free-vector/flat-hospital-landing-page-template_23-2149613064.jpg" class="card_img">
+                            </div>
+                        </section>
+                        <section class="card_details swiper-slide">
+                            <div class="img-wrapper">
+                                <img src="https://previews.123rf.com/images/teravector/teravector1912/teravector191200706/135594305-webpage-presents-information-about-high-quality-healthcare-at-new-modern-clinic-cartoon-professional.jpg" class="card_img">
+                            </div>
+                        </section>
                     </div>
-                </div>        
-            </div>
-            <div class="swiper-button-next">
-                    <i class="fa-solid fa-angle-right"></i>
-            </div>     
-            <div class="swiper-button-prev">
-                    <i class="fa-solid fa-angle-left"></i>
-            </div>
+                </div>
+            </div>        
         </div>
+
+        <div class="swiper-button-next">
+            <i class="fa-solid fa-angle-right"></i>
+        </div>     
+        <div class="swiper-button-prev">
+            <i class="fa-solid fa-angle-left"></i>
+        </div>
+    </div>
+
 
 
     <div class="quick-link-hospital desktop">
@@ -181,7 +183,7 @@
                     <div class="collapse" id="service-1">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="#" class="service-link">Pemeriksaan Darah</a>
+                                <a href="/List-Layanan/hematologi" class="service-link">Hematologi</a>
                             </div>
                         </div>
                     </div>
@@ -198,7 +200,7 @@
                     <div class="collapse" id="service-2">
                         <div class="service-body scrollablex">
                             <div class="service-item">
-                                <a href="#" class="service-link">Pemeriksaan Darah</a>
+                                <a href="/List-Layanan/ct-scan" class="service-link">CT-Scan</a>
                             </div>
                         </div>
                     </div>

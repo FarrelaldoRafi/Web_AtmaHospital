@@ -1,69 +1,31 @@
-
 @include('includes.header')
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
 <main>
     <div class="container-fluid text-white text-left d-flex justify-content-center" 
         style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
         <div class="container d-flex align-items-center mt-5">
             <div class="text-container mt-4" style="max-width: 650px;">
-                <h1 class="fw-bold">Layanan Rumah Sakit</h1>
-                <p class="mt-3">Atma Hospital bertekad untuk menghadirkan pelayanan kesehatan yang unggul bagi setiap pasien. Dengan tim medis yang terdiri dari Dokter, Perawat, dan Paramedis yang ahli serta staf yang selalu siap melayani dengan penuh kepedulian, kami memberikan kenyamanan dan kepercayaan dalam setiap layanan. Dilengkapi dengan peralatan medis terkini, Atma Hospital memastikan perawatan yang akurat dan berkualitas. Kami percaya bahwa Atma Hospital adalah pilihan tepat bagi Anda dan keluarga untuk mendapatkan layanan kesehatan yang aman dan terpercaya.</p>
+                <h1 class="fw-bold">TENTANG RADIOLOGI</h1>
+                <h3>CT-SCAN</h3>
             </div>
         </div>
     </div>
 
     <section class="services-excellent section-md pb-5">
         <div class="container">
-            <div class="row" id="load_category_service">
-                <div class="col-6 col-md-4 mb-3">
-                    <div class="flex-col service-item-area">
-                        <a href="#service-0" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                            <span class="pattern-1"></span>
-                            <p class="text">Poliklinik</p>
-                            <div class="next-desc">Cari tahu informasinya</div>
-                        </a>
-                        <div class="collapse" id="service-0">
-                            <div class="service-body scrollablex">
-                                <div class="service-item">
-                                    <a href="/List-Layanan/pemeriksaanDarah" class="service-link">Pemeriksaan Darah</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-md-6"> 
+                    <p>Unit CT-Scan di Atma Hospital menawarkan layanan pencitraan medis yang canggih untuk mendukung diagnosis dan perawatan pasien dengan berbagai kondisi medis.</p>
+                    <p>Layanan ini mencakup CT-Scan kepala, yang digunakan untuk mendeteksi cedera otak, stroke, atau tumor, serta CT-Scan dada dan perut, yang penting untuk mengevaluasi organ dalam seperti paru-paru, hati, dan ginjal.</p>
+                    <p>Selain itu, unit ini juga menyediakan berbagai layanan pencitraan CT-Scan lainnya untuk membantu diagnosis berbagai penyakit seperti kanker, infeksi, kelainan pembuluh darah, dan gangguan tulang. Unit CT-Scan di Atma Hospital didukung oleh tenaga medis profesional dan teknologi terkini untuk memastikan hasil yang akurat dan cepat.</p> 
                 </div>
-
-                <div class="col-6 col-md-4 mb-3">
-                    <div class="flex-col service-item-area">
-                    <a href="#service-1" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                    <span class="pattern-1"></span>
-                            <p class="text">Laboratorium</p>
-                            <div class="next-desc">Cari tahu informasinya</div>
-                        </a>
-                        <div class="collapse" id="service-1">
-                            <div class="service-body scrollablex">
-                                <div class="service-item">
-                                    <a href="/List-Layanan/hematologi" class="service-link">Hematologi</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 mb-3">
-                    <div class="flex-col service-item-area">
-                    <a href="#service-2" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                    <span class="pattern-1"></span>
-                            <p class="text">Radiologi</p>
-                            <div class="next-desc">Cari tahu informasinya</div>
-                        </a>
-                        <div class="collapse" id="service-2">
-                            <div class="service-body scrollablex">
-                                <div class="service-item">
-                                    <a href="/List-Layanan/ct-scan" class="service-link">CT-SCAN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-6">
+                    <img src="{{asset('img/ct-scan.jpg') }}" style="width: 100%; height: 80%;">
                 </div>
             </div>
         </div>

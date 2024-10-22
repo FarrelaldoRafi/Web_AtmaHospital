@@ -141,3 +141,11 @@ Route::get('/medicalcheckup', function () {
 Route::get('/List-Layanan/pemeriksaanDarah', function () {
     return view('/List-Layanan/pemeriksaanDarah');
 });
+
+Route::get('/List-Layanan/hematologi', function () {
+    return view('/List-Layanan/hematologi');
+});
+
+Route::get('/List-Layanan/ct-scan', function () {
+    return view('/List-Layanan/ct-scan');
+});
