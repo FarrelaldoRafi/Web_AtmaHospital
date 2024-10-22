@@ -1,7 +1,7 @@
 <footer class="footer">
                 <div class="container">
 
-                    <div class="row">
+                    <div class="row justify-content-between">
                         <div class="col-lg-3 col-md-6 order-lg-0">
                             <div class="logo-container">
                                 <a href="javascript:void(0)">
@@ -69,24 +69,14 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-6 order-lg-2">
-                            <div class="footer-column">
-                                <p class="footer-title">TENTANG KAMI</p>
-
-                                <ul class="footer-list">
-                                    <li><a href="" target="_blank" class="text">Profil Rumah Sakit</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
                         <div class="col-lg-2 col-md-6 order-lg-3">
                             <div class="footer-column">
                                 <p class="footer-title">LAINNYA</p>
                                 <ul class="footer-list">
-                                    <li><a href="" class="text">Berita</a></li>
-                                    <li><a href="" class="text">Layanan</a></li>
-                                    <li><a href="" class="text">Jadwal Dokter</a></li>
-                                    <li><a href="" class="text">Kontak</a></li>
+                                    <li><a href="/berita" class="text">Berita</a></li>
+                                    <li><a href="/layanan" class="text">Layanan</a></li>
+                                    <li><a href="/jadwal" class="text">Jadwal Dokter</a></li>
+                                    <li><a href="/tentangkami" class="text">Tentang Kami</a></li>
                                 </ul>
                             </div>
                         </div>

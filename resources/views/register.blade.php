@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Page</title>
+    <title>Register</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -38,9 +38,7 @@
                     <!-- Welcome and Register Text -->
                     <h2 class="text-center">Selamat Datang</h2>
                     <p class="text-center">Register</p>
-
-                    <!-- Register Form -->
-                    <form>
+                    <form action="{{ url('/') }}">
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Nama Lengkap</label>
                             <input type="text" class="form-control" id="fullname" placeholder="Masukkan nama lengkap">
