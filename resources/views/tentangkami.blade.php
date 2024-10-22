@@ -46,7 +46,9 @@
                 <h4 class="mt-3" style="color:grey;">Kenapa Memilih Kami?</h4>
                 <h2 class="mb-3"><strong>Atma Hospital memiliki kenyamanan yang khas</strong></h2>
                 <div class="col">
-                    <p>Kami memiliki misi untuk memberikan pelayanan kesehatan yang berkualitas tinggi dan komprehensif kepada semua pasien, mengutamakan keselamatan dan kenyamanan pasien dalam setiap layanan yang kami berikan, serta mengedukasi masyarakat mengenai pentingnya kesehatan dan pencegahan penyakit. Selain itu, kami berkomitmen untuk membangun tim medis yang profesional, terlatih, dan berkomitmen untuk memberikan pelayanan terbaik, serta mengintegrasikan teknologi modern dalam pelayanan kesehatan untuk meningkatkan efisiensi dan efektivitas.</p>
+                    <p>Dimulai dengan senyum ramah dari staf, empati dari perawat, dan dokter yang selalu siap untuk mendengarkan dan memberikan penjelasan tentang penyakit yang diderita pasien.
+
+Di Atma Hospital, kami mengutamakan keselamatan dan kenyamanan pasien sebagai prioritas utama. Dengan fasilitas medis yang modern dan peralatan terkini, kami berkomitmen untuk memberikan pelayanan terbaik dalam setiap langkah perawatan Anda. Tim medis kami terdiri dari dokter-dokter berpengalaman dan terlatih di bidangnya, siap memberikan diagnosis yang tepat dan penanganan yang optimal.</p>
                 </div>
             </div>
         </div>
