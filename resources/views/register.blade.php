@@ -29,7 +29,7 @@
                 <div class="card p-4">
                     <h2 class="text-center">Selamat Datang</h2>
                     <p class="text-center">Register</p>
-                    <form action="{{ url('/') }}">
+                    <form action="{{ url('/login') }}">
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Nama Lengkap</label>
                             <input type="text" class="form-control" id="fullname" placeholder="Masukkan nama lengkap">

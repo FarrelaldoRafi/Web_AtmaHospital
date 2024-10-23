@@ -58,7 +58,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('tentangkami') ? 'active' : '' }}" href="/tentangkami">
-                        <span class="dropdown-icon"><i class="fas fa-phone"></i></span>Tentang Kami
+                        <span class="dropdown-icon"><i class="fas fa-circle-info"></i></span>Tentang Kami
                     </a>
                 </li>
             </ul>

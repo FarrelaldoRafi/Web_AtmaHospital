@@ -64,6 +64,10 @@
                         </table>
                     </div>
                     <div class="mb-3">
+                        <label for="desc" class="form-label">Deskripsi</label>
+                        <textarea class="form-control" id="desc" rows="3" placeholder="Deskripsi"></textarea>
+                    </div>
+                    <div class="mb-3">
                         <label for="photo" class="form-label">Foto</label>
                         <input type="file" class="form-control" id="photo">
                     </div>
