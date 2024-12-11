@@ -81,7 +81,7 @@
             </a>
             <div class="admin-info border-bottom border-top">
                 <i class="fas fa-user-circle fa-2x text-white ms-2"></i>
-                <span class="admin-name">John Doe</span>
+                <span class="admin-name">{{ session('user.name', 'Admin') }}</span>
             </div>
             <div class="sidebar">
                 <nav class="mt-2">

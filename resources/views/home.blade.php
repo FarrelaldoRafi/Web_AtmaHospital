@@ -45,8 +45,6 @@
         </div>
     </div>
 
-
-
     <div class="quick-link-hospital desktop">
 		<div class="container">
 			<div class="wrap-all-hospital">
