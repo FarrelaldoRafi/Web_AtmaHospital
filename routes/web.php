@@ -1,9 +1,19 @@
 <?php
 
+use App\Models\Admin;
+use App\Models\Pengguna;
+use App\Models\Dokter;
+use App\Models\Layanan;
+use App\Models\PaketMedicalCheckup;
+use App\Models\PendaftaranAntrian;
+use App\Models\PendaftaranMedicalCheckup;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\DokterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Middleware\CheckAuthenticated;
 
 Route::get('/', function () {
     return view('home');
@@ -17,32 +27,98 @@ Route::get('/layanan', function () {
     return view('layanan');
 });
 
+Route::middleware([CheckAuthenticated::class])->group(function () {
+    Route::get('/admin/dashadmin', function () {
+        // Hitung total data
+        $totalPengguna = Pengguna::count();
+        $totalDokter = Dokter::count();
+        $totalLayanan = Layanan::count();
+        $totalPaketMCU = PaketMedicalCheckup::count();
+        $totalAntrian = PendaftaranAntrian::count();
+        $totalDaftarMCU = PendaftaranMedicalCheckup::count();
+
+        // Ambil data untuk tabel
+        $pengguna = Pengguna::all();
+        $dokter = Dokter::all();
+        $layanan = Layanan::all();
+
+        // Kirim data ke view
+        return view('admin.dashadmin', [
+            'totalPengguna' => $totalPengguna,
+            'totalDokter' => $totalDokter,
+            'totalLayanan' => $totalLayanan,
+            'totalPaketMCU' => $totalPaketMCU,
+            'totalAntrian' => $totalAntrian,
+            'totalDaftarMCU' => $totalDaftarMCU,
+            'pengguna' => $pengguna,
+            'dokter' => $dokter,
+            'layanan' => $layanan
+        ]);
+    });
+
+    Route::get('/admin/sidebar', function () {
+        return view('admin.sidebar');
+    });
+    
+    // Tambahkan route untuk dokter
+    Route::get('/admin/tambahdokter', [DokterController::class, 'showTambahDokter'])->name('admin.tambahdokter');
+    Route::get('/admin/dokter/{id}', [DokterController::class, 'show'])->name('admin.dokter.show');
+    Route::post('/admin/dokter/store', [DokterController::class, 'store'])->name('admin.dokter.store');
+    Route::put('/admin/dokter/update/{id}', [DokterController::class, 'update'])->name('admin.dokter.update');
+    Route::delete('/admin/dokter/{id}', [DokterController::class, 'destroy'])->name('admin.dokter.destroy');
+    
+    Route::get('/admin/tambahlayanan', function () {
+        return view('admin.tambahlayanan');
+    });
+    
+    Route::get('/admin/medicalcheckup', function () {
+        return view('admin.medicalcheckup');
+    });
+});
+
+// Route login
 Route::get('/login', function () {
     return view('login');
 });
 
 Route::post('/login', function (Request $request) {
-    $credentials = $request->only('username', 'password');
+    $request->validate([
+        'username' => 'required|string',
+        'password' => 'required|string',
+    ]);
 
-    if ($credentials['username'] === 'user1' && $credentials['password'] === 'password') {
+    // Cek apakah pengguna adalah admin
+    $admin = Admin::where('username', $request->username)->first();
+    if ($admin && Hash::check($request->password, $admin->password)) {
+        // Login admin berhasil
         session(['user' => [
-            'name' => 'User',
-            'username' => 'User1',
-            'email' => 'User1@gmail.com',
-            'phone' => 1234567890,
-            'dob' => '1990-01-01',
-            'address' => 'Jl. Abcdef No.999',
-            'role' => 'user'
-        ]]);
-        return redirect('/');
-    } elseif ($credentials['username'] === 'admin1' && $credentials['password'] === 'adminpass') {
-        session(['user' => [
-            'name' => 'Admin', 
+            'id' => $admin->id,
+            'name' => $admin->username, // Sesuaikan dengan nama field di model Admin
             'role' => 'admin'
         ]]);
-        return redirect('/admin/dashadmin');
+        return redirect('/admin/dashadmin')->with('success', 'Login berhasil!');
     }
+
+    // Cek pengguna biasa
+    $pengguna = Pengguna::where('username', $request->username)->first();
+    if ($pengguna && Hash::check($request->password, $pengguna->password)) {
+        // Login pengguna berhasil
+        session(['user' => [
+            'id' => $pengguna->id_pengguna,
+            'name' => $pengguna->nama_lengkap,
+            'username' => $pengguna->username,
+            'email' => $pengguna->email,
+            'profile_picture' => $pengguna->foto_profil,
+            'role' => 'user'
+        ]]);
+        return redirect('/')->with('success', 'Login berhasil!');
+    }
+
+    // Jika login gagal
+    return back()->withErrors(['username' => 'Username atau password salah.']);
 });
+
+Route::post('/register', [PenggunaController::class, 'register']);
 
 Route::post('/profile/update', function (Request $request) {
     $response = ['success' => false];
@@ -50,28 +126,20 @@ Route::post('/profile/update', function (Request $request) {
     try {
         $currentUser = session('user', []);
         
-        // Handle profile picture upload
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
             
             if ($file->isValid()) {
-                // Delete old profile picture if exists
                 if (isset($currentUser['profile_picture']) && Storage::disk('public')->exists($currentUser['profile_picture'])) {
                     Storage::disk('public')->delete($currentUser['profile_picture']);
                 }
                 
-                // Store new file with unique name
                 $path = $file->store('profile_pictures', 'public');
-                
-                // Update user data with new profile picture
                 $currentUser['profile_picture'] = $path;
-                
-                // Add image URL to response
                 $response['image_url'] = asset('storage/' . $path);
             }
         }
         
-        // Update user data
         $userData = [
             'name' => $request->input('fullName'),
             'username' => $request->input('username'),
@@ -81,7 +149,6 @@ Route::post('/profile/update', function (Request $request) {
             'address' => $request->input('address')
         ];
         
-        // Merge and store in session
         session(['user' => array_merge($currentUser, $userData)]);
         
         $response['success'] = true;
@@ -93,31 +160,9 @@ Route::post('/profile/update', function (Request $request) {
     return response()->json($response);
 });
 
-// Logout route modification
 Route::get('/logout', function () {
-    // Delete profile picture if exists
-    if (session('user.profile_picture')) {
-        Storage::disk('public')->delete(session('user.profile_picture'));
-        session()->forget('user.profile_picture');
-    }
     session()->forget('user');
-    return redirect('/');
-});
-
-Route::get('/admin/dashadmin', function () {
-    return view('admin.dashadmin');
-});
-Route::get('/admin/sidebar', function () {
-    return view('admin.sidebar');
-});
-Route::get('/admin/tambahdokter', function () {
-    return view('admin.tambahdokter');
-});
-Route::get('/admin/tambahlayanan', function () {
-    return view('admin.tambahlayanan');
-});
-Route::get('/admin/medicalcheckup', function () {
-    return view('admin.medicalcheckup');
+    return redirect('/login');
 });
 
 Route::get('/register', function () {

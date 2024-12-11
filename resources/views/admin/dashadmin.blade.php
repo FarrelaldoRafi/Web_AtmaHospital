@@ -1,6 +1,26 @@
 @extends('admin.sidebar')
 
 @section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+</head>
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 1050;">
+    @if(session('success'))
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+            <div class="toast-header bg-success text-white">
+                <strong class="me-auto">Sukses</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body bg-success text-white">
+                {{ session('success') }}
+            </div>
+        </div>
+    @endif
+</div>
+
 <div class="container-fluid pt-1">
     <div class="d-flex justify-content-between align-items-center my-4">
         <h1>DASHBOARD</h1>
@@ -10,7 +30,7 @@
         <div class="col">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>2</h3>
+                    <h3>{{ $totalPengguna }}</h3>
                     <p>Total Pengguna</p>
                 </div>
                 <div class="icon">
@@ -21,7 +41,7 @@
         <div class="col">
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>4</h3>
+                    <h3>{{ $totalDokter }}</h3>
                     <p>Total Dokter</p>
                 </div>
                 <div class="icon">
@@ -32,7 +52,7 @@
         <div class="col">
             <div class="small-box bg-danger">
                 <div class="inner">
-                    <h3>3</h3>
+                    <h3>{{ $totalLayanan }}</h3>
                     <p>Total Layanan</p>
                 </div>
                 <div class="icon">
@@ -43,7 +63,7 @@
         <div class="col">
             <div class="small-box bg-primary">
                 <div class="inner">
-                    <h3>1</h3>
+                    <h3>{{ $totalPaketMCU }}</h3>
                     <p>Total Paket MCU</p>
                 </div>
                 <div class="icon">
@@ -54,7 +74,7 @@
         <div class="col">
             <div class="small-box bg-dark">
                 <div class="inner">
-                    <h3>1</h3>
+                    <h3>{{ $totalAntrian }}</h3>
                     <p>Total Antrian</p>
                 </div>
                 <div class="icon">
@@ -65,7 +85,7 @@
         <div class="col">
             <div class="small-box bg-secondary">
                 <div class="inner">
-                    <h3>1</h3>
+                    <h3>{{ $totalDaftarMCU }}</h3>
                     <p>Total Daftar MCU</p>
                 </div>
                 <div class="icon">
@@ -89,22 +109,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($pengguna as $index => $p)
                 <tr>
-                    <td>1</td>
-                    <td>Rocky Geram</td>
-                    <td>08562742281</td>
-                    <td>10 Januari 2004</td>
-                    <td>Jl. Bahagia no 77</td>
-                    <td>rockyg@gmail.com</td>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $p->nama_lengkap }}</td>
+                    <td>{{ $p->no_telp }}</td>
+                    <td>{{ $p->tanggal_lahir }}</td>
+                    <td>{{ $p->alamat }}</td>
+                    <td>{{ $p->email }}</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Richard Albertinus N</td>
-                    <td>08558892742</td>
-                    <td>29 Mei 2001</td>
-                    <td>Jl. Kemuning no 12</td>
-                    <td>richard@gmail.com</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -122,42 +136,15 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($dokter as $index => $d)
                 <tr>
-                    <td class="text-center">1</td>
-                    <td>dr. Narji Sandoro, Sp.PD</td>
-                    <td class="text-center">
-                        <img src="{{asset('img\dokter1.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
-                    </td>
-                    <td>Penyakit Dalam</td>
-                    <td>085115242432</td>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $d->nama_dokter }}</td>
+                    <td>{{ $d->foto }}</td>
+                    <td>{{ $d->spesialis }}</td>
+                    <td>{{ $d->no_telp }}</td>
                 </tr>
-                <tr>
-                    <td class="text-center">2</td>
-                    <td>dr. Surya Martono, Sp.JP</td>
-                    <td class="text-center">
-                        <img src="{{asset('img\dokter2.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
-                    </td>
-                    <td>Jantung</td>
-                    <td>085564721234</td>
-                </tr>
-                <tr>
-                    <td class="text-center">3</td>
-                    <td>drg. Susi Surusi, Sp.KGA</td>
-                    <td class="text-center">
-                        <img src="{{asset('img\dokter3.png')}}" class="img-fluid rounded-circle" style="width: 100px; height: 100px;" alt="Doctor Image">
-                    </td>
-                    <td>Penyakit Dalam</td>
-                    <td>081572899012</td>
-                </tr>
-                <tr>
-                    <td class="text-center">4</td>
-                    <td>dr. Faiz Farozi, Sp.OT</td>
-                    <td class="text-center">
-                        <img src="{{asset('img\dokter4.png')}}" class="img-fluid" style="width: 100px; height: 100px;" alt="Doctor Image">
-                    </td>
-                    <td>Jantung</td>
-                    <td>085775620091</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -175,35 +162,28 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($layanan as $index => $l)
                 <tr>
-                    <td class="text-center">1</td>
-                    <td>Pemeriksaan Darah</td>
-                    <td>Laboratorium</td>
-                    <td>Laboratorium Pemeriksaan Darah di Atma Hospital menawarkan berbagai layanan tes darah untuk mendukung diagnosis dan perawatan pasien....</td>
-                    <td class="text-center">
-                        <img src="{{asset('img\cekDarah.png')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
-                    </td>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $l->nama_layanan }}</td>
+                    <td>{{ $l->jenis_layanan }}</td>
+                    <td>{{ $l->deskripsi }}</td>
+                    <td>{{ $l->foto }}</td>
                 </tr>
-                <tr>
-                    <td class="text-center">2</td>
-                    <td>CT-SCAN</td>
-                    <td>Radiologi</td>
-                    <td>Unit CT-Scan di Atma Hospital menawarkan layanan pencitraan medis yang canggih untuk mendukung diagnosis dan perawatan pasien dengan berbagai kondisi medis....</td>
-                    <td class="text-center">
-                        <img src="{{asset('img\ct-scan.jpg')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">3</td>
-                    <td>Pemeriksaan Psikologi</td>
-                    <td>Poliklinik</td>
-                    <td>Poliklinik Psikologi di Atma Hospital menawarkan berbagai layanan pemeriksaan psikologis yang bertujuan untuk mengevaluasi kesehatan mental dan emosi pasien...</td>
-                    <td class="text-center">
-                        <img src="{{asset('img\pemeriksaanPsikologi.png')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
-                    </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        var toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl);
+        });
+
+        toastList.forEach(toast => toast.show());
+    });
+</script>
 @endsection

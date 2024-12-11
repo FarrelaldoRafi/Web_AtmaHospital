@@ -21,7 +21,7 @@
             <div class="row g-0">
                 <div class="col-md-4 d-flex justify-content-center align-items-center">
                     <div class="profile-image-container">
-                        <img src="https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1).jpg"
+                        <img src="{{asset ('img\dokter2.png') }}"
                              alt="Dr. Sandoro Narji, Sp.PD">
                         <div class="profile-caption">
                             <h5>dr. Sandoro Narji, Sp.PD</h5>

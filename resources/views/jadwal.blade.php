@@ -7,7 +7,7 @@
 </head>
 
 <main>
-    <div class="container-fluid text-white text-center d-flex justify-content-center align-items-center mt-5" style="height: 50vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center";>
+    <div class="container-fluid text-white text-center d-flex justify-content-center align-items-center mt-5" style="height: 50vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
         <div class="container bg-white shadow p-4" style="max-width: 1000px; border-radius: 30px; z-index: 2;">
             <form>
                 <div class="mb-2 rounded">
@@ -30,82 +30,82 @@
         </div>
     </div>
     <section class="section-md">
-    <div class="container mt-0">
-        <h2 class="text-left mb-4"><strong>Daftar Dokter di Atma Hospital sesuai dengan kebutuhan Anda</strong></h2>
-        <div class="row" id="jadwal-row">
-            <div class="col-md-15 mb-2">
-                <div class="card d-flex flex-row p-2 mt-2" style="background-color: #EFEFEF; border-radius: 20px;">
-                    <img src="{{asset ('img\dokter1.png') }}" class="card-img-left" alt="d1" style="object-fit:cover; width: 210px; height: 232px; margin: 10px;">
-                    <div class="card-body">
-                        <h5 class="card-title">dr. Narji Sandoro, Sp.PD.</h5>
-                        <span class="badge badge-specialization">Penyakit Dalam</span>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Senin</th>
-                                    <th>Selasa</th>
-                                    <th>Rabu</th>
-                                    <th>Kamis</th>
-                                    <th>Jumat</th>
-                                    <th>Sabtu</th>
-                                    <th>Minggu</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>10:00 - 15:00</td>
-                                <td>11:00 - 16:00</td>
-                                <td>10:00 - 14:00</td>
-                                <td>10:00 - 14:00</td>
-                                <td>10:00 - 13:00</td>
-                                <td>10:00 - 15:00</td>
-                                <td>09:00 - 12:00</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <a href="/List-Dokter/Narji-Sandoro" class="btn btn-custom">Lihat Profil</a>
+        <div class="container mt-0">
+            <h2 class="text-left mb-4"><strong>Daftar Dokter di Atma Hospital sesuai dengan kebutuhan Anda</strong></h2>
+            <div class="row" id="jadwal-row">
+                <div class="col-md-15 mb-2">
+                    <div class="card d-flex flex-row p-2 mt-2" style="background-color: #EFEFEF; border-radius: 20px;">
+                        <img src="{{asset ('img\dokter1.png') }}" class="card-img-left" alt="d1" style="object-fit:cover; width: 210px; height: 232px; margin: 10px;">
+                        <div class="card-body">
+                            <h5 class="card-title">dr. Narji Sandoro, Sp.PD.</h5>
+                            <span class="badge badge-specialization">Penyakit Dalam</span>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Senin</th>
+                                        <th>Selasa</th>
+                                        <th>Rabu</th>
+                                        <th>Kamis</th>
+                                        <th>Jumat</th>
+                                        <th>Sabtu</th>
+                                        <th>Minggu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="/List-Dokter/Narji-Sandoro" class="btn btn-custom">Lihat Profil</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card d-flex flex-row p-2 mt-2" style="background-color: #EFEFEF; border-radius: 20px;">
-                    <img src="{{asset ('img\dokter2.png') }}" class="card-img-left" alt="d1" style="object-fit:cover; width: 210px; height: 232px; margin: 10px;">
-                    <div class="card-body">
-                        <h5 class="card-title">dr. Sandoro Narji, Sp.PD.</h5>
-                        <span class="badge badge-specialization">Penyakit Dalam</span>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Senin</th>
-                                    <th>Selasa</th>
-                                    <th>Rabu</th>
-                                    <th>Kamis</th>
-                                    <th>Jumat</th>
-                                    <th>Sabtu</th>
-                                    <th>Minggu</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>10:00 - 15:00</td>
-                                <td>11:00 - 16:00</td>
-                                <td>10:00 - 14:00</td>
-                                <td>10:00 - 14:00</td>
-                                <td>10:00 - 13:00</td>
-                                <td>10:00 - 15:00</td>
-                                <td>09:00 - 12:00</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <a href="/List-Dokter/Sandoro-Narji" class="btn btn-custom">Lihat Profil</a>
+                    <div class="card d-flex flex-row p-2 mt-2" style="background-color: #EFEFEF; border-radius: 20px;">
+                        <img src="{{asset ('img\dokter2.png') }}" class="card-img-left" alt="d1" style="object-fit:cover; width: 210px; height: 232px; margin: 10px;">
+                        <div class="card-body">
+                            <h5 class="card-title">dr. Sandoro Narji, Sp.PD.</h5>
+                            <span class="badge badge-specialization">Penyakit Dalam</span>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Senin</th>
+                                        <th>Selasa</th>
+                                        <th>Rabu</th>
+                                        <th>Kamis</th>
+                                        <th>Jumat</th>
+                                        <th>Sabtu</th>
+                                        <th>Minggu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                        <td>10:00 - 14:00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="/List-Dokter/Sandoro-Narji" class="btn btn-custom">Lihat Profil</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="d-flex justify-content-center mt-4">
-        <button class="btn btn-warning px-5 py-2" id="load-more-btn">LOAD MORE</button>
-    </div>
-</section>
+        <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-warning px-5 py-2" id="load-more-btn">LOAD MORE</button>
+        </div>
+    </section>
 </main>
 @include('includes.footer')
 
@@ -134,15 +134,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>10:00 - 15:00</td>
-                                <td>11:00 - 16:00</td>
-                                <td>10:00 - 14:00</td>
-                                <td>10:00 - 14:00</td>
-                                <td>10:00 - 13:00</td>
-                                <td>10:00 - 15:00</td>
-                                <td>09:00 - 12:00</td>
-                            </tr>
+                                <tr>
+                                    <td>10:00 - 14:00</td>
+                                    <td>10:00 - 14:00</td>
+                                    <td>10:00 - 14:00</td>
+                                    <td>10:00 - 14:00</td>
+                                    <td>10:00 - 14:00</td>
+                                    <td>10:00 - 14:00</td>
+                                    <td>10:00 - 14:00</td>
+                                </tr>
                             </tbody>
                         </table>
                         <a href="/List-Dokter/Sandoro-Narji" class="btn btn-custom">Lihat Profil</a>
@@ -150,16 +150,6 @@
                 </div>
             `;
             document.getElementById('jadwal-row').insertAdjacentHTML('beforeend', newCards);
-
-            // loadMoreBtn.textContent = 'MINIMIZE';
-            // isExpanded = true;
-        } 
-        // else {
-        //     const additionalJadwal = document.querySelectorAll('.additional-jadwal');
-        //     additionalJadwal.forEach(news => news.remove());
-
-        //     loadMoreBtn.textContent = 'LOAD MORE';
-        //     isExpanded = false;
-        // }
+        }
     });
 </script>

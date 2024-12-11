@@ -45,8 +45,6 @@
         </div>
     </div>
 
-
-
     <div class="quick-link-hospital desktop">
 		<div class="container">
 			<div class="wrap-all-hospital">
@@ -216,51 +214,51 @@
         </div>
     </div>
 
-<div class="container mt-5">
-    <h2 class="text-left mb-3">Atma Hospital News</h2>
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <div class="card d-flex flex-row">
-                <img src="https://www.bodrexin.com/public/content_images/Image_Artikel_2.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
-                <div class="card-body">
-                    <h5 class="card-title">Atma Hospital mengadakan sesi Imunisasi Anak...</h5>
-                    <p class="card-text"><small class="text-muted">17 September 2022</small></p>
-                    <a href="/List-Berita/berita1" class="btn btn-primary">Lihat berita &rarr;</a>
+    <div class="container mt-5">
+        <h2 class="text-left mb-3">Atma Hospital News</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card d-flex flex-row">
+                    <img src="https://www.bodrexin.com/public/content_images/Image_Artikel_2.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Atma Hospital mengadakan sesi Imunisasi Anak...</h5>
+                        <p class="card-text"><small class="text-muted">17 September 2022</small></p>
+                        <a href="/List-Berita/berita1" class="btn btn-primary">Lihat berita &rarr;</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card d-flex flex-row">
-                <img src="https://www.keckmedicine.org/wp-content/uploads/2022/08/pancreatic-cancer-awareness-ribbon.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
-                <div class="card-body">
-                    <h5 class="card-title">Atma Hospital Adakan Seminar Kanker Payudara...</h5>
-                    <p class="card-text"><small class="text-muted">3 Oktober 2022</small></p>
-                    <a href="/List-Berita/berita2" class="btn btn-primary">Lihat berita &rarr;</a>
+            <div class="col-md-6 mb-4">
+                <div class="card d-flex flex-row">
+                    <img src="https://www.keckmedicine.org/wp-content/uploads/2022/08/pancreatic-cancer-awareness-ribbon.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Atma Hospital Adakan Seminar Kanker Payudara...</h5>
+                        <p class="card-text"><small class="text-muted">3 Oktober 2022</small></p>
+                        <a href="/List-Berita/berita2" class="btn btn-primary">Lihat berita &rarr;</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card d-flex flex-row">
-                <img src="https://smakstlouis1sby.sch.id/wp-content/uploads/2019/11/DSCF2873.jpg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
-                <div class="card-body">
-                    <h5 class="card-title">Atma Hospital Gelar Bakti Sosial di Yogyakarta</h5>
-                    <p class="card-text"><small class="text-muted">14 Februari 2023</small></p>
-                    <a href="/List-Berita/berita3" class="btn btn-primary">Lihat berita &rarr;</a>
+            <div class="col-md-6 mb-4">
+                <div class="card d-flex flex-row">
+                    <img src="https://smakstlouis1sby.sch.id/wp-content/uploads/2019/11/DSCF2873.jpg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px; margin: 10px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Atma Hospital Gelar Bakti Sosial di Yogyakarta</h5>
+                        <p class="card-text"><small class="text-muted">14 Februari 2023</small></p>
+                        <a href="/List-Berita/berita3" class="btn btn-primary">Lihat berita &rarr;</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card d-flex flex-row">
-                <img src="https://lan.go.id/wp-content/uploads/2022/04/5-3-1024x682.jpeg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px;margin: 10px;">
-                <div class="card-body">
-                    <h5 class="card-title">Atma Hospital Mengadakan Donor Darah Massal</h5>
-                    <p class="card-text"><small class="text-muted">1 November 2023</small></p>
-                    <a href="/List-Berita/berita4" class="btn btn-primary">Lihat berita &rarr;</a>
+            <div class="col-md-6 mb-4">
+                <div class="card d-flex flex-row">
+                    <img src="https://lan.go.id/wp-content/uploads/2022/04/5-3-1024x682.jpeg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px;margin: 10px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Atma Hospital Mengadakan Donor Darah Massal</h5>
+                        <p class="card-text"><small class="text-muted">1 November 2023</small></p>
+                        <a href="/List-Berita/berita4" class="btn btn-primary">Lihat berita &rarr;</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </main>
 
 @include('includes.footer')

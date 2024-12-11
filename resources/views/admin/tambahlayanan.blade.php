@@ -1,6 +1,12 @@
 @extends('admin.sidebar')
 
 @section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Layanan</title>
+</head>
+
 <div class="container-fluid pt-1">
     <div class="d-flex justify-content-center align-items-center my-4">
         <h1>LAYANAN</h1>
@@ -21,8 +27,8 @@
     </div>
 
     <div class="table-responsive">
-        <div class="container d-flex justify-content-center"> <!-- Menambahkan class d-flex untuk membuat konten di tengah -->
-            <div class="border p-4 mb-4" style="border-radius: 15px; border: 2px solid #6f42c1; width: 80%;"> <!-- Mengatur lebar form agar lebih pas di tengah -->
+        <div class="container d-flex justify-content-center">
+            <div class="border p-4 mb-4" style="border-radius: 15px; border: 2px solid #6f42c1; width: 80%;">
                 <form>
                     <h3 class="text-center mb-4">Tambah Layanan</h3>
                     <div class="mb-3">
@@ -47,9 +53,7 @@
                         <input type="file" class="form-control" id="photo">
                     </div>
                     <div class="d-flex justify-content-end">
-                        <!-- Tombol Batal di sebelah kiri -->
                         <button type="cancel" class="btn btn-danger me-2">Batal</button>
-                        <!-- Tombol Simpan di sebelah kanan -->
                         <button type="submit" class="btn btn-success">Simpan</button>
                     </div>
                 </form>
@@ -67,6 +71,7 @@
                     <th class="align-middle">Jenis</th>
                     <th class="align-middle">Deskripsi</th>
                     <th class="align-middle">Foto</th>
+                    <th class="align-middle">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -76,7 +81,17 @@
                     <td>Laboratorium</td>
                     <td>Laboratorium Pemeriksaan Darah di Atma Hospital menawarkan berbagai layanan tes darah untuk mendukung diagnosis dan perawatan pasien....</td>
                     <td class="text-center">
-                        <img src="{{asset('img\cekDarah.png')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
+                        <img src="{{asset('img/cekDarah.png')}}" class="img-fluid" style="width: 600px; height: 100px;" alt="Doctor Image">
+                    </td>
+                    <td class="text-center">
+                        <span class="d-flex justify-content-center align-items-center">
+                            <a href="#" class="me-3">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-trash text-danger"></i>
+                            </a>
+                        </span>
                     </td>
                 </tr>
                 <tr>
@@ -85,7 +100,17 @@
                     <td>Radiologi</td>
                     <td>Unit CT-Scan di Atma Hospital menawarkan layanan pencitraan medis yang canggih untuk mendukung diagnosis dan perawatan pasien dengan berbagai kondisi medis....</td>
                     <td class="text-center">
-                        <img src="{{asset('img\ct-scan.jpg')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
+                        <img src="{{asset('img/ct-scan.jpg')}}" class="img-fluid" style="width: 600px; height: 100px;" alt="Doctor Image">
+                    </td>
+                    <td class="text-center">
+                        <span class="d-flex justify-content-center align-items-center">
+                            <a href="#" class="me-3">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-trash text-danger"></i>
+                            </a>
+                        </span>
                     </td>
                 </tr>
                 <tr>
@@ -94,12 +119,21 @@
                     <td>Poliklinik</td>
                     <td>Poliklinik Psikologi di Atma Hospital menawarkan berbagai layanan pemeriksaan psikologis yang bertujuan untuk mengevaluasi kesehatan mental dan emosi pasien...</td>
                     <td class="text-center">
-                        <img src="{{asset('img\pemeriksaanPsikologi.png')}}" class="img-fluid" style="width: 400px; height: 200px;" alt="Doctor Image">
+                        <img src="{{asset('img/pemeriksaanPsikologi.png')}}" class="img-fluid" style="width: 600px; height: 100px;" alt="Doctor Image">
+                    </td>
+                    <td class="text-center">
+                        <span class="d-flex justify-content-center align-items-center">
+                            <a href="#" class="me-3">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-trash text-danger"></i>
+                            </a>
+                        </span>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-
 </div>
 @endsection
