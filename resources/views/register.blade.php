@@ -29,37 +29,38 @@
                 <div class="card p-4">
                     <h2 class="text-center">Selamat Datang</h2>
                     <p class="text-center">Register</p>
-                    <form action="{{ url('/login') }}">
+                    <form action="{{ route('pengguna.register') }}" method="POST" enctype="form-data">
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="fullname" placeholder="Masukkan nama lengkap">
+                            <input type="text" class="form-control" id="fullname" name="nama_lengkap" placeholder="Masukkan nama lengkap">
                         </div>
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Masukkan username">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Masukkan email">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email">
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="phone" class="form-label">Nomor Telepon</label>
-                                <input type="text" class="form-control" id="phone" placeholder="Masukkan no telepon">
+                                <input type="text" class="form-control" id="phone" name="no_telp" placeholder="Masukkan no telepon">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="birthdate" class="form-label">Tanggal Lahir</label>
-                                <input type="date" class="form-control" id="birthdate">
+                                <input type="date" class="form-control" id="birthdate" name="tanggal_lahir">
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Alamat</label>
-                            <input type="text" class="form-control" id="address" placeholder="Masukkan alamat">
+                            <input type="text" class="form-control" id="address" name="alamat" placeholder="Masukkan alamat">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Masukkan password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password">
                         </div>
+                        @csrf
                         <button type="submit" class="btn btn-warning w-100" style="background-color: #FFD700; color: #004080;">Register</button>
                     </form>
                     <p class="text-center mt-3">Sudah punya akun? <a href="/login">Login</a></p>

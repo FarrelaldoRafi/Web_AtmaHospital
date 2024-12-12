@@ -118,47 +118,49 @@ Route::post('/login', function (Request $request) {
     return back()->withErrors(['username' => 'Username atau password salah.']);
 });
 
-Route::post('/register', [PenggunaController::class, 'register']);
+Route::post('/register', [PenggunaController::class, 'register'])->name('pengguna.register');
 
-Route::post('/profile/update', function (Request $request) {
-    $response = ['success' => false];
+// Route::post('/profile/update', function (Request $request) {
+//     $response = ['success' => false];
     
-    try {
-        $currentUser = session('user', []);
+//     try {
+//         $currentUser = session('user', []);
         
-        if ($request->hasFile('profile_picture')) {
-            $file = $request->file('profile_picture');
+//         if ($request->hasFile('profile_picture')) {
+//             $file = $request->file('profile_picture');
             
-            if ($file->isValid()) {
-                if (isset($currentUser['profile_picture']) && Storage::disk('public')->exists($currentUser['profile_picture'])) {
-                    Storage::disk('public')->delete($currentUser['profile_picture']);
-                }
+//             if ($file->isValid()) {
+//                 if (isset($currentUser['profile_picture']) && Storage::disk('public')->exists($currentUser['profile_picture'])) {
+//                     Storage::disk('public')->delete($currentUser['profile_picture']);
+//                 }
                 
-                $path = $file->store('profile_pictures', 'public');
-                $currentUser['profile_picture'] = $path;
-                $response['image_url'] = asset('storage/' . $path);
-            }
-        }
+//                 $path = $file->store('profile_pictures', 'public');
+//                 $currentUser['profile_picture'] = $path;
+//                 $response['image_url'] = asset('storage/' . $path);
+//             }
+//         }
         
-        $userData = [
-            'name' => $request->input('fullName'),
-            'username' => $request->input('username'),
-            'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
-            'dob' => $request->input('dob'),
-            'address' => $request->input('address')
-        ];
+//         $userData = [
+//             'name' => $request->input('fullName'),
+//             'username' => $request->input('username'),
+//             'email' => $request->input('email'),
+//             'phone' => $request->input('phone'),
+//             'dob' => $request->input('dob'),
+//             'address' => $request->input('address')
+//         ];
         
-        session(['user' => array_merge($currentUser, $userData)]);
+//         session(['user' => array_merge($currentUser, $userData)]);
         
-        $response['success'] = true;
+//         $response['success'] = true;
         
-    } catch (\Exception $e) {
-        $response['error'] = $e->getMessage();
-    }
+//     } catch (\Exception $e) {
+//         $response['error'] = $e->getMessage();
+//     }
     
-    return response()->json($response);
-});
+//     return response()->json($response);
+// });
+
+Route::post('/profile/update', [PenggunaController::class, 'update']);
 
 Route::get('/logout', function () {
     session()->forget('user');
@@ -170,7 +172,8 @@ Route::get('/register', function () {
 });
 
 Route::get('/profile', function () {
-    return view('profile');
+    $pengguna = Pengguna::findOrFail(session('user.id'));
+    return view('profile', compact('pengguna'));
 });
 
 Route::get('/infojanji', function () {
