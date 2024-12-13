@@ -29,15 +29,16 @@
     <div class="table-responsive">
         <div class="container d-flex justify-content-center">
             <div class="border p-4 mb-4" style="border-radius: 15px; border: 2px solid #6f42c1; width: 80%;">
-                <form>
+            <form action="{{ route('admin.layanan.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf        
                     <h3 class="text-center mb-4">Tambah Layanan</h3>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nama Layanan</label>
-                        <input type="text" class="form-control" id="name" placeholder="Nama Layanan">
+                        <label for="nama_layanan" class="form-label">Nama Layanan</label>
+                        <input type="text" class="form-control" id="nama_layanan" name="nama_layanan" placeholder="Nama Layanan">
                     </div>
                     <div class="mb-3">
-                        <label for="jenis" class="form-label">Jenis</label>
-                        <select class="form-select me-2" id="jenis" name="jenis" style="width: 100%;">
+                        <label for="jenis_layanan" class="form-label">Jenis</label>
+                        <select class="form-select me-2" id="jenis_layanan" name="jenis_layanan" style="width: 100%;">
                             <option value="" selected disabled>Pilih Layanan</option>
                             <option value="laboratorium">Laboratorium</option>
                             <option value="poliklinik">Poliklinik</option>
@@ -46,11 +47,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
-                        <input type="text-area" class="form-control" id="deskripsi" placeholder="Deskripsi Layanan">
+                        <input type="text-area" class="form-control" id="deskripsi" name="deskripsi" placeholder="Deskripsi Layanan">
                     </div>
                     <div class="mb-3">
-                        <label for="photo" class="form-label">Foto</label>
-                        <input type="file" class="form-control" id="photo">
+                        <label for="foto" class="form-label">Foto</label>
+                        <input type="file" class="form-control" id="foto" name="foto" required>
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="cancel" class="btn btn-danger me-2">Batal</button>

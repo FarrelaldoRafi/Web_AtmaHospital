@@ -10,6 +10,7 @@ use App\Models\PendaftaranMedicalCheckup;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\LayananController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -70,6 +71,8 @@ Route::middleware([CheckAuthenticated::class])->group(function () {
     Route::get('/admin/tambahlayanan', function () {
         return view('admin.tambahlayanan');
     });
+    Route::post('/admin/layanan/store', [LayananController::class, 'store'])->name('admin.layanan.store');
+    Route::put('/admin/layanan/{id}', [LayananController::class, 'update'])->name('admin.layanan.update');
     
     Route::get('/admin/medicalcheckup', function () {
         return view('admin.medicalcheckup');
