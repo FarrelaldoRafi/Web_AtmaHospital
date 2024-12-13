@@ -36,7 +36,7 @@ class PenggunaController extends Controller
             'foto_profil' => $fotoProfilPath,
         ]);
 
-        return response()->json($pengguna, 201);
+        return redirect('/login')->with(['success' => 'Berhasil register Pengguna!']);
     }
 
     public function login(Request $request)
