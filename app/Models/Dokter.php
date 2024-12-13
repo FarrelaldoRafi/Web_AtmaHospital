@@ -10,7 +10,6 @@ class Dokter extends Model
     protected $primaryKey = 'id_dokter';
 
     protected $fillable = [
-        'id_admin', 
         'nama_dokter', 
         'spesialis', 
         'no_telp', 
@@ -19,12 +18,6 @@ class Dokter extends Model
         'deskripsi',
         'foto'
     ];
-
-    // Relasi dengan Admin
-    public function admin()
-    {
-        return $this->belongsTo(Admin::class, 'id_admin');
-    }
 
     // Relasi dengan Pendaftaran Antrian
     public function pendaftaranAntreans()

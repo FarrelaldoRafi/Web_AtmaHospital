@@ -71,8 +71,13 @@ Route::middleware([CheckAuthenticated::class])->group(function () {
     Route::get('/admin/tambahlayanan', function () {
         return view('admin.tambahlayanan');
     });
+
+    Route::get('/admin/tambahlayanan', [LayananController::class, 'index'])->name('admin.layanan.index');
     Route::post('/admin/layanan/store', [LayananController::class, 'store'])->name('admin.layanan.store');
-    Route::put('/admin/layanan/{id}', [LayananController::class, 'update'])->name('admin.layanan.update');
+    Route::get('/admin/layanan/edit/{id_layanan}', [LayananController::class, 'edit'])->name('admin.layanan.edit');
+    Route::put('/admin/layanan/update/{id_layanan}', [LayananController::class, 'update'])->name('admin.layanan.update');
+    Route::delete('/admin/layanan/{id_layanan}', [LayananController::class, 'destroy'])->name('admin.layanan.destroy');
+
     
     Route::get('/admin/medicalcheckup', function () {
         return view('admin.medicalcheckup');

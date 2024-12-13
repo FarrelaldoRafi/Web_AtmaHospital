@@ -10,16 +10,10 @@ return new class extends Migration
     {
         Schema::create('paketmedicalcheckup', function (Blueprint $table) {
             $table->id('id_paketMCU');
-            $table->unsignedBigInteger('id_admin');
             $table->string('nama_paket', 100);
             $table->text('deskripsi')->nullable();
             $table->decimal('harga', 10, 2);
             $table->timestamps();
-
-            $table->foreign('id_admin')
-                  ->references('id_admin')
-                  ->on('admin')
-                  ->onDelete('cascade');
         });
     }
 
