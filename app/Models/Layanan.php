@@ -21,4 +21,9 @@ class Layanan extends Model
     {
         return $this->hasMany(DetailTambahPaketMCU::class, 'id_layanan');
     }
+
+    public function paketMCU()
+    {
+        return $this->belongsToMany(PaketMedicalCheckup::class, 'detailtambahpaketmcu', 'id_layanan', 'id_paketMCU');
+    }
 }

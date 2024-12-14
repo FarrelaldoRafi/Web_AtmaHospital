@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PaketMedicalCheckupController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -82,6 +83,13 @@ Route::middleware([CheckAuthenticated::class])->group(function () {
     Route::get('/admin/medicalcheckup', function () {
         return view('admin.medicalcheckup');
     });
+
+    Route::get('/admin/medicalcheckup', [PaketMedicalCheckupController::class, 'index'])->name('admin.medicalcheckup.index');
+    Route::post('/admin/medicalcheckup/store', [PaketMedicalCheckupController::class, 'store'])->name('admin.medicalcheckup.store');
+    Route::get('/admin/layanan/edit/{id_paketMCU}', [PaketMedicalCheckupController::class, 'edit'])->name('admin.medicalcheckup.edit');
+    Route::put('/admin/medicalcheckup/update/{id_paketMCU}', [PaketMedicalCheckupController::class, 'update'])->name('admin.medicalcheckup.update');
+    Route::delete('/admin/medicalcheckup/{id_paketMCU}', [PaketMedicalCheckupController::class, 'destroy'])->name('admin.medicalcheckup.destroy');
+
 });
 
 // Route login

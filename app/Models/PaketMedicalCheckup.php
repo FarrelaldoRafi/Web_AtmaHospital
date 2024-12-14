@@ -26,4 +26,9 @@ class PaketMedicalCheckup extends Model
     {
         return $this->hasMany(PendaftaranMedicalCheckup::class, 'id_paketMCU');
     }
+
+    public function layanan()
+    {
+        return $this->belongsToMany(Layanan::class, 'detailtambahpaketmcu', 'id_paketMCU', 'id_layanan');
+    }
 }
