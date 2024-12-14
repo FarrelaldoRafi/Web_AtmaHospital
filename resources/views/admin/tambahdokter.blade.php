@@ -130,7 +130,7 @@
             </thead>
             <tbody>
                 @foreach ($dokters as $index => $dokter)
-                    <tr data-dokter-id="{{ $dokter->id }}" 
+                    <tr data-dokter-id="{{ $dokter->id_dokter }}" 
                         data-nama="{{ $dokter->nama_dokter }}"
                         data-spesialis="{{ $dokter->spesialis }}"
                         data-no-telp="{{ $dokter->no_telp }}"

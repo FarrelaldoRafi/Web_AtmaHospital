@@ -22,7 +22,17 @@ Route::get('/', function () {
 });
 
 Route::get('/jadwal', function () {
-    return view('jadwal');
+    $dokter = Dokter::all();
+
+    $spesialis = Dokter::select('spesialis')->distinct()->pluck('spesialis');
+    
+    // Kirim data ke view
+    return view('jadwal',[
+        'dokter' => $dokter,
+
+        //spesialis dokter
+        'unikSpesialis' => $spesialis
+    ]);    
 });
 
 Route::get('/layanan', function () {
@@ -208,9 +218,15 @@ Route::get('/List-Dokter/Narji-Sandoro', function () {
     return view('/List-Dokter/Narji-Sandoro');
 });
 
-Route::get('/List-Dokter/Sandoro-Narji', function () {
-    return view('/List-Dokter/Sandoro-Narji');
+
+Route::get('/List-Dokter/profiledokter/{id_dokter}', function ($id_dokter) {
+    // Ambil data dokter berdasarkan id_dokter
+    $dokter = Dokter::findOrFail($id_dokter);
+
+    // Kirim data dokter ke view
+    return view('List-Dokter.profiledokter', compact('dokter'));
 });
+
 
 Route::get('/List-Berita/berita1', function () {
     return view('/List-Berita/berita1');
@@ -245,7 +261,11 @@ Route::get('/infomcu', function () {
 });
 
 Route::get('/medicalcheckup', function () {
-    return view('medicalcheckup');
+    $paketMCU = PaketMedicalCheckup::all();
+    
+    return view('medicalcheckup',[
+        'paketMCU'=> $paketMCU
+    ]);
 });
 
 Route::get('/List-Layanan/pemeriksaanDarah', function () {

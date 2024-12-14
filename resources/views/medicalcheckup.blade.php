@@ -85,8 +85,9 @@
                             <label for="spesialis" class="form-label fw-bold">Pilih Paket<span>*</span></label>
                             <select class="form-control" id="spesialis" required>
                                 <option value="" selected hidden>Pilih Paket</option>
-                                <option value="spesialis1">Paket Basic</option>
-                                <option value="spesialis2">Paket Premium</option>
+                                @foreach($paketMCU as $paketMCU)
+                                <option value="{{$paketMCU->nama_paket}}" data-harga="{{ $paketMCU->harga }}">{{$paketMCU->nama_paket}}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -131,6 +132,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 <script>
+    document.getElementById('spesialis').addEventListener('change', function() {
+        // Ambil harga dari option yang dipilih
+        var harga = this.options[this.selectedIndex].getAttribute('data-harga');
+        
+        // Update field harga dengan nilai yang didapat
+        document.getElementById('harga').value = 'Rp ' + new Intl.NumberFormat().format(harga);
+    });
+
     document.getElementById('formjanji').addEventListener('submit', function(event) {
         event.preventDefault();
         const form = event.target;
