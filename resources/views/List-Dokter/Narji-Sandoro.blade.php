@@ -1,4 +1,11 @@
 @include('includes.header')
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Narji Sandoro</title>
+</head>
+
 <body>
     <div class="container-fluid text-white text-left d-flex justify-content-center" 
         style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
@@ -14,7 +21,7 @@
             <div class="row g-0">
                 <div class="col-md-4 d-flex justify-content-center align-items-center">
                     <div class="profile-image-container">
-                        <img src="https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1).jpg"
+                        <img src="{{asset ('img\dokter1.png') }}"
                              alt="Dr. Narji Sandoro, Sp.PD">
                         <div class="profile-caption">
                             <h5>dr. Narji Sandoro, Sp.PD</h5>

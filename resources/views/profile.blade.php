@@ -1,76 +1,89 @@
 @include('includes.header')
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+
 <main>
-<div class="container" style="padding-top: 80px; margin-top: 20px;">
+    <div class="container" style="padding-top: 80px; margin-top: 20px;">
         <div class="row">
             <div class="col-lg-4 text-center">
-                <form action="{{ url('/profile/update') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="profile-container position-relative d-inline-block">
-                        <img src="{{ asset('storage/' . (session('user')['profile_picture'] ?? 'https://img.icons8.com/ios-glyphs/150/000000/user.png')) }}" alt="Profile Picture" class="profile-pic">
-                        <label for="file-input" class="change-photo-btn" title="Change Photo">
-                            <i class="fas fa-plus plus-icon"></i>
-                        </label>
-                        <input id="file-input" type="file" name="profile_picture" class="hidden-input" accept="image/*">
-                    </div>
-                    <!-- Save Button -->
-                    <div class="mt-3">
-                        <button type="submit" class="btn btn-primary">Save Profile Picture</button>
-                    </div>
-                </form>
+                <div class="profile-container position-relative d-inline-block">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z' fill='%23000'/%3E%3C/svg%3E"
+                        alt="Profile Picture" class="profile-pic" id="profilePic">
+                    <label for="file-input" class="change-photo-btn" title="Change Photo" style="display: none;">
+                        <i class="fas fa-camera camera-icon"></i>
+                    </label>
+                    <input id="file-input" type="file" name="profile_picture" class="hidden-input" accept="image/*"
+                        disabled>
+                </div>
 
                 <!-- Edit Button -->
-                <div class="mt-3">
-                    <button id="edit-profile" class="btn btn-link edit-icon" style="display: block; margin: 0 auto;">
-                        <i class="fas fa-pencil-alt" style="margin-right: 5px;"></i> 
-                        Edit Profile
+                <div class="mt-1">
+                    <button type="button" id="edit-profile" class="btn btn-link edit-icon"
+                        style="display: block; margin: 0 auto; text-decoration: underline;">
+                        <i class="fas fa-pencil-alt" style="margin-right: 5px;"></i>
+                        Edit Profil
                     </button>
                 </div>
             </div>
 
             <div class="col-lg-8">
-                <form id="profile-form">
+                <form id="profile-form" action="{{ url('/profile/update') }}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
                     <!-- Full Name -->
                     <div class="mb-3">
-                        <label for="fullName" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" disabled>
+                        <label for="fullName" class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="fullName" name="fullName"
+                            placeholder="Masukkan nama lengkap" value="{{ session('user.name') ?? '' }}" disabled>
                     </div>
 
                     <!-- Username -->
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Enter your username" disabled>
+                        <input type="text" class="form-control" id="username" name="username"
+                            placeholder="Masukkan username" value="{{ session('user.username') ?? '' }}" disabled>
                     </div>
 
                     <!-- Email -->
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email" disabled>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email"
+                            value="{{ session('user.email') ?? '' }}" disabled>
                     </div>
 
                     <div class="row">
                         <!-- Phone -->
                         <div class="col-lg-6 mb-3">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" disabled>
+                            <label for="phone" class="form-label">Nomor Telepon</label>
+                            <input type="tel" class="form-control" id="phone" name="phone"
+                                placeholder="Masukkan nomor telepon" value="{{ session('user.phone') ?? $pengguna->no_telp ?? '' }}" disabled>
                         </div>
 
                         <!-- Date of Birth -->
                         <div class="col-lg-6 mb-3">
-                            <label for="dob" class="form-label">Date of Birth</label>
-                            <input type="date" class="form-control" id="dob" disabled>
+                            <label for="dob" class="form-label">Tanggal Lahir</label>
+                            <input type="date" class="form-control" id="dob" name="dob"
+                                value="{{ session('user.dob') ?? $pengguna->tanggal_lahir ?? '' }}" disabled>
                         </div>
                     </div>
 
                     <!-- Address -->
                     <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
-                        <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" disabled></textarea>
+                        <label for="address" class="form-label">Alamat</label>
+                        <textarea class="form-control" id="address" name="address" rows="3"
+                            placeholder="Masukkan alamat" disabled>{{ session('user.address') ?? $pengguna->alamat ?? '' }}</textarea>
                     </div>
 
                     <!-- Save and Cancel Buttons -->
                     <div class="d-flex justify-content-end">
-                        <button type="button" id="cancel-btn" class="btn btn-secondary me-2" disabled>Cancel</button>
-                        <button type="button" id="save-btn" class="btn btn-primary" disabled>Save</button>
+                        <button type="button" id="cancel-btn" class="btn btn-secondary me-2"
+                            style="display: none;">Batal</button>
+                        <button type="submit" id="save-btn" class="btn btn-primary"
+                            style="display: none;">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -78,91 +91,176 @@
     </div>
 
     <style>
-    .profile-pic {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid #fff;
-    }
-    .change-photo-btn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Center it vertically and horizontally */
-        background-color: transparent;
-        border-radius: 50%;
-        padding: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        display: flex; /* Use flex to center icon */
-        align-items: center; /* Align items vertically */
-        justify-content: center; /* Align items horizontally */
-    }
-    .hidden-input {
-        display: none;
-    }
-    .plus-icon {
-        opacity: 0; /* Initially hidden */
-        transition: opacity 0.3s;
-        font-size: 30px; /* Adjust font size for plus icon */
-    }
-    .profile-container:hover .plus-icon {
-        opacity: 1; /* Show on hover */
-    }
-    .profile-container:hover .change-photo-btn {
-        background-color: rgba(255, 255, 255, 0.5); /* Light transparent background on hover */
-    }
-    </style>
-</main>
-
-<script>
-    // JavaScript for image upload and profile editing
-    document.getElementById('file-input').addEventListener('change', function (event) {
-        const reader = new FileReader();
-        reader.onload = function () {
-            // Update the profile picture on the profile page
-            document.querySelector('.profile-pic').src = reader.result;
-            // Update the profile picture in the navbar
-            document.querySelector('.profile-img').src = reader.result;
-
-            // Update session storage or handle the image upload here
-            // For simplicity, we're not storing in the session for now
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    });
-
-    // On page load, check if there's a saved profile picture in session storage
-    window.onload = function() {
-        const savedProfilePic = sessionStorage.getItem('profile_picture');
-        if (savedProfilePic) {
-            document.querySelector('.profile-pic').src = savedProfilePic;
-            document.querySelector('.profile-img').src = savedProfilePic;
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
         }
-    };
 
-    // Enable editing on click
-    document.getElementById('edit-profile').addEventListener('click', function() {
-        document.querySelectorAll('#profile-form input, #profile-form textarea').forEach(input => {
-            input.disabled = false;
+        .change-photo-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hidden-input {
+            display: none;
+        }
+
+        .camera-icon {
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 30px;
+        }
+
+        .profile-container:hover .camera-icon {
+            opacity: 1;
+        }
+
+        .profile-container:hover .change-photo-btn {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        #edit-profile.btn-link {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+
+    <script>
+        let tempImageData = null;
+        const form = document.getElementById('profile-form');
+        const editButton = document.getElementById('edit-profile');
+        const cancelButton = document.getElementById('cancel-btn');
+        const saveButton = document.getElementById('save-btn');
+        const fileInput = document.getElementById('file-input');
+        const changePhotoBtn = document.querySelector('.change-photo-btn');
+        const allInputs = form.querySelectorAll('input, textarea');
+        const profilePic = document.getElementById('profilePic');
+        const navProfileImg = document.getElementById('navProfileImg');
+        const defaultProfilePic = 'https://cdn-icons-png.flaticon.com/512/552/552721.png';
+
+        const initialValues = {};
+        allInputs.forEach(input => {
+            initialValues[input.name] = input.value;
         });
-        document.getElementById('cancel-btn').disabled = false;
-        document.getElementById('save-btn').disabled = false;
-        this.style.display = 'none'; // Hide edit button
-    });
+        let initialProfilePic = profilePic.src;
 
-    // Cancel editing
-    document.getElementById('cancel-btn').addEventListener('click', function() {
-        document.querySelectorAll('#profile-form input, #profile-form textarea').forEach(input => {
-            input.disabled = true;
+        fileInput.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    tempImageData = e.target.result;
+                    profilePic.src = tempImageData;
+                };
+                reader.readAsDataURL(file);
+            }
         });
-        this.disabled = true;
-        document.getElementById('save-btn').disabled = true;
-        document.getElementById('edit-profile').style.display = 'block'; // Show edit button
-    });
 
-    // Save edited profile (you may implement AJAX call to save the data)
-    document.getElementById('save-btn').addEventListener('click', function() {
-        alert('Profile saved!'); // Dummy alert; implement your saving logic here
-    });
-</script>
+        editButton.addEventListener('click', function () {
+            allInputs.forEach(input => input.disabled = false);
+            fileInput.disabled = false;
+
+            this.style.display = 'none';
+            cancelButton.style.display = 'block';
+            saveButton.style.display = 'block';
+            changePhotoBtn.style.display = 'block';
+        });
+
+        cancelButton.addEventListener('click', function () {
+            allInputs.forEach(input => {
+                input.disabled = true;
+                input.value = initialValues[input.name];
+            });
+
+            if (fileInput.value) {
+                profilePic.src = defaultProfilePic;
+            } else {
+                profilePic.src = initialProfilePic;
+            }
+
+            fileInput.value = '';
+            fileInput.disabled = true;
+
+            editButton.style.display = 'block';
+            cancelButton.style.display = 'none';
+            saveButton.style.display = 'none';
+            changePhotoBtn.style.display = 'none';
+        });
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            if (fileInput.files[0]) {
+                formData.append('profile_picture', fileInput.files[0]);
+            }
+
+            fetch('/profile/update', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        if (data.image_url) {
+                            profilePic.src = data.image_url;
+                            navProfileImg.src = data.image_url;
+                            initialProfilePic = data.image_url;
+                        }
+
+                        allInputs.forEach(input => {
+                            initialValues[input.name] = input.value;
+                        });
+
+                        allInputs.forEach(input => input.disabled = true);
+                        fileInput.disabled = true;
+                        editButton.style.display = 'block';
+                        cancelButton.style.display = 'none';
+                        saveButton.style.display = 'none';
+                        changePhotoBtn.style.display = 'none';
+
+                        alert('Profil berhasil diperbarui!');
+                    } else {
+                        alert('Gagal memperbarui profil. Silakan coba lagi.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Terjadi kesalahan saat memperbarui profil.');
+                });
+        });
+
+        window.addEventListener('load', function () {
+            const sessionProfilePic = "{{ session('user.profile_picture') }}";
+            if (sessionProfilePic) {
+                const fullUrl = "{{ asset('storage') }}/" + sessionProfilePic;
+                profilePic.src = fullUrl;
+                navProfileImg.src = fullUrl;
+                initialProfilePic = fullUrl;
+            }
+        });
+
+    </script>
+</main>
+@include('includes.footer')

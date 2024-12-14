@@ -1,10 +1,10 @@
-
 @include('includes.header')
-<style>
-    div{
-        border: 2px solid red;
-    }
-</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Janji Dokter</title>
+</head>
+
 <main>
     <div class="container-fluid text-white text-left d-flex justify-content-center" 
         style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
@@ -41,11 +41,11 @@
                     </div>
                 </form>            
             </div>
-            <div class="card-centered mx-auto d-flex flex-row my-5 col-lg-8 col-md-10 col-sm-11" style="background-color: #EFEFEF; border-radius: 20px;">
-                <div class="row card-centered mx-auto p-2 m-3 col-md-12 d-flex justify-content-center">
-                    <div class="col-md-3 col-sm-12">
-                        <div class="card border border-black">
-                            <img src="https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1).jpg" alt="d1" class="card-img-top" style="object-fit:cover; height: 300px;">
+            <div class="card-centered mx-auto d-flex flex-row p-2 my-5 col-md-10 col-sm-11" style="background-color: #EFEFEF; border-radius: 20px;">
+                <div class="row card-centered mx-auto p-2 my-5 col-md-10 d-flex justify-content-center">
+                    <div class="col-md-3 col-sm-11 mb-3">
+                        <div class="card border border-black mt-3"">
+                            <img src="https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1).jpg" alt="d1" class="card-img-top" style="object-fit:cover; height: 185px;">
                             <div class="card-body bg-body-secondary border border-black text-center">
                                 <h6 class="fw-bold">dr. Narji Sandoro, Sp.PD.</h6>
                             </div>

@@ -1,7 +1,13 @@
 @include('includes.header')
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita</title>
+</head>
+
 <main>
-    <div class="container-fluid text-white text-left d-flex justify-content-center"style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
+    <div class="container-fluid text-white text-left d-flex justify-content-center" style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
         <div class="container d-flex align-items-center mt-5">
             <div class="text-container mt-4" style="max-width: 650px;">
                 <h1 class="fw-bold">MEDIA INFORMASI</h1>
@@ -47,7 +53,7 @@
                     <div class="card shadow-sm h-100">
                         <img src="https://smakstlouis1sby.sch.id/wp-content/uploads/2019/11/DSCF2873.jpg" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title">Atma Hospital Gelar Bakti Sosial di Yogyakarta </h5>
+                            <h5 class="card-title">Atma Hospital Gelar Bakti Sosial di Yogyakarta</h5>
                             <p class="card-text">Atma Hospital menyelenggarakan acara bakti sosial di Yogyakarta</p>
                         </div>
                         <div class="card-footer text-muted">
@@ -119,16 +125,6 @@
                 </div>
             `;
             document.getElementById('news-row').insertAdjacentHTML('beforeend', newCards);
-
-            // loadMoreBtn.textContent = 'MINIMIZE';
-            // isExpanded = true;
-        } 
-        // else {
-        //     const additionalNews = document.querySelectorAll('.additional-news');
-        //     additionalNews.forEach(news => news.remove());
-
-        //     loadMoreBtn.textContent = 'LOAD MORE';
-        //     isExpanded = false;
-        // }
+        }
     });
 </script>
