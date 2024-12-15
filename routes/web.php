@@ -10,6 +10,8 @@ use App\Models\PendaftaranMedicalCheckup;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PaketMedicalCheckupController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -20,7 +22,17 @@ Route::get('/', function () {
 });
 
 Route::get('/jadwal', function () {
-    return view('jadwal');
+    $dokter = Dokter::all();
+
+    $spesialis = Dokter::select('spesialis')->distinct()->pluck('spesialis');
+    
+    // Kirim data ke view
+    return view('jadwal',[
+        'dokter' => $dokter,
+
+        //spesialis dokter
+        'unikSpesialis' => $spesialis
+    ]);    
 });
 
 Route::get('/layanan', function () {
@@ -70,10 +82,24 @@ Route::middleware([CheckAuthenticated::class])->group(function () {
     Route::get('/admin/tambahlayanan', function () {
         return view('admin.tambahlayanan');
     });
+
+    Route::get('/admin/tambahlayanan', [LayananController::class, 'index'])->name('admin.layanan.index');
+    Route::post('/admin/layanan/store', [LayananController::class, 'store'])->name('admin.layanan.store');
+    Route::get('/admin/layanan/edit/{id_layanan}', [LayananController::class, 'edit'])->name('admin.layanan.edit');
+    Route::put('/admin/layanan/update/{id_layanan}', [LayananController::class, 'update'])->name('admin.layanan.update');
+    Route::delete('/admin/layanan/{id_layanan}', [LayananController::class, 'destroy'])->name('admin.layanan.destroy');
+
     
     Route::get('/admin/medicalcheckup', function () {
         return view('admin.medicalcheckup');
     });
+
+    Route::get('/admin/medicalcheckup', [PaketMedicalCheckupController::class, 'index'])->name('admin.medicalcheckup.index');
+    Route::post('/admin/medicalcheckup/store', [PaketMedicalCheckupController::class, 'store'])->name('admin.medicalcheckup.store');
+    Route::get('/admin/layanan/edit/{id_paketMCU}', [PaketMedicalCheckupController::class, 'edit'])->name('admin.medicalcheckup.edit');
+    Route::put('/admin/medicalcheckup/update/{id_paketMCU}', [PaketMedicalCheckupController::class, 'update'])->name('admin.medicalcheckup.update');
+    Route::delete('/admin/medicalcheckup/{id_paketMCU}', [PaketMedicalCheckupController::class, 'destroy'])->name('admin.medicalcheckup.destroy');
+
 });
 
 // Route login
@@ -118,47 +144,49 @@ Route::post('/login', function (Request $request) {
     return back()->withErrors(['username' => 'Username atau password salah.']);
 });
 
-Route::post('/register', [PenggunaController::class, 'register']);
+Route::post('/register', [PenggunaController::class, 'register'])->name('pengguna.register');
 
-Route::post('/profile/update', function (Request $request) {
-    $response = ['success' => false];
+// Route::post('/profile/update', function (Request $request) {
+//     $response = ['success' => false];
     
-    try {
-        $currentUser = session('user', []);
+//     try {
+//         $currentUser = session('user', []);
         
-        if ($request->hasFile('profile_picture')) {
-            $file = $request->file('profile_picture');
+//         if ($request->hasFile('profile_picture')) {
+//             $file = $request->file('profile_picture');
             
-            if ($file->isValid()) {
-                if (isset($currentUser['profile_picture']) && Storage::disk('public')->exists($currentUser['profile_picture'])) {
-                    Storage::disk('public')->delete($currentUser['profile_picture']);
-                }
+//             if ($file->isValid()) {
+//                 if (isset($currentUser['profile_picture']) && Storage::disk('public')->exists($currentUser['profile_picture'])) {
+//                     Storage::disk('public')->delete($currentUser['profile_picture']);
+//                 }
                 
-                $path = $file->store('profile_pictures', 'public');
-                $currentUser['profile_picture'] = $path;
-                $response['image_url'] = asset('storage/' . $path);
-            }
-        }
+//                 $path = $file->store('profile_pictures', 'public');
+//                 $currentUser['profile_picture'] = $path;
+//                 $response['image_url'] = asset('storage/' . $path);
+//             }
+//         }
         
-        $userData = [
-            'name' => $request->input('fullName'),
-            'username' => $request->input('username'),
-            'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
-            'dob' => $request->input('dob'),
-            'address' => $request->input('address')
-        ];
+//         $userData = [
+//             'name' => $request->input('fullName'),
+//             'username' => $request->input('username'),
+//             'email' => $request->input('email'),
+//             'phone' => $request->input('phone'),
+//             'dob' => $request->input('dob'),
+//             'address' => $request->input('address')
+//         ];
         
-        session(['user' => array_merge($currentUser, $userData)]);
+//         session(['user' => array_merge($currentUser, $userData)]);
         
-        $response['success'] = true;
+//         $response['success'] = true;
         
-    } catch (\Exception $e) {
-        $response['error'] = $e->getMessage();
-    }
+//     } catch (\Exception $e) {
+//         $response['error'] = $e->getMessage();
+//     }
     
-    return response()->json($response);
-});
+//     return response()->json($response);
+// });
+
+Route::post('/profile/update', [PenggunaController::class, 'update']);
 
 Route::get('/logout', function () {
     session()->forget('user');
@@ -170,7 +198,8 @@ Route::get('/register', function () {
 });
 
 Route::get('/profile', function () {
-    return view('profile');
+    $pengguna = Pengguna::findOrFail(session('user.id'));
+    return view('profile', compact('pengguna'));
 });
 
 Route::get('/infojanji', function () {
@@ -189,9 +218,15 @@ Route::get('/List-Dokter/Narji-Sandoro', function () {
     return view('/List-Dokter/Narji-Sandoro');
 });
 
-Route::get('/List-Dokter/Sandoro-Narji', function () {
-    return view('/List-Dokter/Sandoro-Narji');
+
+Route::get('/List-Dokter/profiledokter/{id_dokter}', function ($id_dokter) {
+    // Ambil data dokter berdasarkan id_dokter
+    $dokter = Dokter::findOrFail($id_dokter);
+
+    // Kirim data dokter ke view
+    return view('List-Dokter.profiledokter', compact('dokter'));
 });
+
 
 Route::get('/List-Berita/berita1', function () {
     return view('/List-Berita/berita1');
@@ -226,7 +261,11 @@ Route::get('/infomcu', function () {
 });
 
 Route::get('/medicalcheckup', function () {
-    return view('medicalcheckup');
+    $paketMCU = PaketMedicalCheckup::all();
+    
+    return view('medicalcheckup',[
+        'paketMCU'=> $paketMCU
+    ]);
 });
 
 Route::get('/List-Layanan/pemeriksaanDarah', function () {

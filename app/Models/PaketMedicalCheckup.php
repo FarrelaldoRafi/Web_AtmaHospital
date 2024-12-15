@@ -10,17 +10,10 @@ class PaketMedicalCheckup extends Model
     protected $primaryKey = 'id_paketMCU';
 
     protected $fillable = [
-        'id_admin', 
         'nama_paket', 
         'deskripsi', 
         'harga'
     ];
-
-    // Relasi dengan Admin
-    public function admin()
-    {
-        return $this->belongsTo(Admin::class, 'id_admin');
-    }
 
     // Relasi dengan Detail Tambah Paket MCU
     public function detailTambahPaketMCUs()
@@ -32,5 +25,10 @@ class PaketMedicalCheckup extends Model
     public function pendaftaranMCUs()
     {
         return $this->hasMany(PendaftaranMedicalCheckup::class, 'id_paketMCU');
+    }
+
+    public function layanan()
+    {
+        return $this->belongsToMany(Layanan::class, 'detailtambahpaketmcu', 'id_paketMCU', 'id_layanan');
     }
 }

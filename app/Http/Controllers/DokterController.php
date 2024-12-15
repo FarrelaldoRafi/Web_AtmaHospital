@@ -130,15 +130,14 @@ class DokterController extends Controller
 {
     try {
         $dokter = Dokter::findOrFail($id);
-        
         // Hapus foto jika ada
         if ($dokter->foto) {
             Storage::delete('public/' . $dokter->foto);
         }
         
         $dokter->delete();
-        
         return redirect()->route('admin.dokter.index')->with('success', 'Dokter berhasil dihapus');
+        // return redirect()->route('admin.tambahdokter')->with('success', 'Dokter berhasil dihapus');
     } catch (\Exception $e) {
         return redirect()->back()->with('error', 'Gagal menghapus dokter: ' . $e->getMessage());
     }

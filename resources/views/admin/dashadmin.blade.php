@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
+
+    <style>
+        td{
+            align-items:center;
+            text-align:center;
+        }
+    </style>
 </head>
 
 <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050;">
@@ -140,7 +147,9 @@
                 <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>{{ $d->nama_dokter }}</td>
-                    <td>{{ $d->foto }}</td>
+                    <td>
+                        <img src="{{ asset('storage/' . $d->foto) }}" alt="{{$d->foto}}" class="fit cover" style="max-height:100px"/>
+                    </td>
                     <td>{{ $d->spesialis }}</td>
                     <td>{{ $d->no_telp }}</td>
                 </tr>
@@ -168,7 +177,9 @@
                     <td>{{ $l->nama_layanan }}</td>
                     <td>{{ $l->jenis_layanan }}</td>
                     <td>{{ $l->deskripsi }}</td>
-                    <td>{{ $l->foto }}</td>
+                    <td>
+                        <img src="{{ asset('storage/' . $l->foto) }}" alt="{{$l->foto}}" class="fit cover" style="max-height:100px"/>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -60,14 +60,14 @@
                         <div class="col-lg-6 mb-3">
                             <label for="phone" class="form-label">Nomor Telepon</label>
                             <input type="tel" class="form-control" id="phone" name="phone"
-                                placeholder="Masukkan nomor telepon" value="{{ session('user.phone') ?? '' }}" disabled>
+                                placeholder="Masukkan nomor telepon" value="{{ session('user.phone') ?? $pengguna->no_telp ?? '' }}" disabled>
                         </div>
 
                         <!-- Date of Birth -->
                         <div class="col-lg-6 mb-3">
                             <label for="dob" class="form-label">Tanggal Lahir</label>
                             <input type="date" class="form-control" id="dob" name="dob"
-                                value="{{ session('user.dob') ?? '' }}" disabled>
+                                value="{{ session('user.dob') ?? $pengguna->tanggal_lahir ?? '' }}" disabled>
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@
                     <div class="mb-3">
                         <label for="address" class="form-label">Alamat</label>
                         <textarea class="form-control" id="address" name="address" rows="3"
-                            placeholder="Masukkan alamat" disabled>{{ session('user.address') ?? '' }}</textarea>
+                            placeholder="Masukkan alamat" disabled>{{ session('user.address') ?? $pengguna->alamat ?? '' }}</textarea>
                     </div>
 
                     <!-- Save and Cancel Buttons -->
