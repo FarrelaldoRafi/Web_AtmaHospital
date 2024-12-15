@@ -18,21 +18,26 @@ class PendaftaranAntrianController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'id_pengguna' => 'required|exists:pengguna,id_pengguna',
-            'id_dokter' => 'required|exists:dokter,id_dokter',
-            'tanggal_antrian' => 'required|date',
-            'namaLengkap_pasien' => 'required|string|max:100',
-            'jenis_kelamin_pasien' => 'required|in:Laki-laki,Perempuan',
-            'tanggal_lahir_pasien' => 'required|date',
-            'no_telp_pasien' => 'required|string|max:15',
-        ]);
+{
+    $validatedData = $request->validate([
+        'id_pengguna' => 'required|exists:pengguna,id_pengguna',
+        'id_dokter' => 'required|exists:dokter,id_dokter',
+        'tanggal_antrian' => 'required|date|after_or_equal:today',
+        'namaLengkap_pasien' => 'required|string|max:100',
+        'jenis_kelamin_pasien' => 'required|in:Laki-laki,Perempuan',
+        'tanggal_lahir_pasien' => 'required|date|before:today',
+        'email_pasien' => 'required|email|max:100',
+        'no_telp_pasien' => 'required|string|max:15',
+    ]);
 
-        $pendaftaranAntrian = PendaftaranAntrian::create($request->all());
+    $pendaftaranAntrian = PendaftaranAntrian::create($validatedData);
 
-        return response()->json($pendaftaranAntrian, 201);
-    }
+    return response()->json([
+        'success' => true,
+        'message' => 'Pendaftaran antrian berhasil',
+        'data' => $pendaftaranAntrian
+    ], 201);
+}
 
     public function update(Request $request, $id)
     {

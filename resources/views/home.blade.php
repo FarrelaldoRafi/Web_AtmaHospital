@@ -157,62 +157,80 @@
     </div>
 
     <div class="container mt-5">
-        <h2 class="text-left mb-3">Layanan Kami</h2>
-    </div>
-    <div class="container">
-        <div class="row" id="load_category_service">
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
-                    <a href="#service-0" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                        <span class="pattern-1"></span>
-                        <p class="text">Laboratorium</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-0">
-                        <div class="service-body scrollablex">
+    <h2 class="text-left mb-3">Layanan Kami</h2>
+</div>
+<div class="container">
+    <div class="row" id="load_category_service">
+        <div class="col-6 col-md-4 mb-3">
+            <div class="flex-col service-item-area">
+                <a href="#service-0" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
+                    <span class="pattern-1"></span>
+                    <p class="text">Laboratorium</p>
+                    <div class="next-desc">Cari tahu informasinya</div>
+                </a>
+                <div class="collapse" id="service-0">
+                    <div class="service-body scrollablex">
+                        @forelse($layananLaboratorium as $layanan)
                             <div class="service-item">
-                                <a href="/List-Layanan/pemeriksaanDarah" class="service-link">Pemeriksaan Darah</a>
+                                <a href="{{ route('layanan.detail', ['id' => $layanan->id_layanan]) }}" class="service-link">{{ $layanan->nama_layanan }}</a>
                             </div>
-                        </div>
+                        @empty
+                            <div class="service-item">
+                                <span class="service-link text-muted">Tidak ada layanan laboratorium</span>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
+        <div class="col-6 col-md-4 mb-3">
+            <div class="flex-col service-item-area">
                 <a href="#service-1" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Poliklinik</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-1">
-                        <div class="service-body scrollablex">
+                    <span class="pattern-1"></span>
+                    <p class="text">Poliklinik</p>
+                    <div class="next-desc">Cari tahu informasinya</div>
+                </a>
+                <div class="collapse" id="service-1">
+                    <div class="service-body scrollablex">
+                        @forelse($layananPoliklinik as $layanan)
                             <div class="service-item">
-                                <a href="/List-Layanan/pemeriksaanPsikologi" class="service-link">Pemeriksaan Psikologi</a>
+                                <a href="{{ route('layanan.detail', ['id' => $layanan->id_layanan]) }}" class="service-link">{{ $layanan->nama_layanan }}</a>
                             </div>
-                        </div>
+                        @empty
+                            <div class="service-item">
+                                <span class="service-link text-muted">Tidak ada layanan poliklinik</span>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
+        <div class="col-6 col-md-4 mb-3">
+            <div class="flex-col service-item-area">
                 <a href="#service-2" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Radiologi</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-2">
-                        <div class="service-body scrollablex">
+                    <span class="pattern-1"></span>
+                    <p class="text">Radiologi</p>
+                    <div class="next-desc">Cari tahu informasinya</div>
+                </a>
+                <div class="collapse" id="service-2">
+                    <div class="service-body scrollablex">
+                        @forelse($layananRadiologi as $layanan)
                             <div class="service-item">
-                                <a href="/List-Layanan/ct-scan" class="service-link">CT-Scan</a>
+                                <a href="{{ route('layanan.detail', ['id' => $layanan->id_layanan]) }}" class="service-link">{{ $layanan->nama_layanan }}</a>
                             </div>
-                        </div>
+                        @empty
+                            <div class="service-item">
+                                <span class="service-link text-muted">Tidak ada layanan radiologi</span>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <div class="container mt-5">
         <h2 class="text-left mb-3">Atma Hospital News</h2>
@@ -259,6 +277,53 @@
             </div>
         </div>
     </div>
+<div class="container mt-5">
+    <h2 class="text-left mb-3">Atma Hospital News</h2>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card d-flex flex-row">
+                <img src="https://www.bodrexin.com/public/content_images/Image_Artikel_2.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;object-fit: cover;">
+
+                <div class="card-body">
+                    <h5 class="card-title">Atma Hospital mengadakan sesi Imunisasi Anak...</h5>
+                    <p class="card-text"><small class="text-muted">17 September 2022</small></p>
+                    <a href="/List-Berita/berita1" class="btn btn-primary">Lihat berita &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card d-flex flex-row">
+                <img src="https://www.keckmedicine.org/wp-content/uploads/2022/08/pancreatic-cancer-awareness-ribbon.jpg" class="card-img-left" alt="Berita Menarik" style="width: 150px; height: auto; min-height: 150px; margin: 10px;object-fit: cover;">
+
+                <div class="card-body">
+                    <h5 class="card-title">Atma Hospital Adakan Seminar Kanker Payudara...</h5>
+                    <p class="card-text"><small class="text-muted">3 Oktober 2022</small></p>
+                    <a href="/List-Berita/berita2" class="btn btn-primary">Lihat berita &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card d-flex flex-row">
+                <img src="https://smakstlouis1sby.sch.id/wp-content/uploads/2019/11/DSCF2873.jpg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px; margin: 10px;object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">Atma Hospital Gelar Bakti Sosial di Yogyakarta</h5>
+                    <p class="card-text"><small class="text-muted">14 Februari 2023</small></p>
+                    <a href="/List-Berita/berita3" class="btn btn-primary">Lihat berita &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card d-flex flex-row">
+                <img src="https://lan.go.id/wp-content/uploads/2022/04/5-3-1024x682.jpeg" class="card-img-left" alt="Tips Kesehatan" style="width: 150px; height: auto; min-height: 150px;margin: 10px;object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">Atma Hospital Mengadakan Donor Darah Massal</h5>
+                    <p class="card-text"><small class="text-muted">1 November 2023</small></p>
+                    <a href="/List-Berita/berita4" class="btn btn-primary">Lihat berita &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </main>
 
 @include('includes.footer')

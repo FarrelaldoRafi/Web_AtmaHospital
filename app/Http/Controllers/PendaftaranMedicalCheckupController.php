@@ -45,12 +45,18 @@ class PendaftaranMedicalCheckupController extends Controller
     }
 
     public function destroy($id)
-    {
+{
+    try {
         $pendaftaranMedicalCheckup = PendaftaranMedicalCheckup::findOrFail($id);
         $pendaftaranMedicalCheckup->delete();
 
-        return response()->json(null, 204);
+        return redirect()->route('admin.medicalcheckup.index')
+            ->with('success', 'Pendaftaran Medical Check Up berhasil dihapus');
+    } catch (\Exception $e) {
+        return redirect()->back()
+            ->with('error', 'Gagal menghapus Pendaftaran Medical Check Up: ' . $e->getMessage());
     }
+}
 
     public function search(Request $request)
     {

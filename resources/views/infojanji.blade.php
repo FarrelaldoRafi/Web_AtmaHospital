@@ -8,7 +8,7 @@
 <main>
     <div class="container-fluid text-white text-left d-flex justify-content-center" 
         style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
-        <div class="container d-flex align-items-center mt-5">
+        <div class="container align-items-center mt-5">
             <div class="text-container mt-4" style="max-width: 650px;">
                 <h1 class="fw-bold">INFO JANJI DOKTER</h1>
             </div>
@@ -56,35 +56,32 @@
                     </div>            
 
                     <div class="col-md-9 col-sm-12">
-                        <div class="card-body d-flex align-items-start flex-column m-3">
+                        <div class="card bg-body-secondary mx-auto p-5 col-md-12 d-flex flex-row">
+                            <h5 class="fw-bold col-md-5 mt-2 text-center">ID Antrian Saya    :</h5>
+                            <div class="container bg-white col-md-6 m-0 rounded"></div>
+                        </div>
 
-                            <div class="card bg-body-secondary mx-auto p-5 col-md-12 d-flex flex-row">
-                                <h5 class="fw-bold col-md-5 mt-2 text-center">ID Antrian Saya    :</h5>
-                                <div class="container bg-white col-md-6 m-0 rounded"></div>
+                        <div class=" ganteng card bg-body-secondary mx-auto p-1 col-md-12 mt-4 d-flex flex-row p-2" style="height: 60%;">
+                            <div class="col-md-10 d-flex flex-column">
+                                <h4 class="fw-bold text-center">List Antrian Janji Dokter</h4>
+                                <div class="d-flex flex-row">
+                                    <div class="me-auto col-md-6 d-flex flex-column mt-4">
+                                        <h5 class="fw-bold text-center">Antrian Saat Ini</h5>
+                                        <div class="container bg-secondary col-md-10 m-0 align-self-center rounded" style="min-height: 40px;"></div>
+                                    </div>
+
+                                    <div class="col-md-6 d-flex flex-column mt-4">
+                                        <h5 class="fw-bold text-center">Antrian Sekarang</h5>
+                                        <div class="container bg-secondary col-md-10 m-0 align-self-center rounded" style="min-height: 40px;"></div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="card bg-body-secondary mx-auto p-1 col-md-12 mt-4 d-flex flex-row p-2" style="height: 60%;">
-                                <div class="col-md-10 d-flex flex-column">
-                                    <h4 class="fw-bold text-center">List Antrian Janji Dokter</h4>
-                                    <div class="d-flex flex-row">
-                                        <div class="me-auto col-md-6 d-flex flex-column mt-4">
-                                            <h5 class="fw-bold text-center">Antrian Saat Ini</h5>
-                                            <div class="container bg-secondary col-md-10 m-0 align-self-center rounded" style="min-height: 40px;"></div>
-                                        </div>
-
-                                        <div class="col-md-6 d-flex flex-column mt-4">
-                                            <h5 class="fw-bold text-center">Antrian Sekarang</h5>
-                                            <div class="container bg-secondary col-md-10 m-0 align-self-center rounded" style="min-height: 40px;"></div>
-                                        </div>
-                                    </div>
+                            <div class="col-md-2 text-center">
+                                <div class="container bg-white mx-auto rounded border border-black" style="height: 50px;width: 50px;">
+                                    <h1 class="text-center"><strong>0</strong></h1>
                                 </div>
-
-                                <div class="col-md-2 text-center">
-                                    <div class="container bg-white col-md-6 mx-auto rounded border border-black">
-                                        <h1 class="text-center"><strong>0</strong></h1>
-                                    </div>
-                                    <h6>Jumlah Pasien</h6>
-                                </div>
+                                <h6>Jumlah Pasien</h6>
                             </div>
                         </div>
                     </div>

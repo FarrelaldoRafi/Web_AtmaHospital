@@ -10,7 +10,6 @@ return new class extends Migration
     {
         Schema::create('dokter', function (Blueprint $table) {
             $table->id('id_dokter');
-            $table->unsignedBigInteger('id_admin');
             $table->string('nama_dokter', 100);
             $table->string('spesialis', 100);
             $table->string('no_telp', 15);
@@ -19,11 +18,6 @@ return new class extends Migration
             $table->text('deskripsi')->nullable();
             $table->string('foto')->nullable();
             $table->timestamps();
-
-            $table->foreign('id_admin')
-                  ->references('id_admin')
-                  ->on('admin')
-                  ->onDelete('cascade');
         });
     }
 

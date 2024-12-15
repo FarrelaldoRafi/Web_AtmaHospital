@@ -10,17 +10,11 @@ return new class extends Migration
     {
         Schema::create('layanan', function (Blueprint $table) {
             $table->id('id_layanan');
-            $table->unsignedBigInteger('id_admin');
             $table->string('nama_layanan', 100);
             $table->string('jenis_layanan', 50);
             $table->text('deskripsi')->nullable();
             $table->string('foto')->nullable();
             $table->timestamps();
-
-            $table->foreign('id_admin')
-                  ->references('id_admin')
-                  ->on('admin')
-                  ->onDelete('cascade');
         });
     }
 
