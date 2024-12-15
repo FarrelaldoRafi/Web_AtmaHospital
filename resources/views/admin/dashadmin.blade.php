@@ -1,6 +1,33 @@
 @extends('admin.sidebar')
 
 @section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+
+    <style>
+        td{
+            align-items:center;
+            text-align:center;
+        }
+    </style>
+</head>
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 1050;">
+    @if(session('success'))
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+            <div class="toast-header bg-success text-white">
+                <strong class="me-auto">Sukses</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body bg-success text-white">
+                {{ session('success') }}
+            </div>
+        </div>
+    @endif
+</div>
+
 <div class="container-fluid pt-1">
     <div class="d-flex justify-content-between align-items-center my-4">
         <h1>DASHBOARD</h1>
@@ -10,7 +37,7 @@
         <div class="col">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>2</h3>
+                    <h3>{{ $totalPengguna }}</h3>
                     <p>Total Pengguna</p>
                 </div>
                 <div class="icon">
@@ -21,7 +48,7 @@
         <div class="col">
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>4</h3>
+                    <h3>{{ $totalDokter }}</h3>
                     <p>Total Dokter</p>
                 </div>
                 <div class="icon">
@@ -32,7 +59,7 @@
         <div class="col">
             <div class="small-box bg-danger">
                 <div class="inner">
-                    <h3>3</h3>
+                    <h3>{{ $totalLayanan }}</h3>
                     <p>Total Layanan</p>
                 </div>
                 <div class="icon">
@@ -43,7 +70,7 @@
         <div class="col">
             <div class="small-box bg-primary">
                 <div class="inner">
-                    <h3>1</h3>
+                    <h3>{{ $totalPaketMCU }}</h3>
                     <p>Total Paket MCU</p>
                 </div>
                 <div class="icon">
@@ -54,7 +81,7 @@
         <div class="col">
             <div class="small-box bg-dark">
                 <div class="inner">
-                    <h3>1</h3>
+                    <h3>{{ $totalAntrian }}</h3>
                     <p>Total Antrian</p>
                 </div>
                 <div class="icon">
@@ -65,7 +92,7 @@
         <div class="col">
             <div class="small-box bg-secondary">
                 <div class="inner">
-                    <h3>1</h3>
+                    <h3>{{ $totalDaftarMCU }}</h3>
                     <p>Total Daftar MCU</p>
                 </div>
                 <div class="icon">
@@ -78,33 +105,27 @@
     <div class="table-responsive mt-3">
         <h3>Pengguna</h3>
         <table class="table table-striped table-bordered">
-            <thead class="bg-primary text-white text-center">
+            <thead class="text-white text-center bg-info">
                 <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>No Telepon</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Alamat</th>
-                    <th>Email</th>
+                    <th class="align-middle">No</th>
+                    <th class="align-middle">Nama</th>
+                    <th class="align-middle">No Telepon</th>
+                    <th class="align-middle">Tanggal Lahir</th>
+                    <th class="align-middle">Alamat</th>
+                    <th class="align-middle">Email</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($pengguna as $index => $p)
                 <tr>
-                    <td>1</td>
-                    <td>Rocky Geram</td>
-                    <td>08562742281</td>
-                    <td>10 Januari 2004</td>
-                    <td>Jl. Bahagia no 77</td>
-                    <td>rockyg@gmail.com</td>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $p->nama_lengkap }}</td>
+                    <td>{{ $p->no_telp }}</td>
+                    <td>{{ $p->tanggal_lahir }}</td>
+                    <td>{{ $p->alamat }}</td>
+                    <td>{{ $p->email }}</td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Rocky Geram</td>
-                    <td>08562742281</td>
-                    <td>10 Januari 2004</td>
-                    <td>Jl. Bahagia no 77</td>
-                    <td>rockyg@gmail.com</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -112,52 +133,27 @@
     <div class="table-responsive mt-3">
         <h3>Dokter</h3>
         <table class="table table-striped table-bordered">
-            <thead class="bg-primary text-white text-center">
+            <thead class="bg-success text-white text-center">
                 <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Gambar</th>
-                    <th>Spesialis</th>
-                    <th>No Telepon</th>
+                    <th class="align-middle">No</th>
+                    <th class="align-middle">Nama</th>
+                    <th class="align-middle">Gambar</th>
+                    <th class="align-middle">Spesialis</th>
+                    <th class="align-middle">No Telepon</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($dokter as $index => $d)
                 <tr>
-                    <td class="text-center">1</td>
-                    <td>dr. Narji Sandoro, Sp.PD</td>
-                    <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Doctor Image">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $d->nama_dokter }}</td>
+                    <td>
+                        <img src="{{ asset('storage/' . $d->foto) }}" alt="{{$d->foto}}" class="fit cover" style="max-height:100px"/>
                     </td>
-                    <td>Penyakit Dalam</td>
-                    <td>085115242432</td>
+                    <td>{{ $d->spesialis }}</td>
+                    <td>{{ $d->no_telp }}</td>
                 </tr>
-                <tr>
-                    <td class="text-center">2</td>
-                    <td>dr. Surya Martono, Sp.JP</td>
-                    <td class="text-center">
-                        <img src="path/to/image2.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Doctor Image">
-                    </td>
-                    <td>Jantung</td>
-                    <td>085564721234</td>
-                </tr>
-                <tr>
-                    <td class="text-center">3</td>
-                    <td>drg. Susi Surusi, Sp.KGA</td>
-                    <td class="text-center">
-                        <img src="path/to/image3.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Doctor Image">
-                    </td>
-                    <td>Penyakit Dalam</td>
-                    <td>081572899012</td>
-                </tr>
-                <tr>
-                    <td class="text-center">4</td>
-                    <td>dr. Faiz Farozi, Sp.OT</td>
-                    <td class="text-center">
-                        <img src="path/to/image4.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
-                    </td>
-                    <td>Jantung</td>
-                    <td>085775620091</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -165,7 +161,7 @@
     <div class="table-responsive mt-3">
         <h3>Layanan</h3>
         <table class="table table-striped table-bordered">
-            <thead class="bg-primary text-white text-center">
+            <thead class="bg-danger text-white text-center">
                 <tr>
                     <th class="align-middle">No</th>
                     <th class="align-middle">Nama Layanan</th>
@@ -175,35 +171,30 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($layanan as $index => $l)
                 <tr>
-                    <td class="text-center">1</td>
-                    <td>Pemeriksaan Darah</td>
-                    <td>Laboratorium</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestias perferendis esse laudantium alias optio sequi corrupti minus voluptas! Praesentium, porro. Ratione consectetur blanditiis quae qui pariatur odit laudantium quasi!</td>
-                    <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $l->nama_layanan }}</td>
+                    <td>{{ $l->jenis_layanan }}</td>
+                    <td>{{ $l->deskripsi }}</td>
+                    <td>
+                        <img src="{{ asset('storage/' . $l->foto) }}" alt="{{$l->foto}}" class="fit cover" style="max-height:100px"/>
                     </td>
                 </tr>
-                <tr>
-                    <td class="text-center">1</td>
-                    <td>Pemeriksaan Darah</td>
-                    <td>Laboratorium</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestias perferendis esse laudantium alias optio sequi corrupti minus voluptas! Praesentium, porro. Ratione consectetur blanditiis quae qui pariatur odit laudantium quasi!</td>
-                    <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">1</td>
-                    <td>Pemeriksaan Darah</td>
-                    <td>Laboratorium</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestias perferendis esse laudantium alias optio sequi corrupti minus voluptas! Praesentium, porro. Ratione consectetur blanditiis quae qui pariatur odit laudantium quasi!</td>
-                    <td class="text-center">
-                        <img src="path/to/image1.jpg" class="img-fluid" style="width: 70px; height: 70px;" alt="Doctor Image">
-                    </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        var toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl);
+        });
+
+        toastList.forEach(toast => toast.show());
+    });
+</script>
 @endsection

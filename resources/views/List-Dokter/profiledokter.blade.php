@@ -1,11 +1,17 @@
 @include('includes.header')
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Sandoro Narji</title>
+</head>
+
 <body>
     <div class="container-fluid text-white text-left d-flex justify-content-center" 
         style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
         <div class="container d-flex align-items-center mt-5">
             <div class="text-container mt-4 mx-auto" style="max-width: 650px;">
-                <h1 class="fw-bold">Profile Dokter</h1>
+                <h1 class="fw-bold">Profile Dokter {{$dokter->nama_dokter}}</h1>
             </div>
         </div>
     </div>
@@ -15,35 +21,32 @@
             <div class="row g-0">
                 <div class="col-md-4 d-flex justify-content-center align-items-center">
                     <div class="profile-image-container">
-                        <img src="https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1).jpg"
-                             alt="Dr. Sandoro Narji, Sp.PD">
+                        <img src="{{asset('storage/' . $dokter->foto) }}"
+                             alt="{{$dokter->nama_dokter}}">
                         <div class="profile-caption">
-                            <h5>dr. Sandoro Narji, Sp.PD</h5>
-                            <p>Penyakit Dalam</p>
+                            <h5>{{$dokter->nama_dokter}}</h5>
+                            <p>{{$dokter->spesialis}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h2 class="card-title">dr. Sandoro Narji, Sp.PD</h2>
-                        <span class="badge bg-primary mb-3">Penyakit Dalam</span>
+                        <h2 class="card-title">{{$dokter->nama_dokter}}</h2>
+                        <span class="badge bg-primary mb-3">{{$dokter->spesialis}}</span>
                         <p class="card-text">
-                            Dr. Sandoro Narji, Sp.PD, adalah dokter spesialis penyakit dalam di Atma Hospital, yang dikenal
-                            karena ketelitiannya dalam melakukan pemeriksaan mendalam untuk menentukan diagnosis yang tepat
-                            serta merancang perawatan terbaik bagi pasien. Kemampuannya dalam berkomunikasi secara efektif
-                            membuat pasien merasa nyaman dan memahami kondisi kesehatan mereka dengan baik.
+                            {{$dokter->deskripsi}}
                         </p>
-                        <p class="card-text">
+                        <!-- <p class="card-text">
                             Dr. Sandoro Narji, Sp.PD, memiliki keahlian dalam menangani berbagai penyakit kronis seperti
                             penyakit degeneratif, metabolik, dan gangguan hormon. Ia juga berpengalaman dalam mengatasi
                             masalah kesehatan terkait kadar kolesterol, asam urat, diabetes, gangguan tiroid, tekanan darah
                             tinggi, serta berbagai infeksi yang menyerang sistem pencernaan, saluran kemih, hati, dan
                             pernapasan. Selain itu, ia menangani berbagai kasus alergi yang sering terjadi pada pasien
                             dewasa dengan pendekatan yang hati-hati dan teliti.
-                        </p>
+                        </p> -->
                         <div class="contact">
-                            <a href="tel:+6285115242432" class="btn btn-success">
-                                <i class="bi bi-whatsapp"></i> 085115242432
+                            <a href="tel:+{{$dokter->notelp}}" class="btn btn-success">
+                                <i class="fab fa-whatsapp fa-lg"></i>  {{$dokter->no_telp}}
                             </a>
                         </div>
                     </div>
@@ -67,13 +70,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>10:00 - 15:00</td>
-                        <td>11:00 - 16:00</td>
-                        <td>10:00 - 14:00</td>
-                        <td>10:00 - 14:00</td>
-                        <td>10:00 - 13:00</td>
-                        <td>10:00 - 15:00</td>
-                        <td>09:00 - 12:00</td>
+                    <td>{{date('H:i', strtotime($dokter->jam_mulai))}} - {{date('H:i', strtotime($dokter->jam_selesai))}}</td>                                                                                        
+                    <td>{{date('H:i', strtotime($dokter->jam_mulai))}} - {{date('H:i', strtotime($dokter->jam_selesai))}}</td>                                                                                        
+                    <td>{{date('H:i', strtotime($dokter->jam_mulai))}} - {{date('H:i', strtotime($dokter->jam_selesai))}}</td>                                                                                        
+                    <td>{{date('H:i', strtotime($dokter->jam_mulai))}} - {{date('H:i', strtotime($dokter->jam_selesai))}}</td>                                                                                        
+                    <td>{{date('H:i', strtotime($dokter->jam_mulai))}} - {{date('H:i', strtotime($dokter->jam_selesai))}}</td>                                                                                        
+                    <td>{{date('H:i', strtotime($dokter->jam_mulai))}} - {{date('H:i', strtotime($dokter->jam_selesai))}}</td>                                                                                        
+                    <td>{{date('H:i', strtotime($dokter->jam_mulai))}} - {{date('H:i', strtotime($dokter->jam_selesai))}}</td>                                                                                        
                     </tr>
                 </tbody>
             </table>

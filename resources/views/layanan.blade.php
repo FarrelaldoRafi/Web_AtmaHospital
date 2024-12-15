@@ -1,9 +1,13 @@
-
 @include('includes.header')
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan</title>
+</head>
+
 <main>
-    <div class="container-fluid text-white text-left d-flex justify-content-center" 
-        style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
+    <div class="container-fluid text-white text-left d-flex justify-content-center" style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
         <div class="container d-flex align-items-center mt-5">
             <div class="text-container mt-4" style="max-width: 650px;">
                 <h1 class="fw-bold">Layanan Rumah Sakit</h1>
@@ -19,7 +23,7 @@
                     <div class="flex-col service-item-area">
                         <a href="#service-0" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
                             <span class="pattern-1"></span>
-                            <p class="text">Poliklinik</p>
+                            <p class="text">Laboratorium</p>
                             <div class="next-desc">Cari tahu informasinya</div>
                         </a>
                         <div class="collapse" id="service-0">
@@ -34,15 +38,15 @@
 
                 <div class="col-6 col-md-4 mb-3">
                     <div class="flex-col service-item-area">
-                    <a href="#service-1" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                    <span class="pattern-1"></span>
-                            <p class="text">Laboratorium</p>
+                        <a href="#service-1" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
+                            <span class="pattern-1"></span>
+                            <p class="text">Poliklinik</p>
                             <div class="next-desc">Cari tahu informasinya</div>
                         </a>
                         <div class="collapse" id="service-1">
                             <div class="service-body scrollablex">
                                 <div class="service-item">
-                                    <a href="/List-Layanan/hematologi" class="service-link">Hematologi</a>
+                                    <a href="/List-Layanan/pemeriksaanPsikologi" class="service-link">Pemeriksaan Psikologi</a>
                                 </div>
                             </div>
                         </div>
@@ -51,8 +55,8 @@
 
                 <div class="col-6 col-md-4 mb-3">
                     <div class="flex-col service-item-area">
-                    <a href="#service-2" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                    <span class="pattern-1"></span>
+                        <a href="#service-2" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
+                            <span class="pattern-1"></span>
                             <p class="text">Radiologi</p>
                             <div class="next-desc">Cari tahu informasinya</div>
                         </a>
@@ -71,8 +75,8 @@
 
     <div class="d-flex align-items-center mt-4">
         <div class="container">
-            <h2 class="text-muted-small ms-3">GET IN TOUCH</h2>
-            <h2 class="mb-3 ms-3">Lebih Dekat dengan Atma Hospital</h2>
+            <h2 class="text-muted-small ms-3 hide-on-mobile">GET IN TOUCH</h2>
+            <h2 class="mb-3 ms-3 hide-on-mobile">Lebih Dekat dengan Atma Hospital</h2>
             <div class="quick-link-hospital desktop">
                 <div class="container">
                     <div class="wrap-all-hospital">
@@ -86,7 +90,6 @@
                                 </div>
                             </a>
                         </div>
-
                         <div class="hospital-items">
                             <a href="/janji" class="card card-style card-hospital">
                                 <div class="hospital-content">
@@ -97,7 +100,6 @@
                                 </div>
                             </a>
                         </div>
-
                         <div class="hospital-items">
                             <a href="/medicalcheckup" class="card card-style card-hospital">
                                 <div class="hospital-content">
