@@ -33,7 +33,11 @@ class PendaftaranMedicalCheckupController extends Controller
 
         $pendaftaranMedicalCheckup = PendaftaranMedicalCheckup::create($request->all());
 
-        return response()->json($pendaftaranMedicalCheckup, 201);
+        return response()->json([
+            'success' => true,
+            'message' => 'Pendaftaran MCU berhasil',
+            'data' => $pendaftaranMedicalCheckup
+        ], 201);
     }
 
     public function update(Request $request, $id)
@@ -45,12 +49,18 @@ class PendaftaranMedicalCheckupController extends Controller
     }
 
     public function destroy($id)
-    {
+{
+    try {
         $pendaftaranMedicalCheckup = PendaftaranMedicalCheckup::findOrFail($id);
         $pendaftaranMedicalCheckup->delete();
 
-        return response()->json(null, 204);
+        return redirect()->route('admin.medicalcheckup.index')
+            ->with('success', 'Pendaftaran Medical Check Up berhasil dihapus');
+    } catch (\Exception $e) {
+        return redirect()->back()
+            ->with('error', 'Gagal menghapus Pendaftaran Medical Check Up: ' . $e->getMessage());
     }
+}
 
     public function search(Request $request)
     {

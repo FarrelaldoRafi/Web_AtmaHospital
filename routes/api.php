@@ -20,13 +20,13 @@ Route::get('layanan', [LayananController::class, 'index']); // Melihat layanan
 Route::post('pengguna/register', [PenggunaController::class, 'register']);
 Route::post('pengguna/login', [PenggunaController::class, 'login']);
 
-// Route::middleware('auth:sanctum')->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('pengguna', PenggunaController::class)->only(['update']); // Mengganti profil pengguna
 
     // Rute untuk Pendaftaran Antrian dan Medical Checkup
     Route::apiResource('pendaftaran-antrian', PendaftaranAntrianController::class);
     Route::apiResource('pendaftaran-medical-checkup', PendaftaranMedicalCheckupController::class);
-// });
+});
 
 // Rute untuk Admin
 Route::post('admin/login', [AdminController::class, 'login']);

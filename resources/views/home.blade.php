@@ -157,62 +157,80 @@
     </div>
 
     <div class="container mt-5">
-        <h2 class="text-left mb-3">Layanan Kami</h2>
-    </div>
-    <div class="container">
-        <div class="row" id="load_category_service">
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
-                    <a href="#service-0" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                        <span class="pattern-1"></span>
-                        <p class="text">Laboratorium</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-0">
-                        <div class="service-body scrollablex">
+    <h2 class="text-left mb-3">Layanan Kami</h2>
+</div>
+<div class="container">
+    <div class="row" id="load_category_service">
+        <div class="col-6 col-md-4 mb-3">
+            <div class="flex-col service-item-area">
+                <a href="#service-0" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
+                    <span class="pattern-1"></span>
+                    <p class="text">Laboratorium</p>
+                    <div class="next-desc">Cari tahu informasinya</div>
+                </a>
+                <div class="collapse" id="service-0">
+                    <div class="service-body scrollablex">
+                        @forelse($layananLaboratorium as $layanan)
                             <div class="service-item">
-                                <a href="/List-Layanan/pemeriksaanDarah" class="service-link">Pemeriksaan Darah</a>
+                                <a href="{{ route('layanan.detail', ['id' => $layanan->id_layanan]) }}" class="service-link">{{ $layanan->nama_layanan }}</a>
                             </div>
-                        </div>
+                        @empty
+                            <div class="service-item">
+                                <span class="service-link text-muted">Tidak ada layanan laboratorium</span>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
+        <div class="col-6 col-md-4 mb-3">
+            <div class="flex-col service-item-area">
                 <a href="#service-1" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Poliklinik</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-1">
-                        <div class="service-body scrollablex">
+                    <span class="pattern-1"></span>
+                    <p class="text">Poliklinik</p>
+                    <div class="next-desc">Cari tahu informasinya</div>
+                </a>
+                <div class="collapse" id="service-1">
+                    <div class="service-body scrollablex">
+                        @forelse($layananPoliklinik as $layanan)
                             <div class="service-item">
-                                <a href="/List-Layanan/pemeriksaanPsikologi" class="service-link">Pemeriksaan Psikologi</a>
+                                <a href="{{ route('layanan.detail', ['id' => $layanan->id_layanan]) }}" class="service-link">{{ $layanan->nama_layanan }}</a>
                             </div>
-                        </div>
+                        @empty
+                            <div class="service-item">
+                                <span class="service-link text-muted">Tidak ada layanan poliklinik</span>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="col-6 col-md-4 mb-3">
-                <div class="flex-col service-item-area">
+        <div class="col-6 col-md-4 mb-3">
+            <div class="flex-col service-item-area">
                 <a href="#service-2" data-bs-toggle="collapse" aria-expanded="false" class="card card-style card-excellent style-2">
-                <span class="pattern-1"></span>
-                        <p class="text">Radiologi</p>
-                        <div class="next-desc">Cari tahu informasinya</div>
-                    </a>
-                    <div class="collapse" id="service-2">
-                        <div class="service-body scrollablex">
+                    <span class="pattern-1"></span>
+                    <p class="text">Radiologi</p>
+                    <div class="next-desc">Cari tahu informasinya</div>
+                </a>
+                <div class="collapse" id="service-2">
+                    <div class="service-body scrollablex">
+                        @forelse($layananRadiologi as $layanan)
                             <div class="service-item">
-                                <a href="/List-Layanan/ct-scan" class="service-link">CT-Scan</a>
+                                <a href="{{ route('layanan.detail', ['id' => $layanan->id_layanan]) }}" class="service-link">{{ $layanan->nama_layanan }}</a>
                             </div>
-                        </div>
+                        @empty
+                            <div class="service-item">
+                                <span class="service-link text-muted">Tidak ada layanan radiologi</span>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <div class="container mt-5">
         <h2 class="text-left mb-3">Atma Hospital News</h2>
