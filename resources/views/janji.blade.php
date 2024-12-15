@@ -35,44 +35,46 @@
             <div class="container d-flex my-5 align-items-center mx-auto flex-column" style="padding-top: 20px;">
                 <h1><strong>ISI FORMULIR ANTRIAN</strong></h1>
                 <div class="container p-5" style="max-width: 800px; width: 100%; border-radius: 10px;">
-                    <form id="formjanji">    
+                    <form id="formjanji" action="{{ route('antrian.store') }}" method="POST">    
+                        @csrf
+                        <input type="hidden" name="id_pengguna" value="{{ session('user.id') }}">
+
                         <div class="mb-3">
                             <label for="spesialis" class="form-label fw-bold">Spesialis<span>*</span></label>
-                            <select class="form-control" id="spesialis" required>
+                            <select class="form-control" id="spesialis" name="spesialis" required>
                                 <option value="" selected hidden>Pilih Spesialis</option>
-                                <option value="spesialis1">Spesialis 1</option>
-                                <option value="spesialis2">Spesialis 2</option>
+                                @foreach($spesialis as $sp)
+                                    <option value="{{ $sp }}">{{ $sp }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label for="dokter" class="form-label fw-bold">Dokter<span>*</span></label>
-                            <select class="form-control" id="dokter" required>
+                            <select class="form-control" id="dokter" name="id_dokter" required>
                                 <option value="" selected hidden>Pilih Dokter</option>
-                                <option value="narjisandoro">dr. Narji Sandoro, Sp.PD.</option>
-                                <option value="sandoronarji">dr. Sandoro Narji, Sp.PD.</option>
                             </select>
                         </div>
     
                         <div class="mb-3">
                             <label for="tanggalantrian" class="form-label fw-bold">Tanggal Antrian<span>*</span></label>
-                            <input type="date" class="form-control" id="tanggalantrian" placeholder="dd/mm/yyyy" required>
+                            <input type="date" class="form-control" id="tanggalantrian" name="tanggal_antrian" placeholder="dd/mm/yyyy" required>
                         </div>
     
                         <div class="mb-3">
                             <label for="namalengkap" class="form-label fw-bold">Nama Lengkap<span>*</span></label>
-                            <input type="text" class="form-control" id="namalengkap" placeholder="Masukkan Nama Lengkap anda" required>
+                            <input type="text" class="form-control" id="namalengkap" name="namaLengkap_pasien" value="{{ session('user.name') }}" placeholder="Masukkan Nama Lengkap anda" required>
                         </div>
                         
                         <div class="mb-3">
-                            <label for="jeniskelamin" class="form-label fw-bold">Jenis Kelamin<span></span></label>
+                            <label for="jeniskelamin" class="form-label fw-bold">Jenis Kelamin<span>*</span></label>
                             <div class="d-flex flex-row">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jeniskelamin" id="lakilaki" value="lakilaki">
+                                    <input class="form-check-input" type="radio" name="jenis_kelamin_pasien" id="lakilaki" value="Laki-laki" required>
                                     <label class="form-check-label" for="lakilaki">Laki-laki</label>
                                 </div>
                                 <div class="form-check mx-5">
-                                    <input class="form-check-input" type="radio" name="jeniskelamin" id="perempuan" value="lakilaki">
+                                    <input class="form-check-input" type="radio" name="jenis_kelamin_pasien" id="perempuan" value="Perempuan" required>
                                     <label class="form-check-label" for="perempuan">Perempuan</label>
                                 </div>                    
                             </div>
@@ -80,17 +82,17 @@
 
                         <div class="mb-3">
                             <label for="tanggallahir" class="form-label fw-bold">Tanggal Lahir<span>*</span></label>
-                            <input type="date" class="form-control" id="tanggallahir" placeholder="dd/mm/yyyy" required>
+                            <input type="date" class="form-control" id="tanggallahir" name="tanggal_lahir_pasien" placeholder="dd/mm/yyyy" required>
                         </div>                    
 
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold">Email<span>*</span></label>
-                            <input type="email" class="form-control" id="email" placeholder="Masukkan Email Anda" required>
+                            <input type="email" class="form-control" id="email" name="email_pasien" value="{{ session('user.email') }}" placeholder="Masukkan Email Anda" required>
                         </div>
     
                         <div class="mb-3">
                             <label for="telepon" class="form-label fw-bold">Nomor Telepon<span>*</span></label>
-                            <input type="tel" class="form-control" id="telepon" placeholder="Masukkan Nomor Telepon Anda" required>
+                            <input type="tel" class="form-control" id="telepon" name="no_telp_pasien" placeholder="Masukkan Nomor Telepon Anda" required>
                         </div>
                         
                         <div class="form-check my-3">
@@ -99,14 +101,15 @@
                         </div>
 
                         <div class="d-flex justify-content-center" style="padding-top: 5px;">
-                            <button type="submit" class="btn btn-primary px-4 py-2" data-bs-dismiss="modal">Buat Janji Antrian</button>
+                            <button type="submit" class="btn btn-primary px-4 py-2">Buat Janji Antrian</button>
                         </div>                                             
                     </form>
                 </div>
             </div>
         </div>
     </section>    
-</main>
+</main> 
+
 <div class="modal fade" id="successjanji" tabindex="-1" aria-labelledby="suksesjanji" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -133,13 +136,53 @@
         const form = event.target;
 
         if (form.checkValidity()) {
-            var myModal = new bootstrap.Modal(document.getElementById('successjanji'));
-            myModal.show();
-            $('#successjanji').on('hidden.bs.modal', function () {
-                form.submit();
+            // Kirim data formulir menggunakan fetch
+            fetch('{{ route('antrian.store') }}', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Tampilkan modal sukses
+                var myModal = new bootstrap.Modal(document.getElementById('successjanji'));
+                myModal.show();
+                
+                // Redirect ke halaman info janji setelah modal ditutup
+                $('#successjanji').on('hidden.bs.modal', function () {
+                    window.location.href = '/infojanji';
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat mendaftar. Silakan coba lagi.');
             });
         } else {
             form.reportValidity();
+        }
+    });
+
+    document.getElementById('spesialis').addEventListener('change', function() {
+        const spesialis = this.value;
+        const dokterSelect = document.getElementById('dokter');
+        
+        // Reset dokter dropdown
+        dokterSelect.innerHTML = '<option value="" selected hidden>Pilih Dokter</option>';
+        
+        if (spesialis) {
+            fetch(`/get-dokter-by-spesialis?spesialis=${spesialis}`)
+                .then(response => response.json())
+                .then(dokters => {
+                    dokters.forEach(dokter => {
+                        const option = document.createElement('option');
+                        option.value = dokter.id_dokter;
+                        option.textContent = dokter.nama_dokter;
+                        dokterSelect.appendChild(option);
+                    });
+                });
         }
     });
 </script>

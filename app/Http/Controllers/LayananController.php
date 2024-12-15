@@ -5,7 +5,8 @@ use Exception;
 use App\Models\Layanan;
 use App\Models\Admin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
 class LayananController extends Controller
 {
     public function index()
@@ -32,26 +33,42 @@ class LayananController extends Controller
             'nama_layanan' => 'required|string|max:100',
             'jenis_layanan' => 'required|string|max:50',
             'deskripsi' => 'nullable|string',
-            'foto' => 'required|image'
+            'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
-        try {
-        $image = $request->file('foto');
-        $imageName = time() . '_' . $image->getClientOriginalName(); 
-        $image->move(public_path('images'), $imageName);
+        // Lokasi penyimpanan foto
+        $layananPicturesPath = storage_path('app/public/layanan_pictures');
+        
+        // Pastikan direktori ada
+        if (!file_exists($layananPicturesPath)) {
+            mkdir($layananPicturesPath, 0755, true);
+        }
 
-        // $layanan = Layanan::create($request->all());
-        Layanan::create([
-            'nama_layanan' => $request->nama_layanan,
-            'jenis_layanan' => $request->jenis_layanan,
-            'deskripsi' => $request->deskripsi,
-            'foto' => $imageName
-        ]);
+        // Proses upload foto
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            
+            // Generate nama file unik
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            
+            // Pindahkan file
+            $file->move($layananPicturesPath, $filename);
+            
+            // Path baru
+            $newLayananPath = 'layanan_pictures/' . $filename;
+
+            // Buat layanan baru
+            $layanan = Layanan::create([
+                'nama_layanan' => $request->nama_layanan,
+                'jenis_layanan' => $request->jenis_layanan,
+                'deskripsi' => $request->deskripsi,
+                'foto' => $newLayananPath
+            ]);
 
             return redirect('/admin/tambahlayanan')->with(['success' => 'Berhasil Menambah Layanan']);
-        } catch (Exception $e) {
-            return redirect('/admin/tambahlayanan')->with(['error' => 'Tidak berhasil Menambah Layanan']);
         }
+
+        return redirect('/admin/tambahlayanan')->with(['error' => 'Gagal Mengunggah Foto']);
     }
 
     public function update(Request $request, $id_layanan)
@@ -62,25 +79,46 @@ class LayananController extends Controller
             'nama_layanan' => 'sometimes|string|max:100',
             'jenis_layanan' => 'sometimes|string|max:50',
             'deskripsi' => 'nullable|string',
-            'foto' => 'nullable|image'
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
+        // Lokasi penyimpanan foto
+        $layananPicturesPath = storage_path('app/public/layanan_pictures');
+        
+        // Pastikan direktori ada
+        if (!file_exists($layananPicturesPath)) {
+            mkdir($layananPicturesPath, 0755, true);
+        }
+
+        // Proses upload foto
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            
+            // Generate nama file unik
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            
+            // Pindahkan file
+            $file->move($layananPicturesPath, $filename);
+            
+            // Path baru
+            $newLayananPath = 'layanan_pictures/' . $filename;
+
+            // Hapus foto lama jika ada
+            if ($layanan->foto) {
+                $oldFilePath = storage_path('app/public/' . $layanan->foto);
+                if (file_exists($oldFilePath)) {
+                    unlink($oldFilePath);
+                }
+            }
+
+            // Update path foto layanan
+            $layanan->foto = $newLayananPath;
+        }
+
+        // Update data lainnya
         $layanan->nama_layanan = $request->input('nama_layanan');
         $layanan->jenis_layanan = $request->input('jenis_layanan');
         $layanan->deskripsi = $request->input('deskripsi');
-
-        if ($request->hasFile('foto')) {
-            $image = $request->file('foto');
-            $imageName = time() . '_' . $image->getClientOriginalName();
-            $image->move(public_path('images'), $imageName);
-
-            // Hapus foto lama jika ada
-            if (File::exists(public_path('images/' . $layanan->foto))) {
-                File::delete(public_path('images/' . $layanan->foto));
-            }
-            $layanan->foto = $imageName;
-        }
-
         $layanan->save();
 
         return redirect('/admin/tambahlayanan')->with(['success' => 'Berhasil Mengupdate Layanan']);
@@ -89,9 +127,12 @@ class LayananController extends Controller
     public function destroy($id_layanan)
     {
         $layanan = Layanan::findOrFail($id_layanan);
-        if (File::exists(public_path('images/' . $layanan->foto))) {
-            File::delete(public_path('images/' . $layanan->foto));
+        
+        // Hapus foto layanan jika ada
+        if ($layanan->foto && Storage::disk('public')->exists($layanan->foto)) {
+            Storage::disk('public')->delete($layanan->foto);
         }
+        
         $layanan->delete();
         return redirect('/admin/tambahlayanan')->with(['success' => 'Berhasil Hapus Layanan']);
     }
