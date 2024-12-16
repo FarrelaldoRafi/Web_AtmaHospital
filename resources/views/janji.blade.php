@@ -147,14 +147,19 @@
             })
             .then(response => response.json())
             .then(data => {
-                // Tampilkan modal sukses
-                var myModal = new bootstrap.Modal(document.getElementById('successjanji'));
-                myModal.show();
-                
-                // Redirect ke halaman info janji setelah modal ditutup
-                $('#successjanji').on('hidden.bs.modal', function () {
-                    window.location.href = '/infojanji';
-                });
+                if (data.success) {
+                    // Tampilkan modal sukses
+                    var myModal = new bootstrap.Modal(document.getElementById('successjanji'));
+                    myModal.show();
+                    
+                    // Redirect ke halaman info janji setelah modal ditutup
+                    $('#successjanji').on('hidden.bs.modal', function () {
+                        window.location.href = '/infojanji';
+                    });
+                } else {
+                    // Menangani error jika ada
+                    alert("Terjadi kesalahan: " + data.message);
+                }
             })
             .catch(error => {
                 console.error('Error:', error);

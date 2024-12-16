@@ -32,19 +32,23 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/jadwal', function () {
-    $dokter = Dokter::all();
+// Route::get('/jadwal', function () {
+//     $dokter = Dokter::all();
 
-    $spesialis = Dokter::select('spesialis')->distinct()->pluck('spesialis');
+//     $spesialis = Dokter::select('spesialis')->distinct()->pluck('spesialis');
     
-    // Kirim data ke view
-    return view('jadwal',[
-        'dokter' => $dokter,
+//     // Kirim data ke view
+//     return view('jadwal',[
+//         'dokter' => $dokter,
 
-        //spesialis dokter
-        'unikSpesialis' => $spesialis
-    ]);
-});
+//         //spesialis dokter
+//         'unikSpesialis' => $spesialis
+//     ]);
+// });
+
+Route::get('/jadwal', [DokterController::class, 'searchDokter'])->name('jadwal.dokter');
+
+// Route::get('/search-dokter', [DokterController::class, 'searchDokter'])->name('search.dokter');
 
 Route::get('/layanan', function () {
     // Ambil layanan berdasarkan kategori
