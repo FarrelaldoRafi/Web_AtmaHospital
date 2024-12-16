@@ -18,26 +18,26 @@ class PendaftaranAntrianController extends Controller
     }
 
     public function store(Request $request)
-{
-    $validatedData = $request->validate([
-        'id_pengguna' => 'required|exists:pengguna,id_pengguna',
-        'id_dokter' => 'required|exists:dokter,id_dokter',
-        'tanggal_antrian' => 'required|date|after_or_equal:today',
-        'namaLengkap_pasien' => 'required|string|max:100',
-        'jenis_kelamin_pasien' => 'required|in:Laki-laki,Perempuan',
-        'tanggal_lahir_pasien' => 'required|date|before:today',
-        'email_pasien' => 'required|email|max:100',
-        'no_telp_pasien' => 'required|string|max:15',
-    ]);
+    {
+        $validatedData = $request->validate([
+            'id_pengguna' => 'required|exists:pengguna,id_pengguna',
+            'id_dokter' => 'required|exists:dokter,id_dokter',
+            'tanggal_antrian' => 'required|date|after_or_equal:today',
+            'namaLengkap_pasien' => 'required|string|max:100',
+            'jenis_kelamin_pasien' => 'required|in:Laki-laki,Perempuan',
+            'tanggal_lahir_pasien' => 'required|date|before:today',
+            'email_pasien' => 'required|email|max:100',
+            'no_telp_pasien' => 'required|string|max:15',
+        ]);
 
-    $pendaftaranAntrian = PendaftaranAntrian::create($validatedData);
+        $pendaftaranAntrian = PendaftaranAntrian::create($validatedData);
 
-    return response()->json([
-        'success' => true,
-        'message' => 'Pendaftaran antrian berhasil',
-        'data' => $pendaftaranAntrian
-    ], 201);
-}
+        return response()->json([
+            'success' => true,
+            'message' => 'Pendaftaran antrian berhasil',
+            'data' => $pendaftaranAntrian
+        ], 201);
+    }
 
     public function update(Request $request, $id)
     {
@@ -65,77 +65,44 @@ class PendaftaranAntrianController extends Controller
         return response()->json($pendaftaranAntrian, 200);
     }
 
-//     public function infoAntrian()
-// {
-//     // Pastikan user sudah login
-//     if (!session('user')) {
-//         return redirect('/login');
-//     }
-
-//     // Ambil semua antrian yang terdaftar
-//     $antrian = PendaftaranAntrian::with('dokter')->get();
-
-//     // Mengelompokkan antrian berdasarkan dokter
-//     $dokterAntrian = [];
-//     foreach ($antrian as $item) {
-//         $dokterId = $item->id_dokter;
-//         if (!isset($dokterAntrian[$dokterId])) {
-//             $dokterAntrian[$dokterId] = [
-//                 'dokter' => $item->dokter,
-//                 'antrian' => collect(), // Menggunakan collect() untuk membuat koleksi
-//             ];
-//         }
-//         $dokterAntrian[$dokterId]['antrian']->push($item); // Menambahkan item ke koleksi
-//     }
-
-//     return view('infojanji', compact('dokterAntrian'));
-// }
     public function infoAntrian(Request $request)
     {
         if (!session('user')) {
             return redirect('/login');
         }
-        
-        $antrian = PendaftaranAntrian::with('dokter')->get();
 
-        // Mengelompokkan antrian berdasarkan dokter
+        $userId = session('user.id');
+        $pendaftaranAntrianUser = PendaftaranAntrian::where('id_pengguna', $userId)->get();
+
+        if ($pendaftaranAntrianUser->isEmpty()) {
+            session()->flash('alert', 'Anda belum melakukan pendaftaran antrian. Silakan mendaftar untuk mendapatkan antrian.');
+            return view('infojanji', ['dokterAntrian' => []]);
+        }
+
+        $dokterIds = $pendaftaranAntrianUser->pluck('id_dokter')->unique();
+
+        $antrian = PendaftaranAntrian::with('dokter')
+            ->whereIn('id_dokter', $dokterIds)  
+            ->orderBy('tanggal_antrian')
+            ->get()
+            ->groupBy('id_dokter');
+
         $dokterAntrian = [];
-        foreach ($antrian as $item) {
-            $dokterId = $item->id_dokter;
-            if (!isset($dokterAntrian[$dokterId])) {
-                $dokterAntrian[$dokterId] = [
-                    'dokter' => $item->dokter,
-                    'antrian' => collect(), // Menggunakan collect() untuk membuat koleksi
-                ];
-            }
-            $dokterAntrian[$dokterId]['antrian']->push($item); // Menambahkan item ke koleksi
+
+        foreach ($antrian as $dokterId => $antrianDokter) {
+            $antrianDokter = $antrianDokter->sortBy('id_pengguna');
+
+            $antrianSaatIni = $antrianDokter->first();
+            $antrianSelanjutnya = $antrianDokter->slice(1, 1)->first();
+
+            $dokterAntrian[] = [
+                'dokter' => $antrianSaatIni->dokter,
+                'total_pasien' => $antrianDokter->count(),
+                'antrian_saat_ini' => $antrianSaatIni ? $antrianSaatIni->namaLengkap_pasien : null,
+                'antrian_selanjutnya' => $antrianSelanjutnya ? $antrianSelanjutnya->namaLengkap_pasien : null,
+                'antrian_detail' => $antrianDokter
+            ];
         }
-
-        // $dokter = Dokter::all();
-        $unikSpesialis = Dokter::select('spesialis')->distinct()->pluck('spesialis');
-        
-        $doctorName = $request->input('nama_dokter');
-        $spesialis = $request->input('spesialis');
-
-        $dokterQuery = Dokter::query();
-
-        // Filter berdasarkan nama dokter
-        if ($doctorName) {
-            $dokterQuery->where('nama_dokter
-            ', 'like', '%' . $doctorName . '%');
-        }
-
-        // Filter berdasarkan spesialis
-        if ($spesialis) {
-            $dokterQuery->where('spesialis', $spesialis);
-        }
-
-        // Ambil data dokter yang sesuai
-        $dokterSort = $dokterQuery->get();
-
-        // Ambil spesialis unik untuk dropdown
-        $spesialisSort = Dokter::distinct()->pluck('spesialis');
-
-        return view('infojanji', compact('dokterSort', 'spesialisSort', 'dokter', 'unikSpesialis', 'doctorName'));
+        return view('infojanji', compact('dokterAntrian'));
     }
-}
+}    
