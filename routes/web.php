@@ -285,9 +285,7 @@ Route::get('/List-Berita/berita6', function () {
 //     return view('janji');
 // });
 
-Route::get('/infomcu', function () {
-    return view('infomcu');
-});
+Route::get('/infomcu', [PendaftaranMedicalCheckupController::class, 'infoMCU'])->name('infomcu');
 
 Route::get('/medicalcheckup', function () {
     $paketMCU = PaketMedicalCheckup::all();
