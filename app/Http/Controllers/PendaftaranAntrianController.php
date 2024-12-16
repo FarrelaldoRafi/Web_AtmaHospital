@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PendaftaranAntrian;
+use App\Models\Dokter;
 use Illuminate\Http\Request;
 
 class PendaftaranAntrianController extends Controller
@@ -70,31 +71,31 @@ class PendaftaranAntrianController extends Controller
         if (!session('user')) {
             return redirect('/login');
         }
-
+    
         $userId = session('user.id');
-        $pendaftaranAntrianUser = PendaftaranAntrian::where('id_pengguna', $userId)->get();
-
-        if ($pendaftaranAntrianUser->isEmpty()) {
+        $pendaftaranAntrianUser   = PendaftaranAntrian::where('id_pengguna', $userId)->get();
+    
+        if ($pendaftaranAntrianUser ->isEmpty()) {
             session()->flash('alert', 'Anda belum melakukan pendaftaran antrian. Silakan mendaftar untuk mendapatkan antrian.');
             return view('infojanji', ['dokterAntrian' => []]);
         }
-
-        $dokterIds = $pendaftaranAntrianUser->pluck('id_dokter')->unique();
-
+    
+        $dokterIds = $pendaftaranAntrianUser ->pluck('id_dokter')->unique();
+    
         $antrian = PendaftaranAntrian::with('dokter')
-            ->whereIn('id_dokter', $dokterIds)  
+            ->whereIn('id_dokter', $dokterIds)
             ->orderBy('tanggal_antrian')
             ->get()
             ->groupBy('id_dokter');
-
+    
         $dokterAntrian = [];
-
+    
         foreach ($antrian as $dokterId => $antrianDokter) {
             $antrianDokter = $antrianDokter->sortBy('id_pengguna');
-
+    
             $antrianSaatIni = $antrianDokter->first();
             $antrianSelanjutnya = $antrianDokter->slice(1, 1)->first();
-
+    
             $dokterAntrian[] = [
                 'dokter' => $antrianSaatIni->dokter,
                 'total_pasien' => $antrianDokter->count(),
@@ -103,6 +104,30 @@ class PendaftaranAntrianController extends Controller
                 'antrian_detail' => $antrianDokter
             ];
         }
-        return view('infojanji', compact('dokterAntrian'));
+    
+        $searchQuery = $request->input('search');
+        if ($searchQuery) {
+            $dokterAntrian = array_filter($dokterAntrian, function($dokterInfo) use ($searchQuery) {
+                return (
+                    str_contains(strtolower($dokterInfo['dokter']->nama_dokter), strtolower($searchQuery)) ||
+                    str_contains(strtolower($dokterInfo['dokter']->spesialis), strtolower($searchQuery))
+                );
+            });
+        }
+    
+        $selectedSpesialis = $request->input('spesialis');
+        if ($selectedSpesialis) {
+            $dokterAntrian = array_filter($dokterAntrian, function($dokterInfo) use ($selectedSpesialis) {
+                return strtolower($dokterInfo['dokter']->spesialis) === strtolower($selectedSpesialis);
+            });
+        }
+    
+        $spesialisList = Dokter::distinct()->pluck('spesialis');
+    
+        if (empty($dokterAntrian)) {
+            session()->flash('alert', 'Anda belum melakukan pendaftaran Antrian Janji untuk spesialis yang dipilih.');
+        }
+    
+        return view('infojanji', compact('dokterAntrian', 'spesialisList'));
     }
 }    

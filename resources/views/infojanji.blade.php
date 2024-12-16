@@ -24,17 +24,18 @@
                         <p>Cari Dokter yang ingin dilihat jadwal antriannya</p>
                     </div>
                     <div class="container bg-body-secondary shadow p-4" style="max-width: 800px; border-radius: 30px; z-index: 2;">
-                        <form>
+                        <form method="GET" action="{{ route('infoantrian') }}">
                             <div class="mb-2 rounded">
-                                <input class="form-control" type="search" placeholder="Cari nama dokter Anda disini" aria-label="Search">
+                                <input class="form-control" type="search" name="search" placeholder="Cari nama dokter atau spesialis" aria-label="Search" value="{{ request('search') }}">
                             </div>
 
                             <div class="row">
                                 <div class="col-9 col-md-8 pe-1">
-                                    <select class="form-select">
-                                        <option hidden selected>List Spesialis</option>
-                                        <option value="1">Spesialis 1</option>
-                                        <option value="2">Spesialis 2</option>
+                                    <select class="form-select" name="spesialis">
+                                    <option hidden selected>List Spesialis</option>
+                                        @foreach($spesialisList as $spesialis)
+                                            <option value="{{ $spesialis }}">{{ $spesialis }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-3 col-md-4 ps-1">
