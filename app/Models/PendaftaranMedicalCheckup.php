@@ -32,4 +32,10 @@ class PendaftaranMedicalCheckup extends Model
     {
         return $this->belongsTo(PaketMedicalCheckup::class, 'id_paketMCU');
     }
+
+    // PaketMedicalCheckup.php
+public function layanan()
+{
+    return $this->hasMany(Layanan::class, 'id', 'id_layanan'); // Sesuaikan dengan kolom yang relevan
+}
 }

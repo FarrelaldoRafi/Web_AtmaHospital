@@ -20,8 +20,8 @@ class Dokter extends Model
     ];
 
     // Relasi dengan Pendaftaran Antrian
-    public function pendaftaranAntreans()
-    {
-        return $this->hasMany(PendaftaranAntrian::class, 'id_dokter');
-    }
+    public function pendaftaranAntrian()
+{
+    return $this->hasMany(PendaftaranAntrian::class, 'id_dokter');
+}
 }

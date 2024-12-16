@@ -36,74 +36,72 @@
             <div class="container d-flex my-5 align-items-center mx-auto flex-column" style="padding-top: 20px;">
                 <h1><strong>ISI FORMULIR PENDAFTARAN</strong></h1>
                 <div class="container p-5" style="max-width: 800px; width: 100%; border-radius: 10px;">
-                    <form id="formjanji">
-                        <div class="mb-3">
-                            <label for="namalengkap" class="form-label fw-bold">Nama Pasien<span>*</span></label>
-                            <input type="text" class="form-control" id="namalengkap" placeholder="Masukkan Pasien" required>
-                        </div>
+                <form id="formMCU" action="{{ route('mcu.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="id_pengguna" value="{{ session('user.id') }}">
 
-                        <div class="mb-3">
-                            <label for="tanggallahir" class="form-label fw-bold">Tanggal Lahir<span>*</span></label>
-                            <input type="date" class="form-control" id="tanggallahir" placeholder="dd/mm/yyyy" required>
-                        </div>
+                    <!-- Nama Pasien -->
+                    <div class="mb-3">
+                        <label for="nama_pasien" class="form-label fw-bold">Nama Pasien<span>*</span></label>
+                        <input type="text" class="form-control" id="nama_pasien" name="nama_pasien" placeholder="Masukkan Nama Pasien" required>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="telepon" class="form-label fw-bold">No. Telepon<span>*</span></label>
-                            <input type="text" class="form-control" id="telepon" placeholder="Masukkan Nomor Telepon Anda" required>
-                        </div>
+                    <!-- Tanggal Lahir Pasien -->
+                    <div class="mb-3">
+                        <label for="tanggal_lahir_pasien" class="form-label fw-bold">Tanggal Lahir Pasien<span>*</span></label>
+                        <input type="date" class="form-control" id="tanggal_lahir_pasien" name="tanggal_lahir_pasien" required>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="jeniskelamin" class="form-label fw-bold">Jenis Kelamin<span></span></label>
-                            <div class="d-flex flex-row">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jeniskelamin" id="lakilaki" value="lakilaki">
-                                    <label class="form-check-label" for="lakilaki">Laki-laki</label>
-                                </div>
-                                <div class="form-check mx-5">
-                                    <input class="form-check-input" type="radio" name="jeniskelamin" id="perempuan" value="perempuan">
-                                    <label class="form-check-label" for="perempuan">Perempuan</label>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Nomor Telepon Pasien -->
+                    <div class="mb-3">
+                        <label for="no_telp_pasien" class="form-label fw-bold">Nomor Telepon Pasien<span>*</span></label>
+                        <input type="text" class="form-control" id="no_telp_pasien" name="no_telp_pasien" placeholder="Masukkan Nomor Telepon" required>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="alamat" class="form-label fw-bold">Alamat<span>*</span></label>
-                            <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat Anda" required>
-                        </div>
+                    <!-- Jenis Kelamin Pasien -->
+                    <div class="mb-3">
+                        <label for="jenis_kelamin_pasien" class="form-label fw-bold">Jenis Kelamin Pasien<span>*</span></label>
+                        <select class="form-control" id="jenis_kelamin_pasien" name="jenis_kelamin_pasien" required>
+                            <option value="">Pilih Jenis Kelamin</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="riwayatPenyakit" class="form-label fw-bold">Riwayat Penyakit<span>*</span></label>
-                            <textarea id="riwayatPenyakit" class="form-control" placeholder="Masukkan Riwayat Penyakit Anda" required></textarea>
-                        </div>
+                    <!-- Alamat Pasien -->
+                    <div class="mb-3">
+                        <label for="alamat_pasien" class="form-label fw-bold">Alamat Pasien<span>*</span></label>
+                        <textarea class="form-control" id="alamat_pasien" name="alamat_pasien" placeholder="Masukkan Alamat Pasien" required></textarea>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="tanggalantrian" class="form-label fw-bold">Tanggal Periksa<span>*</span></label>
-                            <input type="date" class="form-control" id="tanggalantrian" placeholder="dd/mm/yyyy" required>
-                        </div>
+                    <!-- Riwayat Penyakit -->
+                    <div class="mb-3">
+                        <label for="riwayat_penyakit" class="form-label fw-bold">Riwayat Penyakit<span>*</span></label>
+                        <textarea class="form-control" id="riwayat_penyakit" name="riwayat_penyakit" placeholder="Masukkan Riwayat Penyakit"></textarea>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="spesialis" class="form-label fw-bold">Pilih Paket<span>*</span></label>
-                            <select class="form-control" id="spesialis" required>
-                                <option value="" selected hidden>Pilih Paket</option>
-                                <option value="spesialis1">Paket Basic</option>
-                                <option value="spesialis2">Paket Premium</option>
-                            </select>
-                        </div>
+                    <!-- Tanggal Pemeriksaan -->
+                    <div class="mb-3">
+                        <label for="tanggal_periksa" class="form-label fw-bold">Tanggal Pemeriksaan<span>*</span></label>
+                        <input type="date" class="form-control" id="tanggal_periksa" name="tanggal_periksa" required>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="harga" class="form-label fw-bold">Harga<span>*</span></label>
-                            <input type="text" class="form-control" placeholder="Rp..." id="harga" required readonly>
-                        </div>
-
-                        <div class="form-check my-3">
-                            <input class="form-check-input" type="checkbox" value="true" id="checksnk" required>
-                            <label class="form-check-label" for="checksnk">Saya menyatakan bahwa data yang telah saya isi di atas adalah benar dan lengkap<span>*</span></label>
-                        </div>
-
-                        <div class="d-flex justify-content-center" style="padding-top: 5px;">
-                            <button type="submit" class="btn btn-primary px-4 py-2" data-bs-dismiss="modal">Buat Pendaftaran</button>
-                        </div>
-                    </form>
+                    <div class="mb-3">
+                        <label for="id_paketMCU" class="form-label fw-bold">Paket Medical Check Up<span>*</span></label>
+                        <select class="form-select" id="id_paketMCU" name="id_paketMCU" required>
+                            <option value="" disabled selected>Pilih Paket</option>
+                            @foreach($paketMCU as $paketMCU)
+                                <option value="{{ $paketMCU->id_paketMCU }}" data-harga="{{ $paketMCU->harga }}" data-id="{{ $paketMCU->id_paketMCU }}">
+                                    {{ $paketMCU->nama_paket }} - Rp {{ number_format($paketMCU->harga, 0, ',', '.') }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
                 </div>
             </div>
         </div>
@@ -131,19 +129,50 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    document.getElementById('formjanji').addEventListener('submit', function(event) {
+    document.getElementById('formMCU').addEventListener('submit', function(event) {
         event.preventDefault();
         const form = event.target;
 
         if (form.checkValidity()) {
-            var myModal = new bootstrap.Modal(document.getElementById('successjanji'));
-            myModal.show();
-            $('#successjanji').on('hidden.bs.modal', function() {
-                form.submit();
+            // Kirim data formulir menggunakan fetch
+            fetch('{{ route('mcu.store') }}', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Tampilkan modal sukses
+                    var myModal = new bootstrap.Modal(document.getElementById('successjanji'));
+                    myModal.show();
+
+                    $('#successjanji').on('hidden.bs.modal', function () {
+                        window.location.href = '/infomcu';  // Ganti dengan URL tujuan yang sesuai
+                    });
+                } else {
+                    // Menangani error jika ada
+                    alert("Terjadi kesalahan: " + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan, coba lagi nanti.');
             });
         } else {
             form.reportValidity();
         }
+    });
+
+    document.getElementById('paketMCU').addEventListener('change', function() {
+        // Ambil harga dari option yang dipilih
+        var harga = this.options[this.selectedIndex].getAttribute('data-harga');
+        
+        // Update field harga dengan nilai yang didapat
+        document.getElementById('harga').value = 'Rp ' + new Intl.NumberFormat().format(harga);
     });
 </script>
 
