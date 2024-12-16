@@ -17,63 +17,65 @@
 
     <section class="services-excellent section-md pb-5">
         <div class="container">
-            @if($pendaftaranMCU)
-                <div class="card-centered mx-auto d-flex flex-row p-3 my-3 col-md-10" style="background-color: #EFEFEF; border-radius: 20px; border: 2px solid #004aad;">
-                    <div class="card col-md-5 m-2" style="background-color: white; border: 2px solid #004aad; border-radius: 8px;">
-                        <div class="container">
-                            <div class="mt-4 mb-4 text-center">
-                                <div style="background-color: #ffcc00; font-weight: bold; padding: 10px; border-radius: 20px; font-size: 20px;">
-                                    Nama
-                                </div>
-                                <p class="mt-2 fw-bold">{{ $pendaftaranMCU->nama_pasien }}</p>
-                            </div>
-                            <div class="mb-4 text-center">
-                                <div style="background-color: #ffcc00; font-weight: bold; padding: 10px; border-radius: 20px; font-size: 20px;">
-                                    Tanggal Periksa
-                                </div>
-                                <p class="mt-2 fw-bold">{{ \Carbon\Carbon::parse($pendaftaranMCU->tanggal_periksa)->format('d F Y') }}</p>
-                            </div>
-                            <div class="text-center">
-                                <div style="background-color: #ffcc00; font-weight: bold; padding: 10px; border-radius: 20px; font-size: 20px;">
-                                    Harga
-                                </div>
-                                <p class="mt-2 fw-bold">Rp. {{ number_format($pendaftaranMCU->paketMCU->harga, 0, ',', '.') }}</p>
-                            </div>
+            @if($pendaftaranMCU->isNotEmpty())
+    @foreach($pendaftaranMCU as $mcu)
+        <div class="card-centered mx-auto d-flex flex-row p-3 my-3 col-md-10" style="background-color: #EFEFEF; border-radius: 20px; border: 2px solid #004aad;">
+            <div class="card col-md-5 m-2" style="background-color: white; border: 2px solid #004aad; border-radius: 8px;">
+                <div class="container">
+                    <div class="mt-4 mb-4 text-center">
+                        <div style="background-color: #ffcc00; font-weight: bold; padding: 10px; border-radius: 20px; font-size: 20px;">
+                            Nama
                         </div>
+                        <p class="mt-2 fw-bold">{{ $mcu->nama_pasien }}</p>
                     </div>
-                    <div class="card-body d-flex flex-column m-2 col-md-8">
-                        <div class="mb-4 text-center">
-                            <div style="background-color: #ffcc00; font-weight: bold; padding: 10px; border-radius: 8px; font-size: 20px;">
-                                {{ $pendaftaranMCU->paketMCU->nama_paket }}
-                            </div>
+                    <div class="mb-4 text-center">
+                        <div style="background-color: #ffcc00; font-weight: bold; padding: 10px; border-radius: 20px; font-size: 20px;">
+                            Tanggal Periksa
                         </div>
-                        <div class="mb-3 p-3" style="background-color: white; border: 2px solid #004aad; border-radius: 8px; height: 125px;">
-    <strong style="font-style: italic;">List Layanan</strong>
-    <ul>
-        @foreach($pendaftaranMCU->paketMCU->layanan as $layanan)
-            <li>{{ $layanan->nama_layanan }}</li> <!-- Menampilkan nama layanan -->
-        @endforeach
-    </ul>
-</div>
-                        <div class="p-3" style="background-color: white; border: 2px solid #004aad; border-radius: 8px; height: 125px;">
-                            <strong style="font-style: italic;">Riwayat Penyakit</strong>
-                            <ul>
-                                @if($pendaftaranMCU->riwayat_penyakit)
-                                    @foreach(explode(',', $pendaftaranMCU->riwayat_penyakit) as $penyakit)
-                                        <li>{{ trim($penyakit) }}</li>
-                                    @endforeach
-                                @else
-                                    <li>Tidak ada riwayat penyakit</li>
-                                @endif
-                            </ul>
+                        <p class="mt-2 fw-bold">{{ \Carbon\Carbon::parse($mcu->tanggal_periksa)->format('d F Y') }}</p>
+                    </div>
+                    <div class="text-center">
+                        <div style="background-color: #ffcc00; font-weight: bold; padding: 10px; border-radius: 20px; font-size: 20px;">
+                            Harga
                         </div>
+                        <p class="mt-2 fw-bold">Rp. {{ number_format($mcu->paketMCU->harga, 0, ',', '.') }}</p>
                     </div>
                 </div>
-            @else
-                <div class="alert alert-info text-center" role="alert">
-                    Anda belum melakukan pendaftaran Medical Check Up.
+            </div>
+            <div class="card-body d-flex flex-column m-2 col-md-8">
+                <div class="mb-4 text-center">
+                    <div style="background-color: #ffcc00; font-weight: bold; padding: 10px; border-radius: 8px; font-size: 20px;">
+                        {{ $mcu->paketMCU->nama_paket }}
+                    </div>
                 </div>
-            @endif
+                <div class="mb-3 p-3" style="background-color: white; border: 2px solid #004aad; border-radius: 8px; height: 125px;">
+                    <strong style="font-style: italic;">List Layanan</strong>
+                    <ul>
+                        @foreach($mcu->paketMCU->layanan as $layanan)
+                            <li>{{ $layanan->nama_layanan }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="p-3" style="background-color: white; border: 2px solid #004aad; border-radius: 8px; height: 125px;">
+                    <strong style="font-style: italic;">Riwayat Penyakit</strong>
+                    <ul>
+                        @if($mcu->riwayat_penyakit)
+                            @foreach(explode(',', $mcu->riwayat_penyakit) as $penyakit)
+                                <li>{{ trim($penyakit) }}</li>
+                            @endforeach
+                        @else
+                            <li>Tidak ada riwayat penyakit</li>
+                        @endif
+                    </ul>
+                </div>
+            </div>
+        </div>
+    @endforeach
+@else
+    <div class="alert alert-info text-center" role="alert">
+        Anda belum melakukan pendaftaran Medical Check Up.
+    </div>
+@endif
         </div>
     </section>
 </main>

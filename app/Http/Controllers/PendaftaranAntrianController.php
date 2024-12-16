@@ -64,4 +64,30 @@ class PendaftaranAntrianController extends Controller
 
         return response()->json($pendaftaranAntrian, 200);
     }
+
+    public function infoAntrian()
+{
+    // Pastikan user sudah login
+    if (!session('user')) {
+        return redirect('/login');
+    }
+
+    // Ambil semua antrian yang terdaftar
+    $antrian = PendaftaranAntrian::with('dokter')->get();
+
+    // Mengelompokkan antrian berdasarkan dokter
+    $dokterAntrian = [];
+    foreach ($antrian as $item) {
+        $dokterId = $item->id_dokter;
+        if (!isset($dokterAntrian[$dokterId])) {
+            $dokterAntrian[$dokterId] = [
+                'dokter' => $item->dokter,
+                'antrian' => collect(), // Menggunakan collect() untuk membuat koleksi
+            ];
+        }
+        $dokterAntrian[$dokterId]['antrian']->push($item); // Menambahkan item ke koleksi
+    }
+
+    return view('infojanji', compact('dokterAntrian'));
+}
 }

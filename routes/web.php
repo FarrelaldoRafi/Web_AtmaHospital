@@ -231,9 +231,7 @@ Route::get('/get-dokter-by-spesialis', function(Request $request) {
 Route::post('/antrian/store', [PendaftaranAntrianController::class, 'store'])->name('antrian.store');
 Route::post('/mcu/store', [PendaftaranMedicalCheckupController::class, 'store'])->name('mcu.store');
 
-Route::get('/infojanji', function () {
-    return view('infojanji');
-});
+Route::get('/infojanji', [PendaftaranAntrianController::class, 'infoAntrian'])->name('infoantrian');
 
 Route::get('/berita', function () {
     return view('berita');
