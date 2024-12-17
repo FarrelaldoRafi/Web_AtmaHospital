@@ -131,6 +131,9 @@ Route::middleware([CheckAuthenticated::class])->group(function () {
 Route::delete('/admin/pendaftaran/{id}', [PendaftaranMedicalCheckupController::class, 'destroy'])
     ->name('admin.pendaftaran.destroy');
 
+Route::delete('/admin/antrian/{id}', [PendaftaranAntrianController::class, 'destroy'])
+    ->name('admin.antrian.destroy');
+
     Route::get('/admin/medicalcheckup', [PaketMedicalCheckupController::class, 'index'])->name('admin.medicalcheckup.index');
     Route::post('/admin/medicalcheckup/store', [PaketMedicalCheckupController::class, 'store'])->name('admin.medicalcheckup.store');
     Route::get('/admin/layanan/edit/{id_paketMCU}', [PaketMedicalCheckupController::class, 'edit'])->name('admin.medicalcheckup.edit');
