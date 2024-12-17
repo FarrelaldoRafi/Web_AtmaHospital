@@ -136,7 +136,6 @@
         const form = event.target;
 
         if (form.checkValidity()) {
-            // Kirim data formulir menggunakan fetch
             fetch('{{ route('antrian.store') }}', {
                 method: 'POST',
                 body: new FormData(form),
@@ -151,13 +150,10 @@
                     // Tampilkan modal sukses
                     var myModal = new bootstrap.Modal(document.getElementById('successjanji'));
                     myModal.show();
-                    
-                    // Redirect ke halaman info janji setelah modal ditutup
                     $('#successjanji').on('hidden.bs.modal', function () {
                         window.location.href = '/infojanji';
                     });
                 } else {
-                    // Menangani error jika ada
                     alert("Terjadi kesalahan: " + data.message);
                 }
             })
@@ -174,7 +170,6 @@
         const spesialis = this.value;
         const dokterSelect = document.getElementById('dokter');
         
-        // Reset dokter dropdown
         dokterSelect.innerHTML = '<option value="" selected hidden>Pilih Dokter</option>';
         
         if (spesialis) {

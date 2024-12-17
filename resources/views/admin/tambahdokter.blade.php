@@ -92,7 +92,6 @@
         </div>
     </div>
 
-    <!-- Delete Confirmation Modal -->
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -221,10 +220,8 @@
 
 <script>
     function editDokter(element) {
-        // Get the parent row
         const row = element.closest('tr');
         
-        // Retrieve data from data attributes
         const id = row.getAttribute('data-dokter-id');
         const nama = row.getAttribute('data-nama');
         const spesialis = row.getAttribute('data-spesialis');
@@ -234,7 +231,6 @@
         const deskripsi = row.getAttribute('data-deskripsi');
         const foto = row.getAttribute('data-foto');
 
-        // Populate form fields
         document.getElementById('dokter_id').value = id;
         document.getElementById('name').value = nama;
         document.getElementById('specialization').value = spesialis;
@@ -243,12 +239,10 @@
         document.getElementById('endTime').value = jamSelesai;
         document.getElementById('desc').value = deskripsi;
         
-        // Update form for edit
         document.getElementById('formMethod').value = 'PUT';
         document.getElementById('dokterForm').action = `/admin/dokter/update/${id}`;
         document.getElementById('formTitle').innerHTML = 'Edit Dokter';
 
-        // Display current photo information if exists
         if (foto) {
             document.getElementById('currentPhotoInfo').innerHTML = 'Foto saat ini: ' + foto;
             document.getElementById('imagePreview').innerHTML = 
@@ -260,7 +254,6 @@
     }
 
     function resetForm() {
-        // Reset form ke default
         document.getElementById('dokter_id').value = '';
         document.getElementById('name').value = '';
         document.getElementById('specialization').value = '';
@@ -272,7 +265,6 @@
         document.getElementById('currentPhotoInfo').innerHTML = '';
         document.getElementById('imagePreview').innerHTML = '';
         
-        // Reset form method and action
         document.getElementById('formMethod').value = 'POST';
         document.getElementById('dokterForm').action = '{{ route('admin.dokter.store') }}';
         document.getElementById('formTitle').innerHTML = 'Tambah Dokter';
@@ -286,15 +278,12 @@
         const deleteForm = document.getElementById('deleteForm');
         deleteForm.action = `/admin/dokter/${id}`;
         
-        // Update modal text with dokter name
         document.getElementById('deleteDokterName').textContent = nama;
         
-        // Use Bootstrap's modal method to show the confirmation modal
         var deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
         deleteModal.show();
     }
 
-    // Image preview functionality
     document.getElementById('photo').addEventListener('change', function(event) {
         const file = event.target.files[0];
         const imagePreview = document.getElementById('imagePreview');

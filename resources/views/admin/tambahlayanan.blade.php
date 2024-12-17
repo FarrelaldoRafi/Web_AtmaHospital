@@ -78,7 +78,6 @@
         </div>
     </div>
 
-    <!-- Delete Confirmation Modal -->
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -147,28 +146,23 @@
 
 <script>
     function editLayanan(element) {
-        // Get the parent row
         const row = element.closest('tr');
         
-        // Retrieve data from data attributes
         const id = row.getAttribute('data-layanan-id');
         const namaLayanan = row.getAttribute('data-nama-layanan');
         const jenisLayanan = row.getAttribute('data-jenis-layanan');
         const deskripsi = row.getAttribute('data-deskripsi');
         const foto = row.getAttribute('data-foto');
 
-        // Populate form fields
         document.getElementById('layanan_id').value = id;
         document.getElementById('nama_layanan').value = namaLayanan;
         document.getElementById('jenis_layanan').value = jenisLayanan;
         document.getElementById('deskripsi').value = deskripsi;
 
-        // Update form for edit
         document.getElementById('formMethod').value = 'PUT';
         document.getElementById('layananForm').action = `/admin/layanan/update/${id}`;
         document.getElementById('formTitle').innerHTML = 'Edit Layanan';
 
-        // Display current photo information if exists
         if (foto) {
             document.getElementById('currentPhotoInfo').innerHTML = 'Foto saat ini: ' + foto;
             document.getElementById('imagePreview').innerHTML = 
@@ -180,7 +174,6 @@
     }
 
     function resetForm() {
-        // Reset form to default
         document.getElementById('layanan_id').value = '';
         document.getElementById('nama_layanan').value = '';
         document.getElementById('jenis_layanan').value = '';
@@ -189,7 +182,6 @@
         document.getElementById('currentPhotoInfo').innerHTML = '';
         document.getElementById('imagePreview').innerHTML = '';
         
-        // Reset form method and action
         document.getElementById('formMethod').value = 'POST';
         document.getElementById('layananForm').action = '{{ route('admin.layanan.store') }}';
         document.getElementById('formTitle').innerHTML = 'Tambah Layanan';
@@ -203,15 +195,12 @@
         const deleteForm = document.getElementById('deleteForm');
         deleteForm.action = `/admin/layanan/${id}`;
         
-        // Update modal text with layanan name
         document.getElementById('deleteLayananName').textContent = namaLayanan;
         
-        // Use Bootstrap's modal method to show the confirmation modal
         var deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
         deleteModal.show();
     }
 
-    // Image preview functionality
     document.getElementById('foto').addEventListener('change', function(event) {
         const file = event.target.files[0];
         const imagePreview = document.getElementById('imagePreview');

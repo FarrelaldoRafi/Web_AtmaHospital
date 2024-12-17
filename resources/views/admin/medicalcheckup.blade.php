@@ -261,14 +261,12 @@
         document.getElementById('deskripsi').value = deskripsi;
         document.getElementById('harga').value = harga;
 
-        // Populate selected layanan in the textarea
         const listLayananTextarea = document.getElementById('list-layanan');
         listLayananTextarea.value = layanan.map(layananId => {
             const option = Array.from(document.getElementById('layanan').options).find(opt => opt.value == layananId);
             return option ? option.text : '';
         }).join('\n');
 
-        // Update form for edit
         document.getElementById('formMethod').value = 'PUT';
         document.getElementById('paketMCUForm').action = `/admin/medicalcheckup/update/${id}`;
         document.getElementById('formTitle').innerHTML = 'Edit Paket Medical Check Up';
@@ -280,8 +278,8 @@
         document.getElementById('deskripsi').value = '';
         document.getElementById('harga').value = '';
         document.getElementById('list-layanan').value = '';
-        selectedLayananIds = []; // Reset selected layanan IDs
-        selectedLayananNames = []; // Reset selected layanan names
+        selectedLayananIds = [];
+        selectedLayananNames = [];
 
         document.getElementById('formMethod').value = 'POST';
         document.getElementById('paketMCUForm').action = '{{ route('admin.medicalcheckup.store') }}';

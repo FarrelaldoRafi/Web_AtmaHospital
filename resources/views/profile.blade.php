@@ -20,7 +20,6 @@
                         disabled>
                 </div>
 
-                <!-- Edit Button -->
                 <div class="mt-1">
                     <button type="button" id="edit-profile" class="btn btn-link edit-icon"
                         style="display: block; margin: 0 auto; text-decoration: underline;">
@@ -34,21 +33,16 @@
                 <form id="profile-form" action="{{ url('/profile/update') }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
-                    <!-- Full Name -->
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Nama Lengkap</label>
                         <input type="text" class="form-control" id="fullName" name="fullName"
                             placeholder="Masukkan nama lengkap" value="{{ session('user.name') ?? '' }}" disabled>
                     </div>
-
-                    <!-- Username -->
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control" id="username" name="username"
                             placeholder="Masukkan username" value="{{ session('user.username') ?? '' }}" disabled>
                     </div>
-
-                    <!-- Email -->
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email"
@@ -56,29 +50,22 @@
                     </div>
 
                     <div class="row">
-                        <!-- Phone -->
                         <div class="col-lg-6 mb-3">
                             <label for="phone" class="form-label">Nomor Telepon</label>
                             <input type="tel" class="form-control" id="phone" name="phone"
                                 placeholder="Masukkan nomor telepon" value="{{ session('user.phone') ?? $pengguna->no_telp ?? '' }}" disabled>
                         </div>
-
-                        <!-- Date of Birth -->
                         <div class="col-lg-6 mb-3">
                             <label for="dob" class="form-label">Tanggal Lahir</label>
                             <input type="date" class="form-control" id="dob" name="dob"
                                 value="{{ session('user.dob') ?? $pengguna->tanggal_lahir ?? '' }}" disabled>
                         </div>
                     </div>
-
-                    <!-- Address -->
                     <div class="mb-3">
                         <label for="address" class="form-label">Alamat</label>
                         <textarea class="form-control" id="address" name="address" rows="3"
                             placeholder="Masukkan alamat" disabled>{{ session('user.address') ?? $pengguna->alamat ?? '' }}</textarea>
                     </div>
-
-                    <!-- Save and Cancel Buttons -->
                     <div class="d-flex justify-content-end">
                         <button type="button" id="cancel-btn" class="btn btn-secondary me-2"
                             style="display: none;">Batal</button>

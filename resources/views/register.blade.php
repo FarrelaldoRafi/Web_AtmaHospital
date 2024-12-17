@@ -15,7 +15,6 @@
         background-position: center;
         background-repeat: no-repeat;">
     
-    <!-- Toast Container -->
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050;" id="toast-container">
         @if($errors->any())
             <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
@@ -105,11 +104,8 @@
     
     <script>
     $(document).ready(function() {
-        // Tangani submit form menggunakan AJAX
         $('#register-form').on('submit', function(e) {
             e.preventDefault();
-            
-            // Hapus toast sebelumnya
             $('#toast-container .toast').remove();
             
             var form = $(this);
@@ -123,7 +119,6 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
-                    // Buat toast sukses
                     var successToast = `
                         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
                             <div class="toast-header bg-success text-white">
@@ -137,21 +132,16 @@
                     `;
                     
                     $('#toast-container').append(successToast);
-                    
-                    // Inisialisasi dan tampilkan toast
                     var toastElList = [].slice.call(document.querySelectorAll('.toast'));
                     var toastList = toastElList.map(function(toastEl) {
                         return new bootstrap.Toast(toastEl);
                     });
                     toastList.forEach(toast => toast.show());
-
-                    // Redirect setelah toast muncul
                     setTimeout(function() {
                         window.location.href = '/login';
-                    }, 2000); // Tunggu 2 detik sebelum redirect
+                    }, 2000);
                 },
                 error: function(xhr) {
-                    // Tampilkan error validation
                     if (xhr.status === 422) {
                         var errors = xhr.responseJSON.errors;
                         var errorHtml = '';
@@ -161,8 +151,6 @@
                                 errorHtml += message + '<br>';
                             });
                         });
-
-                        // Buat toast error
                         var toastHtml = `
                             <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
                                 <div class="toast-header bg-danger text-white">

@@ -65,32 +65,25 @@
         </div>
     </div>
 
-    <!-- Include jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     
     <script>
 $(document).ready(function() {
-    // Hapus atribut required untuk validasi custom
     $('#login-form input').removeAttr('required');
 
     $('#login-form').on('submit', function(e) {
         e.preventDefault();
-        
-        // Hapus toast sebelumnya
         $('#toast-container .toast').remove();
         
         var form = $(this);
         var url = form.attr('action');
         var formData = form.serialize();
 
-        // Validasi client-side
         var username = $('#username').val().trim();
         var password = $('#password').val().trim();
 
-        // Cek input kosong
         if (username === '' || password === '') {
             var errorToast = `
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
@@ -114,7 +107,6 @@ $(document).ready(function() {
             data: formData,
             success: function(response) {
                 if (response.success) {
-                    // Toast sukses
                     var successToast = `
                         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
                             <div class="toast-header bg-success text-white">
@@ -137,7 +129,6 @@ $(document).ready(function() {
                 }
             },
             error: function(xhr) {
-                // Tangani error
                 var errorMessage = 'Terjadi kesalahan';
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMessage = xhr.responseJSON.message;
@@ -160,7 +151,6 @@ $(document).ready(function() {
         });
     });
 
-    // Fungsi untuk menampilkan toast
     function showToast() {
         var toastElList = [].slice.call(document.querySelectorAll('.toast'));
         var toastList = toastElList.map(function(toastEl) {
