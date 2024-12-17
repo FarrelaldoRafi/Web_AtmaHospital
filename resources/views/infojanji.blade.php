@@ -77,7 +77,7 @@
                         <div class="row card-centered mx-auto p-2 my-5 col-md-10 d-flex justify-content-center">
                             <div class="col-md-3 col-sm-11 mb-3">
                                 <div class="card border border-black mt-3">
-                                    <img src="{{ $dokterInfo['dokter']->foto_dokter ?? 'default-image-url' }}" 
+                                    <img src="{{ asset('storage/' . $dokterInfo['dokter']->foto) }}" 
                                         alt="{{ $dokterInfo['dokter']->nama_dokter }}" 
                                         class="card-img-top" 
                                         style="object-fit:cover; height: 185px;">
@@ -120,10 +120,10 @@
                                             </div>
 
                                             <div class="col-md-6 d-flex flex-column mt-4">
-                                                <h5 class="fw-bold text-center">Antrian Sekarang</h5>
+                                                <h5 class="fw-bold text-center">Antrian Selanjutnya</h5>
                                                 <div class="container bg-secondary col-md-10 m-0 align-self-center rounded" style="min-height: 40px;">
                                                     <p class="text-center text-white pt-2">
-                                                        {{ $dokterInfo['antrian_selanjutnya'] ?? 'Tidak ada antrian selanjutnya' }}
+                                                        {{ $dokterInfo['antrian_selanjutnya'] ?? 'Tidak ada antrian' }}
                                                     </p>
                                                 </div>
                                             </div>
