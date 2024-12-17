@@ -17,10 +17,8 @@
 
     <section class="services-excellent section-md pb-5">
         <div class="container">
-
-            @if(count($dokterAntrian) > 0)
-                @foreach($dokterAntrian as $dokterInfo)
-                    <div class="container align-items-center justify-content-center fst-italic text-center">
+            @if(count($dokterAntrian) > 0 )
+            <div class="container align-items-center justify-content-center fst-italic text-center">
                         <p>Cari Dokter yang ingin dilihat jadwal antriannya</p>
                     </div>
                     <div class="container bg-body-secondary shadow p-4" style="max-width: 800px; border-radius: 30px; z-index: 2;">
@@ -28,14 +26,20 @@
                             <div class="mb-2 rounded">
                                 <input class="form-control" type="search" name="search" placeholder="Cari nama dokter atau spesialis" aria-label="Search" value="{{ request('search') }}">
                             </div>
-
+                            
                             <div class="row">
                                 <div class="col-9 col-md-8 pe-1">
                                     <select class="form-select" name="spesialis">
-                                    <option hidden selected>List Spesialis</option>
+                                    @if(request('spesialis') == null)
+                                        <option hidden selected value="">List Spesialis</option>
+                                    @else
+                                        <option hidden value="">List Spesialis</option>
+                                    @endif
                                         @foreach($spesialisList as $spesialis)
                                             <option value="{{ $spesialis }}">{{ $spesialis }}</option>
-                                        @endforeach
+                                            if($spesialis == request('spesialis'))
+                                        @endforeach                                    
+
                                     </select>
                                 </div>
                                 <div class="col-3 col-md-4 ps-1">
@@ -44,6 +48,7 @@
                             </div>
                         </form>            
                     </div>
+                    @foreach($dokterAntrian as $dokterInfo)
                     <div class="card-centered mx-auto d-flex flex-row p-2 my-5 col-md-10 col-sm-11" style="background-color: #EFEFEF; border-radius: 20px;">
                         <div class="row card-centered mx-auto p-2 my-5 col-md-10 d-flex justify-content-center">
                             <div class="col-md-3 col-sm-11 mb-3">
