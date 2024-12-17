@@ -192,4 +192,35 @@ class DokterController extends Controller
 
         return response()->json($dokter, 200);
     }
+
+    public function searchDokter(Request $request)
+    {
+        $dokter = Dokter::all();
+
+        $unikSpesialis = Dokter::select('spesialis')->distinct()->pluck('spesialis');
+        
+        $doctorName = $request->input('nama_dokter');
+        $spesialis = $request->input('spesialis');
+
+        $dokterQuery = Dokter::query();
+
+        // Filter berdasarkan nama dokter
+        if ($doctorName) {
+            $dokterQuery->where('nama_dokter
+            ', 'like', '%' . $doctorName . '%');
+        }
+
+        // Filter berdasarkan spesialis
+        if ($spesialis) {
+            $dokterQuery->where('spesialis', $spesialis);
+        }
+
+        // Ambil data dokter yang sesuai
+        $dokterSort = $dokterQuery->get();
+
+        // Ambil spesialis unik untuk dropdown
+        $spesialisSort = Dokter::distinct()->pluck('spesialis');
+
+        return view('jadwal', compact('dokterSort', 'spesialisSort', 'dokter', 'unikSpesialis', 'doctorName'));
+    }
 }

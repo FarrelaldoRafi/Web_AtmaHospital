@@ -32,19 +32,23 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/jadwal', function () {
-    $dokter = Dokter::all();
+// Route::get('/jadwal', function () {
+//     $dokter = Dokter::all();
 
-    $spesialis = Dokter::select('spesialis')->distinct()->pluck('spesialis');
+//     $spesialis = Dokter::select('spesialis')->distinct()->pluck('spesialis');
     
-    // Kirim data ke view
-    return view('jadwal',[
-        'dokter' => $dokter,
+//     // Kirim data ke view
+//     return view('jadwal',[
+//         'dokter' => $dokter,
 
-        //spesialis dokter
-        'unikSpesialis' => $spesialis
-    ]);
-});
+//         //spesialis dokter
+//         'unikSpesialis' => $spesialis
+//     ]);
+// });
+
+Route::get('/jadwal', [DokterController::class, 'searchDokter'])->name('jadwal.dokter');
+
+// Route::get('/search-dokter', [DokterController::class, 'searchDokter'])->name('search.dokter');
 
 Route::get('/layanan', function () {
     // Ambil layanan berdasarkan kategori
@@ -231,9 +235,7 @@ Route::get('/get-dokter-by-spesialis', function(Request $request) {
 Route::post('/antrian/store', [PendaftaranAntrianController::class, 'store'])->name('antrian.store');
 Route::post('/mcu/store', [PendaftaranMedicalCheckupController::class, 'store'])->name('mcu.store');
 
-Route::get('/infojanji', function () {
-    return view('infojanji');
-});
+Route::get('/infojanji', [PendaftaranAntrianController::class, 'infoAntrian'])->name('infoantrian');
 
 Route::get('/berita', function () {
     return view('berita');
@@ -285,9 +287,7 @@ Route::get('/List-Berita/berita6', function () {
 //     return view('janji');
 // });
 
-Route::get('/infomcu', function () {
-    return view('infomcu');
-});
+Route::get('/infomcu', [PendaftaranMedicalCheckupController::class, 'infoMCU'])->name('infomcu');
 
 Route::get('/medicalcheckup', function () {
     $paketMCU = PaketMedicalCheckup::all();

@@ -149,6 +149,10 @@
                     // Tampilkan modal sukses
                     var myModal = new bootstrap.Modal(document.getElementById('successjanji'));
                     myModal.show();
+
+                    $('#successjanji').on('hidden.bs.modal', function () {
+                        window.location.href = '/infomcu';  // Ganti dengan URL tujuan yang sesuai
+                    });
                 } else {
                     // Menangani error jika ada
                     alert("Terjadi kesalahan: " + data.message);

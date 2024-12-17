@@ -136,6 +136,13 @@
                             <a href="#" class="text-danger" onclick="showDeleteConfirmation(this)">
                                 <i class="fa-solid fa-trash"></i>
                             </a>
+                            <form action="{{ route('admin.layanan.destroy', $item->id_layanan) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus layanan ini?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-link text-danger p-0">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
                         </span>
                     </td>
                 </tr>

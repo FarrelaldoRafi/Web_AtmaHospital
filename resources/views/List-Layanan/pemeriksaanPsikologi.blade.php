@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemeriksaan Psikologi</title>
+    <title>{{ $layanan->nama_layanan }}</title>
 </head>
 
 <main>
@@ -11,8 +11,8 @@
         style="height: 60vh; position: relative; background-image: url('/img/backsc.png'); background-size: cover; background-position: center;">
         <div class="container d-flex align-items-center mt-5">
             <div class="text-container mt-4" style="max-width: 650px;">
-                <h1 class="fw-bold">TENTANG POLIKLINIK</h1>
-                <h3>PEMERIKSAAN PSIKOLOGI</h3>
+                <h1 class="fw-bold">{{ strtoupper($layanan->jenis_layanan) }}</h1>
+                <h3>{{ $layanan->nama_layanan }}</h3>
             </div>
         </div>
     </div>
@@ -20,18 +20,23 @@
     <section class="services-excellent section-md pb-5">
         <div class="container">
             <div class="row">
-            <div class="col-md-6"> 
-                    <p>Poliklinik Psikologi di Atma Hospital menawarkan berbagai layanan pemeriksaan psikologis yang bertujuan untuk mengevaluasi kesehatan mental dan emosi pasien.</p>
-                    <p>Layanan ini mencakup tes kepribadian, tes intelegensi, dan evaluasi psikologis mendalam untuk mendeteksi gangguan kecemasan, depresi, gangguan stres pasca trauma, serta masalah mental lainnya. Selain itu, pemeriksaan ini juga bermanfaat dalam mendukung diagnosis gangguan perkembangan dan perilaku, seperti autisme dan ADHD.</p>
-                    <p>Didukung oleh psikolog profesional dan metode evaluasi terkini, Poliklinik Psikologi Atma Hospital berkomitmen memberikan hasil yang akurat dan solusi yang tepat untuk membantu meningkatkan kesehatan mental pasien.</p> 
+                <div class="col-md-6">
+                    <p>{!! $layanan->deskripsi !!}</p>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{asset('img/pemeriksaanPsikologi.png') }}" style="width: 100%; height: 80%;">
+                    @php
+                        $fotoPath = $layanan->foto ? 'storage/' . $layanan->foto : 'img/default-service.png';
+                    @endphp
+                    <img src="{{ asset($fotoPath) }}" 
+                         alt="{{ $layanan->nama_layanan }}" 
+                         style="width: 100%; height: 80%; object-fit: cover;"
+                         onerror="this.onerror=null; this.src='{{ asset('img/default-service.png') }}';">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Quick link section tetap sama seperti sebelumnya -->
     <div class="d-flex align-items-center mt-4">
         <div class="container">
             <h2 class="text-muted-small ms-3 hide-on-mobile">GET IN TOUCH</h2>

@@ -71,4 +71,36 @@ class PendaftaranMedicalCheckupController extends Controller
 
         return response()->json($pendaftaranMedicalCheckup, 200);
     }
+
+//     public function infoMCU()
+// {
+//     // Pastikan user sudah login
+//     if (!session('user')) {
+//         return redirect('/login');
+//     }
+
+//     // Ambil data pendaftaran MCU untuk user yang sedang login
+//     $pendaftaranMCU = PendaftaranMedicalCheckup::where('id_pengguna', session('user.id'))
+//         ->with('paketMCU')
+//         ->first();
+
+//     // Kirim ke view
+//     return view('infomcu', compact('pendaftaranMCU'));
+// }
+
+public function infoMCU()
+{
+    // Pastikan user sudah login
+    if (!session('user')) {
+        return redirect('/login');
+    }
+
+    // Ambil semua data pendaftaran MCU untuk user yang sedang login
+    $pendaftaranMCU = PendaftaranMedicalCheckup::where('id_pengguna', session('user.id'))
+        ->with(['paketMCU.layanan']) // Memuat relasi layanan
+        ->get(); // Mengambil semua data
+
+    // Kirim ke view
+    return view('infomcu', compact('pendaftaranMCU'));
+}
 }
