@@ -73,7 +73,7 @@ class PendaftaranAntrianController extends Controller
         }
     
         $userId = session('user.id');
-        $pendaftaranAntrianUser   = PendaftaranAntrian::where('id_pengguna', $userId)->get();
+        $pendaftaranAntrianUser = PendaftaranAntrian::where('id_pengguna', $userId)->get();
     
         if ($pendaftaranAntrianUser ->isEmpty()) {
             session()->flash('alert', 'Anda belum melakukan pendaftaran antrian. Silakan mendaftar untuk mendapatkan antrian.');
@@ -128,6 +128,7 @@ class PendaftaranAntrianController extends Controller
             session()->flash('alert', 'Anda belum melakukan pendaftaran Antrian Janji untuk spesialis yang dipilih.');
         }
     
+        // dd($dokterAntrian);
         return view('infojanji', compact('dokterAntrian', 'spesialisList'));
     }
 }    
