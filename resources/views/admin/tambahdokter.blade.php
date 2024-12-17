@@ -160,6 +160,63 @@
             </tbody>
         </table>
     </div>
+    <div class="row text-center my-4 justify-content-center">
+        <div class="col-md-3">
+            <div class="small-box bg-dark">
+                <div class="inner">
+                    <h3>{{ $totalAntrian }}</h3>
+                    <p>Total Antrian</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive mt-3">
+        <h3>Daftar Antrian</h3>
+        <table class="table table-striped table-bordered">
+            <thead class="bg-dark text-white text-center">
+                <tr>
+                    <th class="align-middle">No</th>
+                    <th class="align-middle">Nama Dokter</th>
+                    <th class="align-middle">Spesialis</th>
+                    <th class="align-middle">Nama Pasien</th>
+                    <th class="align-middle">Jenis Kelamin</th>
+                    <th class="align-middle">Tanggal Lahir</th>
+                    <th class="align-middle">Tangal Antrian</th>
+                    <th class="align-middle">Email</th>
+                    <th class="align-middle">No Telepon Pasien</th>
+                    <th class="align-middle">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($pendaftaranAntrian as $index => $p)
+                <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $p->dokter->nama_dokter }}</td>
+                    <td>{{ $p->dokter->spesialis }}</td>
+                    <td>{{ $p->namaLengkap_pasien }}</td>
+                    <td>{{ $p->jenis_kelamin_pasien }}</td>
+                    <td>{{ $p->tanggal_lahir_pasien }}</td>
+                    <td>{{ $p->tanggal_antrian }}</td>
+                    <td>{{ $p->email_pasien }}</td>
+                    <td>{{ $p->no_telp_pasien }}</td>
+                    <td class="text-center">
+                    <form action="{{ route('admin.antrian.destroy', $p->id_antrian) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus antrian ini?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-link text-danger p-0">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <script>

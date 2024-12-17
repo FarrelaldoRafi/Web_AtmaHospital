@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
+use App\Models\PendaftaranAntrian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage; // Tambahkan baris ini di bagian atas file
 
@@ -45,6 +46,7 @@ class DokterController extends Controller
 
         // Ambil semua dokter
         $dokters = Dokter::all();
+        $pendaftaranAntrian = PendaftaranAntrian::all();
 
         return view('admin.tambahdokter', [
             'totalPengguna' => $totalPengguna,
@@ -53,7 +55,8 @@ class DokterController extends Controller
             'totalPaketMCU' => $totalPaketMCU,
             'totalAntrian' => $totalAntrian,
             'totalDaftarMCU' => $totalDaftarMCU,
-            'dokters' => $dokters
+            'dokters' => $dokters,
+            'pendaftaranAntrian' => $pendaftaranAntrian
         ]);
     }
 
