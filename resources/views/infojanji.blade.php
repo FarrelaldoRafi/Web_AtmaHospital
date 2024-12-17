@@ -3,6 +3,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Info Janji Dokter</title>
+
+    <style>
+    .custom-select {
+        border: none; /* Menghilangkan border */
+        outline: none; /* Menghilangkan outline */
+        box-shadow: none; /* Menghilangkan shadow */
+    }
+
+    .custom-select:focus {
+        box-shadow: none; /* Menghilangkan shadow saat fokus */
+    }
+
+    .custom-select::after {
+        content: '\f107'; /* Unicode untuk icon angle (Font Awesome) */
+        font-family: 'Font Awesome 5 Free'; /* Pastikan Anda menggunakan Font Awesome */
+        font-weight: 900; /* Mengatur berat font untuk icon */
+        position: absolute;
+        right: 10px; /* Posisi icon */
+        top: 50%; /* Vertikal center */
+        transform: translateY(-50%); /* Vertikal center */
+        pointer-events: none; /* Agar icon tidak mengganggu interaksi */
+    }
+    </style>
+
 </head>
 
 <main>
@@ -67,18 +91,20 @@
                             </div>            
 
                             <div class="col-md-9 col-sm-12">
-                                <div class="card bg-body-secondary mx-auto p-5 col-md-12 d-flex flex-row">
-                                    <h5 class="fw-bold col-md-5 mt-2 text-center">Antrian Saya :</h5>
-                                    <div class="container bg-white col-md-6 m-0 rounded">
-                                    @foreach($dokterInfo['antrian_detail'] as $antrian)
-                                        @if($antrian->id_pengguna == session('user.id')) 
-                                            <p class="text-center pt-2">
-                                                {{ $antrian->namaLengkap_pasien ?? 'Nama Pasien Tidak Tersedia' }}
-                                            </p>
-                                        @endif
-                                    @endforeach
-                                    </div>
+                            <div class="card bg-body-secondary mx-auto p-5 col-md-12 d-flex flex-row">
+                                <h5 class="fw-bold col-md-5 mt-2 text-center">Antrian Saya :</h5>
+                                <div class="container bg-white col-md-6 m-0 rounded">
+                                    <select class="form-select mt-1 custom-select">
+                                        @foreach($dokterInfo['antrian_detail'] as $antrian)
+                                            @if($antrian->id_pengguna == session('user.id'))
+                                                <option value="{{ $antrian->id }}">
+                                                    {{ $antrian->namaLengkap_pasien ?? 'Nama Pasien Tidak Tersedia' }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </select>
                                 </div>
+                            </div>
 
                                 <div class=" ganteng card bg-body-secondary mx-auto p-1 col-md-12 mt-4 d-flex flex-row p-2" style="height: 60%;">
                                     <div class="col-md-10 d-flex flex-column">

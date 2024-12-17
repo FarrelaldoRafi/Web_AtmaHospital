@@ -209,8 +209,8 @@ class DokterController extends Controller
 
         // Filter berdasarkan nama dokter
         if ($doctorName) {
-            $dokterQuery->where('nama_dokter
-            ', 'like', '%' . $doctorName . '%');
+            $dokterQuery->where('nama_dokter',
+            'like', '%' . $doctorName . '%');
         }
 
         // Filter berdasarkan spesialis
