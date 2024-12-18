@@ -15,7 +15,6 @@
         background-position: center;
         background-repeat: no-repeat;">
 
-    <!-- Toast Container -->
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050;" id="toast-container">
         @if(session('success'))
             <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
@@ -122,7 +121,6 @@ $(document).ready(function() {
                     $('#toast-container').append(successToast);
                     showToast();
 
-                    // Redirect setelah toast
                     setTimeout(function() {
                         window.location.href = response.redirect;
                     }, 2000);

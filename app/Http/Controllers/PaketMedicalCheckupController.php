@@ -16,7 +16,6 @@ class PaketMedicalCheckupController extends Controller
     $paketMCU = PaketMedicalCheckup::with('layanan')->get();
     $layanan = Layanan::all();
     
-    // Tambahkan ini untuk mengambil data pendaftaran
     $pendaftaranMCU = PendaftaranMedicalCheckup::with('paketMCU')->get();
 
     return view('admin.medicalcheckup', compact('paketMCU', 'layanan', 'pendaftaranMCU'));
@@ -24,7 +23,6 @@ class PaketMedicalCheckupController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi input
         $request->validate([
             'nama_paket' => 'required|string|max:255|unique:paketmedicalcheckup,nama_paket',
             'selected_layanan' => 'required|string', 
@@ -37,20 +35,16 @@ class PaketMedicalCheckupController extends Controller
         ]);
 
         try {
-            // Gunakan transaksi untuk memastikan konsistensi data
             DB::beginTransaction();
 
-            // Buat paket MCU baru
             $paketMCU = PaketMedicalCheckup::create([
                 'nama_paket' => $request->nama_paket,
                 'deskripsi' => $request->deskripsi,
                 'harga' => $request->harga
             ]);
 
-            // Proses layanan yang dipilih
             $layananIds = explode(',', $request->selected_layanan);
             
-            // Simpan relasi layanan dengan paket MCU
             $detailLayanan = [];
             foreach ($layananIds as $layananId) {
                 $detailLayanan[] = [
@@ -59,17 +53,14 @@ class PaketMedicalCheckupController extends Controller
                 ];
             }
 
-            // Masukkan detail layanan
             DetailTambahPaketMCU::insert($detailLayanan);
 
-            // Commit transaksi
             DB::commit();
 
             return redirect()->route('admin.medicalcheckup.index')
                 ->with('success', 'Paket MCU berhasil ditambahkan');
 
         } catch (\Exception $e) {
-            // Rollback transaksi jika terjadi error
             DB::rollBack();
 
             return redirect()->back()
@@ -80,7 +71,6 @@ class PaketMedicalCheckupController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validasi input
         $request->validate([
             'nama_paket' => 'required|string|max:255|unique:paketmedicalcheckup,nama_paket,' . $id . ',id_paketMCU',
             'selected_layanan' => 'required|string', 
@@ -93,26 +83,20 @@ class PaketMedicalCheckupController extends Controller
         ]);
 
         try {
-            // Gunakan transaksi untuk memastikan konsistensi data
             DB::beginTransaction();
 
-            // Temukan paket MCU
             $paketMCU = PaketMedicalCheckup::findOrFail($id);
 
-            // Update data paket MCU
             $paketMCU->update([
                 'nama_paket' => $request->nama_paket,
                 'deskripsi' => $request->deskripsi,
                 'harga' => $request->harga
             ]);
 
-            // Hapus detail layanan lama
             DetailTambahPaketMCU::where('id_paketMCU', $id)->delete();
 
-            // Proses layanan yang dipilih
             $layananIds = explode(',', $request->selected_layanan);
             
-            // Simpan relasi layanan dengan paket MCU
             $detailLayanan = [];
             foreach ($layananIds as $layananId) {
                 $detailLayanan[] = [
@@ -121,17 +105,14 @@ class PaketMedicalCheckupController extends Controller
                 ];
             }
 
-            // Masukkan detail layanan baru
             DetailTambahPaketMCU::insert($detailLayanan);
 
-            // Commit transaksi
             DB::commit();
 
             return redirect()->route('admin.medicalcheckup.index')
                 ->with('success', 'Paket MCU berhasil diupdate');
 
         } catch (\Exception $e) {
-            // Rollback transaksi jika terjadi error
             DB::rollBack();
 
             return redirect()->back()
@@ -143,24 +124,19 @@ class PaketMedicalCheckupController extends Controller
     public function destroy($id)
     {
         try {
-            // Gunakan transaksi untuk memastikan konsistensi data
             DB::beginTransaction();
 
-            // Hapus detail layanan terkait
             DetailTambahPaketMCU::where('id_paketMCU', $id)->delete();
 
-            // Hapus paket MCU
             $paketMCU = PaketMedicalCheckup::findOrFail($id);
             $paketMCU->delete();
 
-            // Commit transaksi
             DB::commit();
 
             return redirect()->route('admin.medicalcheckup.index')
                 ->with('success', 'Paket MCU berhasil dihapus');
 
         } catch (\Exception $e) {
-            // Rollback transaksi jika terjadi error
             DB::rollBack();
 
             return redirect()->back()

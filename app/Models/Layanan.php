@@ -16,7 +16,6 @@ class Layanan extends Model
         'foto'
     ];
 
-    // Relasi dengan Detail Tambah Paket MCU
     public function detailTambahPaketMCUs()
     {
         return $this->hasMany(DetailTambahPaketMCU::class, 'id_layanan');

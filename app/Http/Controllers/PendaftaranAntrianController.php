@@ -128,7 +128,6 @@ class PendaftaranAntrianController extends Controller
             session()->flash('alert', 'Anda belum melakukan pendaftaran Antrian Janji untuk spesialis yang dipilih.');
         }
     
-        // dd($dokterAntrian);
         return view('infojanji', compact('dokterAntrian', 'spesialisList'));
     }
 }    

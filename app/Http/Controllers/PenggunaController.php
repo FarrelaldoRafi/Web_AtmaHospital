@@ -42,7 +42,6 @@ class PenggunaController extends Controller
         'tanggal_lahir.before' => 'Tanggal lahir tidak boleh di masa depan.',
     ]);
 
-    // Default profile picture path
     $defaultProfilePath = 'profile_pictures/default.jpg';
 
     $pengguna = Pengguna::create([
@@ -56,7 +55,6 @@ class PenggunaController extends Controller
         'foto_profil' => $defaultProfilePath,
     ]);
 
-    // Kembalikan response JSON untuk AJAX
     return response()->json([
         'success' => true,
         'message' => 'Berhasil register Pengguna!'
@@ -77,28 +75,21 @@ class PenggunaController extends Controller
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
-        // Lokasi penyimpanan foto
         $profilePicturesPath = storage_path('app/public/profile_pictures');
         
-        // Pastikan direktori ada
         if (!file_exists($profilePicturesPath)) {
             mkdir($profilePicturesPath, 0755, true);
         }
 
-        // Proses upload foto
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
             
-            // Generate nama file unik
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
             
-            // Pindahkan file
             $file->move($profilePicturesPath, $filename);
             
-            // Path baru
             $newProfilePath = 'profile_pictures/' . $filename;
 
-            // Hapus foto lama jika bukan default
             if ($pengguna->foto_profil && 
                 $pengguna->foto_profil !== 'profile_pictures/default.jpg') {
                 $oldFilePath = storage_path('app/public/' . $pengguna->foto_profil);
@@ -107,11 +98,9 @@ class PenggunaController extends Controller
                 }
             }
 
-            // Update path foto profil
             $pengguna->foto_profil = $newProfilePath;
         }
 
-        // Update data lainnya
         $pengguna->nama_lengkap = $request->input('fullName');
         $pengguna->username = $request->input('username');
         $pengguna->email = $request->input('email');
@@ -120,7 +109,6 @@ class PenggunaController extends Controller
         $pengguna->no_telp = $request->input('phone');
         $pengguna->save();
 
-        // Update session
         session([
             'user' => [
                 'id' => $pengguna->id_pengguna,
@@ -152,7 +140,7 @@ class PenggunaController extends Controller
 
         if ($pengguna && Hash::check($request->password, $pengguna->password)) {
             session(['user' => [
-                'id' => $pengguna->id_pengguna, // Sesuaikan dengan primary key
+                'id' => $pengguna->id_pengguna, 
                 'name' => $pengguna->nama_lengkap,
                 'role' => 'user'
             ]]);
@@ -175,7 +163,6 @@ class PenggunaController extends Controller
     public function destroy($id)
     {
         $pengguna = Pengguna::findOrFail($id);
-        // Hapus foto_profil jika ada
         if ($pengguna->foto_profil && Storage::disk('public')->exists($pengguna->foto_profil)) {
             Storage::disk('public')->delete($pengguna->foto_profil);
         }
@@ -195,14 +182,12 @@ class PenggunaController extends Controller
     }
 
     public function logout(Request $request)
-{
-    // Hapus token Sanctum
-    if ($request->user()) {
-        $request->user()->currentAccessToken()->delete();
-    }
+    {
+        if ($request->user()) {
+            $request->user()->currentAccessToken()->delete();
+        }
 
-    // Hapus session
-    session()->forget('user');
-    return redirect('/login');
-}
+        session()->forget('user');
+        return redirect('/login');
+    }
 }

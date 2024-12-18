@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dokter;
 use App\Models\PendaftaranAntrian;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage; // Tambahkan baris ini di bagian atas file
+use Illuminate\Support\Facades\Storage; 
 
 class DokterController extends Controller
 {
@@ -27,7 +27,7 @@ class DokterController extends Controller
             'jam_mulai' => $dokter->jam_mulai,
             'jam_selesai' => $dokter->jam_selesai,
             'deskripsi' => $dokter->deskripsi,
-            'foto' => $dokter->foto ? asset('storage/' . $dokter->foto) : null // Tambahkan asset() untuk URL foto
+            'foto' => $dokter->foto ? asset('storage/' . $dokter->foto) : null 
         ]);
     } catch (\Exception $e) {
         return response()->json(['error' => 'Dokter tidak ditemukan'], 404);
@@ -36,7 +36,6 @@ class DokterController extends Controller
 
     public function showTambahDokter()
     {
-        // Ambil data untuk dashboard
         $totalPengguna = \App\Models\Pengguna::count();
         $totalDokter = Dokter::count();
         $totalLayanan = \App\Models\Layanan::count();
@@ -44,7 +43,6 @@ class DokterController extends Controller
         $totalAntrian = \App\Models\PendaftaranAntrian::count();
         $totalDaftarMCU = \App\Models\PendaftaranMedicalCheckup::count();
 
-        // Ambil semua dokter
         $dokters = Dokter::all();
         $pendaftaranAntrian = PendaftaranAntrian::all();
 
@@ -72,30 +70,23 @@ class DokterController extends Controller
             'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
-        // Lokasi penyimpanan foto
         $dokterPicturesPath = storage_path('app/public/dokter_pictures');
         
-        // Pastikan direktori ada
         if (!file_exists($dokterPicturesPath)) {
             mkdir($dokterPicturesPath, 0755, true);
         }
 
-        // Proses upload foto
         $photoPath = null;
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             
-            // Generate nama file unik
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
             
-            // Pindahkan file
             $file->move($dokterPicturesPath, $filename);
             
-            // Path baru
             $photoPath = 'dokter_pictures/' . $filename;
         }
 
-        // Buat dokter baru
         $dokter = Dokter::create([
             'nama_dokter' => $validatedData['name'],
             'spesialis' => $validatedData['specialization'],
@@ -121,31 +112,23 @@ class DokterController extends Controller
             'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
-        // Temukan dokter yang akan diupdate
         $dokter = Dokter::findOrFail($id);
 
-        // Lokasi penyimpanan foto
         $dokterPicturesPath = storage_path('app/public/dokter_pictures');
         
-        // Pastikan direktori ada
         if (!file_exists($dokterPicturesPath)) {
             mkdir($dokterPicturesPath, 0755, true);
         }
 
-        // Proses upload foto baru
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             
-            // Generate nama file unik
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
             
-            // Pindahkan file
             $file->move($dokterPicturesPath, $filename);
             
-            // Path baru
             $newPhotoPath = 'dokter_pictures/' . $filename;
 
-            // Hapus foto lama jika ada
             if ($dokter->foto) {
                 $oldFilePath = storage_path('app/public/' . $dokter->foto);
                 if (file_exists($oldFilePath)) {
@@ -153,11 +136,9 @@ class DokterController extends Controller
                 }
             }
 
-            // Update path foto
             $dokter->foto = $newPhotoPath;
         }
 
-        // Update data dokter
         $dokter->nama_dokter = $validatedData['name'];
         $dokter->spesialis = $validatedData['specialization'];
         $dokter->no_telp = $validatedData['phone'];
@@ -174,7 +155,6 @@ class DokterController extends Controller
         try {
             $dokter = Dokter::findOrFail($id);
             
-            // Hapus foto dokter jika ada
             if ($dokter->foto && Storage::disk('public')->exists($dokter->foto)) {
                 Storage::disk('public')->delete($dokter->foto);
             }
@@ -207,21 +187,17 @@ class DokterController extends Controller
 
         $dokterQuery = Dokter::query();
 
-        // Filter berdasarkan nama dokter
         if ($doctorName) {
             $dokterQuery->where('nama_dokter',
             'like', '%' . $doctorName . '%');
         }
 
-        // Filter berdasarkan spesialis
         if ($spesialis) {
             $dokterQuery->where('spesialis', $spesialis);
         }
 
-        // Ambil data dokter yang sesuai
         $dokterSort = $dokterQuery->get();
 
-        // Ambil spesialis unik untuk dropdown
         $spesialisSort = Dokter::distinct()->pluck('spesialis');
 
         return view('jadwal', compact('dokterSort', 'spesialisSort', 'dokter', 'unikSpesialis', 'doctorName'));

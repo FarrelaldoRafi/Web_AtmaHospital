@@ -147,7 +147,6 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // Tampilkan modal sukses
                     var myModal = new bootstrap.Modal(document.getElementById('successjanji'));
                     myModal.show();
                     $('#successjanji').on('hidden.bs.modal', function () {

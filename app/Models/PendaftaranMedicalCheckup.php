@@ -21,21 +21,18 @@ class PendaftaranMedicalCheckup extends Model
         'tanggal_periksa'
     ];
 
-    // Relasi dengan Pengguna
     public function pengguna()
     {
         return $this->belongsTo(Pengguna::class, 'id_pengguna');
     }
 
-    // Relasi dengan Paket Medical Checkup
     public function paketMCU()
     {
         return $this->belongsTo(PaketMedicalCheckup::class, 'id_paketMCU');
     }
 
-    // PaketMedicalCheckup.php
-public function layanan()
-{
-    return $this->hasMany(Layanan::class, 'id', 'id_layanan'); // Sesuaikan dengan kolom yang relevan
-}
+    public function layanan()
+    {
+        return $this->hasMany(Layanan::class, 'id', 'id_layanan'); 
+    }
 }

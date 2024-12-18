@@ -15,13 +15,11 @@ class PaketMedicalCheckup extends Model
         'harga'
     ];
 
-    // Relasi dengan Detail Tambah Paket MCU
     public function detailTambahPaketMCUs()
     {
         return $this->hasMany(DetailTambahPaketMCU::class, 'id_paketMCU');
     }
 
-    // Relasi dengan Pendaftaran MCU
     public function pendaftaranMCUs()
     {
         return $this->hasMany(PendaftaranMedicalCheckup::class, 'id_paketMCU');

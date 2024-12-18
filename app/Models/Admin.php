@@ -22,19 +22,16 @@ class Admin extends Authenticatable
         'password'
     ];
 
-    // Relasi dengan Dokter
     public function dokters()
     {
         return $this->hasMany(Dokter::class, 'id_admin');
     }
 
-    // Relasi dengan Layanan
     public function layanans()
     {
         return $this->hasMany(Layanan::class, 'id_admin');
     }
 
-    // Relasi dengan Paket MCU
     public function paketMCUs()
     {
         return $this->hasMany(PaketMedicalCheckup::class, 'id_admin');

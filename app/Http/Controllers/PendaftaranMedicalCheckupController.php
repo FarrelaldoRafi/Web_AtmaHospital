@@ -49,18 +49,18 @@ class PendaftaranMedicalCheckupController extends Controller
     }
 
     public function destroy($id)
-{
-    try {
-        $pendaftaranMedicalCheckup = PendaftaranMedicalCheckup::findOrFail($id);
-        $pendaftaranMedicalCheckup->delete();
+    {
+        try {
+            $pendaftaranMedicalCheckup = PendaftaranMedicalCheckup::findOrFail($id);
+            $pendaftaranMedicalCheckup->delete();
 
-        return redirect()->route('admin.medicalcheckup.index')
-            ->with('success', 'Pendaftaran Medical Check Up berhasil dihapus');
-    } catch (\Exception $e) {
-        return redirect()->back()
-            ->with('error', 'Gagal menghapus Pendaftaran Medical Check Up: ' . $e->getMessage());
+            return redirect()->route('admin.medicalcheckup.index')
+                ->with('success', 'Pendaftaran Medical Check Up berhasil dihapus');
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->with('error', 'Gagal menghapus Pendaftaran Medical Check Up: ' . $e->getMessage());
+        }
     }
-}
 
     public function search(Request $request)
     {
@@ -72,35 +72,16 @@ class PendaftaranMedicalCheckupController extends Controller
         return response()->json($pendaftaranMedicalCheckup, 200);
     }
 
-//     public function infoMCU()
-// {
-//     // Pastikan user sudah login
-//     if (!session('user')) {
-//         return redirect('/login');
-//     }
+    public function infoMCU()
+    {
+        if (!session('user')) {
+            return redirect('/login');
+        }
 
-//     // Ambil data pendaftaran MCU untuk user yang sedang login
-//     $pendaftaranMCU = PendaftaranMedicalCheckup::where('id_pengguna', session('user.id'))
-//         ->with('paketMCU')
-//         ->first();
+        $pendaftaranMCU = PendaftaranMedicalCheckup::where('id_pengguna', session('user.id'))
+            ->with(['paketMCU.layanan']) 
+            ->get(); 
 
-//     // Kirim ke view
-//     return view('infomcu', compact('pendaftaranMCU'));
-// }
-
-public function infoMCU()
-{
-    // Pastikan user sudah login
-    if (!session('user')) {
-        return redirect('/login');
+        return view('infomcu', compact('pendaftaranMCU'));
     }
-
-    // Ambil semua data pendaftaran MCU untuk user yang sedang login
-    $pendaftaranMCU = PendaftaranMedicalCheckup::where('id_pengguna', session('user.id'))
-        ->with(['paketMCU.layanan']) // Memuat relasi layanan
-        ->get(); // Mengambil semua data
-
-    // Kirim ke view
-    return view('infomcu', compact('pendaftaranMCU'));
-}
 }

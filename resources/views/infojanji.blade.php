@@ -6,24 +6,24 @@
 
     <style>
     .custom-select {
-        border: none; /* Menghilangkan border */
-        outline: none; /* Menghilangkan outline */
-        box-shadow: none; /* Menghilangkan shadow */
+        border: none; 
+        outline: none; 
+        box-shadow: none; 
     }
 
     .custom-select:focus {
-        box-shadow: none; /* Menghilangkan shadow saat fokus */
+        box-shadow: none; 
     }
 
     .custom-select::after {
-        content: '\f107'; /* Unicode untuk icon angle (Font Awesome) */
-        font-family: 'Font Awesome 5 Free'; /* Pastikan Anda menggunakan Font Awesome */
-        font-weight: 900; /* Mengatur berat font untuk icon */
+        content: '\f107'; 
+        font-family: 'Font Awesome 5 Free'; 
+        font-weight: 900; 
         position: absolute;
-        right: 10px; /* Posisi icon */
-        top: 50%; /* Vertikal center */
-        transform: translateY(-50%); /* Vertikal center */
-        pointer-events: none; /* Agar icon tidak mengganggu interaksi */
+        right: 10px; 
+        top: 50%; 
+        transform: translateY(-50%); 
+        pointer-events: none; 
     }
     </style>
 

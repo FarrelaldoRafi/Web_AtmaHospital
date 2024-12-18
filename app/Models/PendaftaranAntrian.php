@@ -20,13 +20,11 @@ class PendaftaranAntrian extends Model
         'no_telp_pasien'
     ];
 
-    // Relasi dengan Pengguna
     public function pengguna()
     {
         return $this->belongsTo(Pengguna::class, 'id_pengguna');
     }
 
-    // Relasi dengan Dokter
     public function dokter()
     {
         return $this->belongsTo(Dokter::class, 'id_dokter');

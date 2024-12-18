@@ -19,9 +19,8 @@ class Dokter extends Model
         'foto'
     ];
 
-    // Relasi dengan Pendaftaran Antrian
     public function pendaftaranAntrian()
-{
-    return $this->hasMany(PendaftaranAntrian::class, 'id_dokter');
-}
+    {
+        return $this->hasMany(PendaftaranAntrian::class, 'id_dokter');
+    }
 }

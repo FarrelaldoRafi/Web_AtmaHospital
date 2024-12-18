@@ -14,13 +14,11 @@ class DetailTambahPaketMCU extends Model
         'id_layanan'
     ];
 
-    // Relasi dengan Paket MCU
     public function paketMCU()
     {
         return $this->belongsTo(PaketMedicalCheckup::class, 'id_paketMCU');
     }
 
-    // Relasi dengan Layanan
     public function layanan()
     {
         return $this->belongsTo(Layanan::class, 'id_layanan');

@@ -32,23 +32,7 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::get('/jadwal', function () {
-//     $dokter = Dokter::all();
-
-//     $spesialis = Dokter::select('spesialis')->distinct()->pluck('spesialis');
-    
-//     // Kirim data ke view
-//     return view('jadwal',[
-//         'dokter' => $dokter,
-
-//         //spesialis dokter
-//         'unikSpesialis' => $spesialis
-//     ]);
-// });
-
 Route::get('/jadwal', [DokterController::class, 'searchDokter'])->name('jadwal.dokter');
-
-// Route::get('/search-dokter', [DokterController::class, 'searchDokter'])->name('search.dokter');
 
 Route::get('/layanan', function () {
     // Ambil layanan berdasarkan kategori
@@ -123,7 +107,6 @@ Route::middleware([CheckAuthenticated::class])->group(function () {
     $paketMCU = PaketMedicalCheckup::all();
     $layanan = Layanan::all();
     
-    // Tambahkan ini
     $pendaftaranMCU = PendaftaranMedicalCheckup::with('paketMCU')->get();
 
     return view('admin.medicalcheckup', compact('paketMCU', 'layanan', 'pendaftaranMCU'));
@@ -218,12 +201,10 @@ Route::get('/profile', function () {
 });
 
 Route::get('/janji', function () {
-    // Cek apakah user sudah login
     if (!session('user')) {
         return view('login', ['redirect' => '/janji']);
     }
 
-    // Ambil spesialis unik yang memiliki dokter
     $spesialis = Dokter::select('spesialis')->distinct()->pluck('spesialis');
     
     return view('janji', compact('spesialis'));
@@ -257,7 +238,6 @@ Route::get('/List-Dokter/profiledokter/{id_dokter}', function ($id_dokter) {
     // Ambil data dokter berdasarkan id_dokter
     $dokter = Dokter::findOrFail($id_dokter);
 
-    // Kirim data dokter ke view
     return view('List-Dokter.profiledokter', compact('dokter'));
 });
 
@@ -286,10 +266,6 @@ Route::get('/List-Berita/berita6', function () {
     return view('/List-Berita/berita6');
 });
 
-// Route::get('/janji', function () {
-//     return view('janji');
-// });
-
 Route::get('/infomcu', [PendaftaranMedicalCheckupController::class, 'infoMCU'])->name('infomcu');
 
 Route::get('/medicalcheckup', function () {
@@ -299,15 +275,3 @@ Route::get('/medicalcheckup', function () {
         'paketMCU'=> $paketMCU
     ]);
 });
-
-// Route::get('/List-Layanan/pemeriksaanDarah', function () {
-//     return view('/List-Layanan/pemeriksaanDarah');
-// });
-
-// Route::get('/List-Layanan/pemeriksaanPsikologi', function () {
-//     return view('/List-Layanan/pemeriksaanPsikologi');
-// });
-
-// Route::get('/List-Layanan/ct-scan', function () {
-//     return view('/List-Layanan/ct-scan');
-// });
