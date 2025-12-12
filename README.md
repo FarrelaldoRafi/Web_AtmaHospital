@@ -11,10 +11,10 @@
 
 ### Anggota Kelompok
 
--   **Ragil Riztianda (220711672)** – Register Login Admin & Pengguna, Home, Update Profile, Transaksi Daftar Antrian
--   **Eulogius Kurdeo H (220711689)** – CRUD Layanan, CRUD Paket Medical Check Up, Show Info Antrian
--   **Farrelaldo Rafi Pratama P Z (220711739)** – Transaksi Daftar Paket Medical Check Up, Show Info Daftar Paket Medical Check Up, Berita
--   **Nicolaus Kevin Putra Hardito (220711796)** – CRUD Dokter, Show Daftar & Detail Dokter, Show Layanan & Detail Layanan
+-   **Ragil Riztianda (220711672)** – Register Login Admin & Pengguna, Home, Update Profile, Transaksi Daftar Antrian.
+-   **Eulogius Kurdeo H (220711689)** – CRUD Layanan, CRUD Paket Medical Check Up, Show Info Antrian.
+-   **Farrelaldo Rafi Pratama P Z (220711739)** – Transaksi Daftar Paket Medical Check Up, Show Info Daftar Paket Medical Check Up, Berita.
+-   **Nicolaus Kevin Putra Hardito (220711796)** – CRUD Dokter, Show Daftar & Detail Dokter, Show Layanan & Detail Layanan.
 
 ### Username & Password Login
 
